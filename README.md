@@ -4,21 +4,36 @@
 
 ## 项目结构
 
+
 home-photo-vue/
+
 ├── backend/
+
 │   ├── src/
+
 │   │   ├── routes/
+
 │   │   ├── services/
+
 │   │   └── utils/
+
 │   ├── package.json
+
 │   └── server.js
+
 └── public/
+
     ├── images/
-    │   ├── original/    # 原始图片
-    │   └── processed/   # 处理后的图片
+
+    │   ├── original/    # 原始图片(未处理前的图片都放在这个目录)
+    
+    │   └── processed/   # 处理后的图片(处理后给会图片安序列000001 0000002...重命名。并在主页中随机显示)
+    
     └── videos/
-        ├── original/    # 原始视频
-        └── processed/   # 处理后的视频
+    
+        ├── original/    # 原始视频(未处理前的视频都放在这个目录)
+        
+        └── processed/   # 处理后的视频(处理后给会视频安序列000001 0000002...重命名。并在主页中随机显示)
 
 - `public/index.html`: 应用的主 HTML 文件，作为 Vue 应用的入口点。
 - `src/assets/styles/main.css`: 应用的主要样式文件。

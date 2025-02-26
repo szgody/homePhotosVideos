@@ -23,17 +23,18 @@ home-photo-vue/
 
 └── public/
 
-    ├── images/
+        │   ├── images/ 
 
-    │   ├── original/    # 原始图片(未处理前的图片都放在这个目录)
+        │   ├── original/    # 原始图片(未处理前的图片都放在这个目录)
     
-    │   └── processed/   # 处理后的图片(处理后给会图片安序列000001 0000002...重命名。并在主页中随机显示)
+        │   └── processed/   # 处理后的图片(处理后给会图片安序列000001 0000002...重命名。并在主页中随机显示)
     
     └── videos/
     
         ├── original/    # 原始视频(未处理前的视频都放在这个目录)
         
         └── processed/   # 处理后的视频(处理后给会视频安序列000001 0000002...重命名。并在主页中随机显示)
+
 
 - `public/index.html`: 应用的主 HTML 文件，作为 Vue 应用的入口点。
 - `src/assets/styles/main.css`: 应用的主要样式文件。
@@ -54,7 +55,7 @@ home-photo-vue/
 
 1. 克隆该项目：
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/szgody/homePhotosVideos.git
    ```
 
 2. 进入项目目录：

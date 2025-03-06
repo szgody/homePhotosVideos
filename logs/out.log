@@ -1,0 +1,2117 @@
+2025-03-05 16:20:39: 创建照片目录: /var/www/home-photo-vue/public/photos
+2025-03-05 16:20:39: 创建缩略图目录: /var/www/home-photo-vue/public/thumbnails
+2025-03-05 16:20:39: 服务器运行在 http://localhost:3000
+2025-03-05 16:33:59: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 17:42:48: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 17:47:08: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 17:47:23: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 17:54:52: 创建视频目录: /var/www/home-photo-vue/public/videos
+2025-03-05 17:54:52: 创建视频缩略图目录: /var/www/home-photo-vue/public/video_thumbnails
+2025-03-05 17:54:52: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 18:21:37: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 18:28:11: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 18:39:14: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 19:25:11: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 19:37:05: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 19:37:46: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 19:39:41: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 19:42:29: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 19:48:54: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 19:52:26: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 19:56:53: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 19:56:59: 请求照片 API，目录路径: /var/www/home-photo-vue/public/photos
+2025-03-05 19:56:59: 从 /var/www/home-photo-vue/public/photos 找到 0 张照片
+2025-03-05 19:57:03: 请求照片 API，目录路径: /var/www/home-photo-vue/public/photos
+2025-03-05 19:57:03: 从 /var/www/home-photo-vue/public/photos 找到 0 张照片
+2025-03-05 19:57:07: 请求照片 API，目录路径: /var/www/home-photo-vue/public/photos
+2025-03-05 19:57:07: 从 /var/www/home-photo-vue/public/photos 找到 0 张照片
+2025-03-05 19:57:27: 请求照片 API，目录路径: /var/www/home-photo-vue/public/photos
+2025-03-05 19:57:27: 从 /var/www/home-photo-vue/public/photos 找到 0 张照片
+2025-03-05 19:58:05: 请求照片 API，目录路径: /var/www/home-photo-vue/public/photos
+2025-03-05 19:58:05: 从 /var/www/home-photo-vue/public/photos 找到 0 张照片
+2025-03-05 19:58:41: 请求照片 API，目录路径: /var/www/home-photo-vue/public/photos
+2025-03-05 19:58:41: 从 /var/www/home-photo-vue/public/photos 找到 0 张照片
+2025-03-05 19:58:41: 请求照片 API，目录路径: /var/www/home-photo-vue/public/photos
+2025-03-05 19:58:41: 从 /var/www/home-photo-vue/public/photos 找到 0 张照片
+2025-03-05 19:59:01: 请求照片 API，目录路径: /var/www/home-photo-vue/public/photos
+2025-03-05 19:59:01: 从 /var/www/home-photo-vue/public/photos 找到 0 张照片
+2025-03-05 19:59:06: 请求照片 API，目录路径: /var/www/home-photo-vue/public/photos
+2025-03-05 19:59:06: 从 /var/www/home-photo-vue/public/photos 找到 0 张照片
+2025-03-05 19:59:10: 请求照片 API，目录路径: /var/www/home-photo-vue/public/photos
+2025-03-05 19:59:10: 从 /var/www/home-photo-vue/public/photos 找到 0 张照片
+2025-03-05 20:18:27: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 20:18:27: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 20:18:27: 数据目录存在: true
+2025-03-05 20:18:40: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:18:40: 目录是否存在: true
+2025-03-05 20:18:40: 目录内容: [
+2025-03-05 20:18:40:   '001589.jpg', '001590.jpg',
+2025-03-05 20:18:40:   '001591.jpg', '001592.jpg',
+2025-03-05 20:18:40:   '001593.jpg', '001594.jpg',
+2025-03-05 20:18:40:   '001595.jpg', '001596.jpg',
+2025-03-05 20:18:40:   '001597.jpg', '001598.jpg',
+2025-03-05 20:18:40:   'sn.txt',     'test.jpg',
+2025-03-05 20:18:40:   'test.txt',   'test1.jpg',
+2025-03-05 20:18:40:   'test2.jpg'
+2025-03-05 20:18:40: ]
+2025-03-05 20:18:40: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:18:40: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:18:40: 目录是否存在: true
+2025-03-05 20:18:40: 目录内容: [
+2025-03-05 20:18:40:   '001589.jpg', '001590.jpg',
+2025-03-05 20:18:40:   '001591.jpg', '001592.jpg',
+2025-03-05 20:18:40:   '001593.jpg', '001594.jpg',
+2025-03-05 20:18:40:   '001595.jpg', '001596.jpg',
+2025-03-05 20:18:40:   '001597.jpg', '001598.jpg',
+2025-03-05 20:18:40:   'sn.txt',     'test.jpg',
+2025-03-05 20:18:40:   'test.txt',   'test1.jpg',
+2025-03-05 20:18:40:   'test2.jpg'
+2025-03-05 20:18:40: ]
+2025-03-05 20:18:40: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:18:47: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:18:47: 目录是否存在: true
+2025-03-05 20:18:47: 目录内容: [
+2025-03-05 20:18:47:   '001589.jpg', '001590.jpg',
+2025-03-05 20:18:47:   '001591.jpg', '001592.jpg',
+2025-03-05 20:18:47:   '001593.jpg', '001594.jpg',
+2025-03-05 20:18:47:   '001595.jpg', '001596.jpg',
+2025-03-05 20:18:47:   '001597.jpg', '001598.jpg',
+2025-03-05 20:18:47:   'sn.txt',     'test.jpg',
+2025-03-05 20:18:47:   'test.txt',   'test1.jpg',
+2025-03-05 20:18:47:   'test2.jpg'
+2025-03-05 20:18:47: ]
+2025-03-05 20:18:47: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:18:56: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:18:56: 目录是否存在: true
+2025-03-05 20:18:56: 目录内容: [
+2025-03-05 20:18:56:   '001589.jpg', '001590.jpg',
+2025-03-05 20:18:56:   '001591.jpg', '001592.jpg',
+2025-03-05 20:18:56:   '001593.jpg', '001594.jpg',
+2025-03-05 20:18:56:   '001595.jpg', '001596.jpg',
+2025-03-05 20:18:56:   '001597.jpg', '001598.jpg',
+2025-03-05 20:18:56:   'sn.txt',     'test.jpg',
+2025-03-05 20:18:56:   'test.txt',   'test1.jpg',
+2025-03-05 20:18:56:   'test2.jpg'
+2025-03-05 20:18:56: ]
+2025-03-05 20:18:56: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:19:24: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 20:19:24: 从 /var/www/home-photo-vue/data/videos 找到 0 个视频
+2025-03-05 20:19:24: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:19:24: 目录是否存在: true
+2025-03-05 20:19:24: 目录内容: [
+2025-03-05 20:19:24:   '001589.jpg', '001590.jpg',
+2025-03-05 20:19:24:   '001591.jpg', '001592.jpg',
+2025-03-05 20:19:24:   '001593.jpg', '001594.jpg',
+2025-03-05 20:19:24:   '001595.jpg', '001596.jpg',
+2025-03-05 20:19:24:   '001597.jpg', '001598.jpg',
+2025-03-05 20:19:24:   'sn.txt',     'test.jpg',
+2025-03-05 20:19:24:   'test.txt',   'test1.jpg',
+2025-03-05 20:19:24:   'test2.jpg'
+2025-03-05 20:19:24: ]
+2025-03-05 20:19:24: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:25:18: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 20:25:18: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 20:25:18: 数据目录存在: true
+2025-03-05 20:25:26: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:25:26: 目录是否存在: true
+2025-03-05 20:25:26: 目录内容: [
+2025-03-05 20:25:26:   '001589.jpg', '001590.jpg',
+2025-03-05 20:25:26:   '001591.jpg', '001592.jpg',
+2025-03-05 20:25:26:   '001593.jpg', '001594.jpg',
+2025-03-05 20:25:26:   '001595.jpg', '001596.jpg',
+2025-03-05 20:25:26:   '001597.jpg', '001598.jpg',
+2025-03-05 20:25:26:   'sn.txt',     'test.jpg',
+2025-03-05 20:25:26:   'test.txt',   'test1.jpg',
+2025-03-05 20:25:26:   'test2.jpg'
+2025-03-05 20:25:26: ]
+2025-03-05 20:25:26: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:25:36: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:25:36: 目录是否存在: true
+2025-03-05 20:25:36: 目录内容: [
+2025-03-05 20:25:36:   '001589.jpg', '001590.jpg',
+2025-03-05 20:25:36:   '001591.jpg', '001592.jpg',
+2025-03-05 20:25:36:   '001593.jpg', '001594.jpg',
+2025-03-05 20:25:36:   '001595.jpg', '001596.jpg',
+2025-03-05 20:25:36:   '001597.jpg', '001598.jpg',
+2025-03-05 20:25:36:   'sn.txt',     'test.jpg',
+2025-03-05 20:25:36:   'test.txt',   'test1.jpg',
+2025-03-05 20:25:36:   'test2.jpg'
+2025-03-05 20:25:36: ]
+2025-03-05 20:25:36: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:25:52: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 20:25:52: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 20:25:52: 数据目录存在: true
+2025-03-05 20:25:58: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:25:58: 目录是否存在: true
+2025-03-05 20:25:58: 目录内容: [
+2025-03-05 20:25:58:   '001589.jpg', '001590.jpg',
+2025-03-05 20:25:58:   '001591.jpg', '001592.jpg',
+2025-03-05 20:25:58:   '001593.jpg', '001594.jpg',
+2025-03-05 20:25:58:   '001595.jpg', '001596.jpg',
+2025-03-05 20:25:58:   '001597.jpg', '001598.jpg',
+2025-03-05 20:25:58:   'sn.txt',     'test.jpg',
+2025-03-05 20:25:58:   'test.txt',   'test1.jpg',
+2025-03-05 20:25:58:   'test2.jpg'
+2025-03-05 20:25:58: ]
+2025-03-05 20:25:58: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:26:00: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 20:26:00: 从 /var/www/home-photo-vue/data/videos 找到 0 个视频
+2025-03-05 20:26:00: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:26:00: 目录是否存在: true
+2025-03-05 20:26:00: 目录内容: [
+2025-03-05 20:26:00:   '001589.jpg', '001590.jpg',
+2025-03-05 20:26:00:   '001591.jpg', '001592.jpg',
+2025-03-05 20:26:00:   '001593.jpg', '001594.jpg',
+2025-03-05 20:26:00:   '001595.jpg', '001596.jpg',
+2025-03-05 20:26:00:   '001597.jpg', '001598.jpg',
+2025-03-05 20:26:00:   'sn.txt',     'test.jpg',
+2025-03-05 20:26:00:   'test.txt',   'test1.jpg',
+2025-03-05 20:26:00:   'test2.jpg'
+2025-03-05 20:26:00: ]
+2025-03-05 20:26:00: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:26:00: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:26:00: 目录是否存在: true
+2025-03-05 20:26:00: 目录内容: [
+2025-03-05 20:26:00:   '001589.jpg', '001590.jpg',
+2025-03-05 20:26:00:   '001591.jpg', '001592.jpg',
+2025-03-05 20:26:00:   '001593.jpg', '001594.jpg',
+2025-03-05 20:26:00:   '001595.jpg', '001596.jpg',
+2025-03-05 20:26:00:   '001597.jpg', '001598.jpg',
+2025-03-05 20:26:00:   'sn.txt',     'test.jpg',
+2025-03-05 20:26:00:   'test.txt',   'test1.jpg',
+2025-03-05 20:26:00:   'test2.jpg'
+2025-03-05 20:26:00: ]
+2025-03-05 20:26:00: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:27:08: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:27:08: 目录是否存在: true
+2025-03-05 20:27:08: 目录内容: [
+2025-03-05 20:27:08:   '001589.jpg', '001590.jpg',
+2025-03-05 20:27:08:   '001591.jpg', '001592.jpg',
+2025-03-05 20:27:08:   '001593.jpg', '001594.jpg',
+2025-03-05 20:27:08:   '001595.jpg', '001596.jpg',
+2025-03-05 20:27:08:   '001597.jpg', '001598.jpg',
+2025-03-05 20:27:08:   'sn.txt',     'test.jpg',
+2025-03-05 20:27:08:   'test.txt',   'test1.jpg',
+2025-03-05 20:27:08:   'test2.jpg'
+2025-03-05 20:27:08: ]
+2025-03-05 20:27:08: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:31:34: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 20:31:34: 从 /var/www/home-photo-vue/data/videos 找到 0 个视频
+2025-03-05 20:31:34: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:31:34: 目录是否存在: true
+2025-03-05 20:31:34: 目录内容: [
+2025-03-05 20:31:34:   '001589.jpg', '001590.jpg',
+2025-03-05 20:31:34:   '001591.jpg', '001592.jpg',
+2025-03-05 20:31:34:   '001593.jpg', '001594.jpg',
+2025-03-05 20:31:34:   '001595.jpg', '001596.jpg',
+2025-03-05 20:31:34:   '001597.jpg', '001598.jpg',
+2025-03-05 20:31:34:   'sn.txt',     'test.jpg',
+2025-03-05 20:31:34:   'test.txt',   'test1.jpg',
+2025-03-05 20:31:34:   'test2.jpg'
+2025-03-05 20:31:34: ]
+2025-03-05 20:31:34: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:31:34: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:31:34: 目录是否存在: true
+2025-03-05 20:31:34: 目录内容: [
+2025-03-05 20:31:34:   '001589.jpg', '001590.jpg',
+2025-03-05 20:31:34:   '001591.jpg', '001592.jpg',
+2025-03-05 20:31:34:   '001593.jpg', '001594.jpg',
+2025-03-05 20:31:34:   '001595.jpg', '001596.jpg',
+2025-03-05 20:31:34:   '001597.jpg', '001598.jpg',
+2025-03-05 20:31:34:   'sn.txt',     'test.jpg',
+2025-03-05 20:31:34:   'test.txt',   'test1.jpg',
+2025-03-05 20:31:34:   'test2.jpg'
+2025-03-05 20:31:34: ]
+2025-03-05 20:31:34: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:32:12: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 20:32:12: 从 /var/www/home-photo-vue/data/videos 找到 0 个视频
+2025-03-05 20:32:12: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:32:12: 目录是否存在: true
+2025-03-05 20:32:12: 目录内容: [
+2025-03-05 20:32:12:   '001589.jpg', '001590.jpg',
+2025-03-05 20:32:12:   '001591.jpg', '001592.jpg',
+2025-03-05 20:32:12:   '001593.jpg', '001594.jpg',
+2025-03-05 20:32:12:   '001595.jpg', '001596.jpg',
+2025-03-05 20:32:12:   '001597.jpg', '001598.jpg',
+2025-03-05 20:32:12:   'sn.txt',     'test.jpg',
+2025-03-05 20:32:12:   'test.txt',   'test1.jpg',
+2025-03-05 20:32:12:   'test2.jpg'
+2025-03-05 20:32:12: ]
+2025-03-05 20:32:12: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:32:12: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:32:12: 目录是否存在: true
+2025-03-05 20:32:12: 目录内容: [
+2025-03-05 20:32:12:   '001589.jpg', '001590.jpg',
+2025-03-05 20:32:12:   '001591.jpg', '001592.jpg',
+2025-03-05 20:32:12:   '001593.jpg', '001594.jpg',
+2025-03-05 20:32:12:   '001595.jpg', '001596.jpg',
+2025-03-05 20:32:12:   '001597.jpg', '001598.jpg',
+2025-03-05 20:32:12:   'sn.txt',     'test.jpg',
+2025-03-05 20:32:12:   'test.txt',   'test1.jpg',
+2025-03-05 20:32:12:   'test2.jpg'
+2025-03-05 20:32:12: ]
+2025-03-05 20:32:12: 从 /var/www/home-photo-vue/data/photos 找到 13 张照片
+2025-03-05 20:35:31: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 20:35:31: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 20:35:31: 数据目录存在: true
+2025-03-05 20:35:44: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 20:35:44: 从 /var/www/home-photo-vue/data/videos 找到 0 个视频
+2025-03-05 20:35:44: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:35:44: 目录是否存在: true
+2025-03-05 20:35:44: 目录内容: [
+2025-03-05 20:35:44:   '001589.jpg', '001590.jpg',
+2025-03-05 20:35:44:   '001591.jpg', '001592.jpg',
+2025-03-05 20:35:44:   '001593.jpg', '001594.jpg',
+2025-03-05 20:35:44:   '001595.jpg', '001596.jpg',
+2025-03-05 20:35:44:   '001597.jpg', '001598.jpg',
+2025-03-05 20:35:44:   'sn.txt',     'test.txt'
+2025-03-05 20:35:44: ]
+2025-03-05 20:35:44: 从 /var/www/home-photo-vue/data/photos 找到 10 张照片
+2025-03-05 20:35:44: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:35:44: 目录是否存在: true
+2025-03-05 20:35:44: 目录内容: [
+2025-03-05 20:35:44:   '001589.jpg', '001590.jpg',
+2025-03-05 20:35:44:   '001591.jpg', '001592.jpg',
+2025-03-05 20:35:44:   '001593.jpg', '001594.jpg',
+2025-03-05 20:35:44:   '001595.jpg', '001596.jpg',
+2025-03-05 20:35:44:   '001597.jpg', '001598.jpg',
+2025-03-05 20:35:44:   'sn.txt',     'test.txt'
+2025-03-05 20:35:44: ]
+2025-03-05 20:35:44: 从 /var/www/home-photo-vue/data/photos 找到 10 张照片
+2025-03-05 20:35:55: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:35:55: 目录是否存在: true
+2025-03-05 20:35:55: 目录内容: [
+2025-03-05 20:35:55:   '001589.jpg', '001590.jpg',
+2025-03-05 20:35:55:   '001591.jpg', '001592.jpg',
+2025-03-05 20:35:55:   '001593.jpg', '001594.jpg',
+2025-03-05 20:35:55:   '001595.jpg', '001596.jpg',
+2025-03-05 20:35:55:   '001597.jpg', '001598.jpg',
+2025-03-05 20:35:55:   'sn.txt',     'test.txt'
+2025-03-05 20:35:55: ]
+2025-03-05 20:35:55: 从 /var/www/home-photo-vue/data/photos 找到 10 张照片
+2025-03-05 20:36:34: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:36:34: 目录是否存在: true
+2025-03-05 20:36:34: 目录内容: [
+2025-03-05 20:36:34:   '001589.jpg', '001590.jpg',
+2025-03-05 20:36:34:   '001591.jpg', '001592.jpg',
+2025-03-05 20:36:34:   '001593.jpg', '001594.jpg',
+2025-03-05 20:36:34:   '001595.jpg', '001596.jpg',
+2025-03-05 20:36:34:   '001597.jpg', '001598.jpg',
+2025-03-05 20:36:34:   'sn.txt',     'test.txt'
+2025-03-05 20:36:34: ]
+2025-03-05 20:36:34: 从 /var/www/home-photo-vue/data/photos 找到 10 张照片
+2025-03-05 20:41:20: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 20:41:20: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 20:41:20: 数据目录存在: true
+2025-03-05 20:41:25: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 20:41:25: 目录是否存在: true
+2025-03-05 20:41:25: 视频目录内容: [ 'sn.txt', 'test_video.mp4' ]
+2025-03-05 20:41:25: 文件 sn.txt 是否为视频: false
+2025-03-05 20:41:25: 文件 test_video.mp4 是否为视频: true
+2025-03-05 20:41:25: 从 /var/www/home-photo-vue/data/videos 找到 1 个视频
+2025-03-05 20:41:36: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 20:41:36: 目录是否存在: true
+2025-03-05 20:41:36: 视频目录内容: [ 'sn.txt', 'test_video.mp4' ]
+2025-03-05 20:41:36: 文件 sn.txt 是否为视频: false
+2025-03-05 20:41:36: 文件 test_video.mp4 是否为视频: true
+2025-03-05 20:41:36: 从 /var/www/home-photo-vue/data/videos 找到 1 个视频
+2025-03-05 20:41:37: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 20:41:37: 目录是否存在: true
+2025-03-05 20:41:37: 目录内容: [
+2025-03-05 20:41:37:   '001589.jpg', '001590.jpg',
+2025-03-05 20:41:37:   '001591.jpg', '001592.jpg',
+2025-03-05 20:41:37:   '001593.jpg', '001594.jpg',
+2025-03-05 20:41:37:   '001595.jpg', '001596.jpg',
+2025-03-05 20:41:37:   '001597.jpg', '001598.jpg',
+2025-03-05 20:41:37:   'sn.txt',     'test.txt'
+2025-03-05 20:41:37: ]
+2025-03-05 20:41:37: 从 /var/www/home-photo-vue/data/photos 找到 10 张照片
+2025-03-05 20:41:38: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 20:41:38: 目录是否存在: true
+2025-03-05 20:41:38: 视频目录内容: [ 'sn.txt', 'test_video.mp4' ]
+2025-03-05 20:41:38: 文件 sn.txt 是否为视频: false
+2025-03-05 20:41:38: 文件 test_video.mp4 是否为视频: true
+2025-03-05 20:41:38: 从 /var/www/home-photo-vue/data/videos 找到 1 个视频
+2025-03-05 21:01:52: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 21:01:52: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 21:01:55: Socket.IO 客户端已连接: 5pO2VpBJvD7g_r6TAAAB
+2025-03-05 21:02:01: Socket.IO 客户端已连接: mRsaln1NDoH7nGWFAAAD
+2025-03-05 21:02:03: Socket.IO 客户端已断开: mRsaln1NDoH7nGWFAAAD
+2025-03-05 21:02:03: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 21:02:03: 目录是否存在: true
+2025-03-05 21:02:03: 视频目录内容: [ 'sn.txt' ]
+2025-03-05 21:02:03: 文件 sn.txt 是否为视频: false
+2025-03-05 21:02:03: 从 /var/www/home-photo-vue/data/videos 找到 0 个视频
+2025-03-05 21:02:04: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:02:04: 目录是否存在: true
+2025-03-05 21:02:04: 目录内容: [
+2025-03-05 21:02:04:   '001589.jpg', '001590.jpg',
+2025-03-05 21:02:04:   '001591.jpg', '001592.jpg',
+2025-03-05 21:02:04:   '001593.jpg', '001594.jpg',
+2025-03-05 21:02:04:   '001595.jpg', '001596.jpg',
+2025-03-05 21:02:04:   '001597.jpg', '001598.jpg',
+2025-03-05 21:02:04:   'sn.txt',     'test.txt'
+2025-03-05 21:02:04: ]
+2025-03-05 21:02:04: 从 /var/www/home-photo-vue/data/photos 找到 10 张照片
+2025-03-05 21:02:05: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 21:02:05: 目录是否存在: true
+2025-03-05 21:02:05: 视频目录内容: [ 'sn.txt' ]
+2025-03-05 21:02:05: 文件 sn.txt 是否为视频: false
+2025-03-05 21:02:05: 从 /var/www/home-photo-vue/data/videos 找到 0 个视频
+2025-03-05 21:02:05: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:02:05: 目录是否存在: true
+2025-03-05 21:02:05: 目录内容: [
+2025-03-05 21:02:05:   '001589.jpg', '001590.jpg',
+2025-03-05 21:02:05:   '001591.jpg', '001592.jpg',
+2025-03-05 21:02:05:   '001593.jpg', '001594.jpg',
+2025-03-05 21:02:05:   '001595.jpg', '001596.jpg',
+2025-03-05 21:02:05:   '001597.jpg', '001598.jpg',
+2025-03-05 21:02:05:   'sn.txt',     'test.txt'
+2025-03-05 21:02:05: ]
+2025-03-05 21:02:05: 从 /var/www/home-photo-vue/data/photos 找到 10 张照片
+2025-03-05 21:02:05: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:02:05: 目录是否存在: true
+2025-03-05 21:02:05: 目录内容: [
+2025-03-05 21:02:05:   '001589.jpg', '001590.jpg',
+2025-03-05 21:02:05:   '001591.jpg', '001592.jpg',
+2025-03-05 21:02:05:   '001593.jpg', '001594.jpg',
+2025-03-05 21:02:05:   '001595.jpg', '001596.jpg',
+2025-03-05 21:02:05:   '001597.jpg', '001598.jpg',
+2025-03-05 21:02:05:   'sn.txt',     'test.txt'
+2025-03-05 21:02:05: ]
+2025-03-05 21:02:05: 从 /var/www/home-photo-vue/data/photos 找到 10 张照片
+2025-03-05 21:02:06: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:02:06: 目录是否存在: true
+2025-03-05 21:02:06: 目录内容: [
+2025-03-05 21:02:06:   '001589.jpg', '001590.jpg',
+2025-03-05 21:02:06:   '001591.jpg', '001592.jpg',
+2025-03-05 21:02:06:   '001593.jpg', '001594.jpg',
+2025-03-05 21:02:06:   '001595.jpg', '001596.jpg',
+2025-03-05 21:02:06:   '001597.jpg', '001598.jpg',
+2025-03-05 21:02:06:   'sn.txt',     'test.txt'
+2025-03-05 21:02:06: ]
+2025-03-05 21:02:06: 从 /var/www/home-photo-vue/data/photos 找到 10 张照片
+2025-03-05 21:02:07: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 21:02:07: 目录是否存在: true
+2025-03-05 21:02:07: 视频目录内容: [ 'sn.txt' ]
+2025-03-05 21:02:07: 文件 sn.txt 是否为视频: false
+2025-03-05 21:02:07: 从 /var/www/home-photo-vue/data/videos 找到 0 个视频
+2025-03-05 21:02:08: Socket.IO 客户端已连接: 04dH8_DdYIKx52R1AAAF
+2025-03-05 21:02:12: Socket.IO 客户端已断开: 04dH8_DdYIKx52R1AAAF
+2025-03-05 21:02:12: Socket.IO 客户端已连接: ZcCOlgr7Oa3TEDhEAAAH
+2025-03-05 21:02:40: Socket.IO 客户端已断开: 5pO2VpBJvD7g_r6TAAAB
+2025-03-05 21:17:02: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 21:17:02: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 21:17:03: Socket.IO 客户端已连接: ZjJLAHI79RT2pBDDAAAB
+2025-03-05 21:17:21: Socket.IO 客户端已断开: ZjJLAHI79RT2pBDDAAAB
+2025-03-05 21:17:22: Socket.IO 客户端已连接: Id3x3lyBARwv5G4JAAAD
+2025-03-05 21:17:23: 找到 10 张待处理图片
+2025-03-05 21:17:23: 请求读取序号，文件路径: /var/www/home-photo-vue/data/photos/sn.txt
+2025-03-05 21:17:23: 读取到序号: 001598
+2025-03-05 21:17:23: 请求处理图片: 8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.png -> 001599
+2025-03-05 21:17:23: 源路径: /var/www/home-photo-vue/public/original/images/8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.png
+2025-03-05 21:17:23: 目标路径: /var/www/home-photo-vue/data/photos/001599.jpg
+2025-03-05 21:17:23: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001599.jpg
+2025-03-05 21:17:23: 缩略图创建成功
+2025-03-05 21:17:23: 处理图片成功: 8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.png -> 001599.jpg
+2025-03-05 21:17:23: 请求处理图片: 8d4b4d30e99347ef972ad4bac8b18e86.jpg -> 001600
+2025-03-05 21:17:23: 源路径: /var/www/home-photo-vue/public/original/images/8d4b4d30e99347ef972ad4bac8b18e86.jpg
+2025-03-05 21:17:23: 目标路径: /var/www/home-photo-vue/data/photos/001600.jpg
+2025-03-05 21:17:23: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001600.jpg
+2025-03-05 21:17:23: 缩略图创建成功
+2025-03-05 21:17:23: 处理图片成功: 8d4b4d30e99347ef972ad4bac8b18e86.jpg -> 001600.jpg
+2025-03-05 21:17:23: 请求处理图片: CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.png -> 001601
+2025-03-05 21:17:23: 源路径: /var/www/home-photo-vue/public/original/images/CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.png
+2025-03-05 21:17:23: 目标路径: /var/www/home-photo-vue/data/photos/001601.jpg
+2025-03-05 21:17:23: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001601.jpg
+2025-03-05 21:17:23: 缩略图创建成功
+2025-03-05 21:17:23: 处理图片成功: CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.png -> 001601.jpg
+2025-03-05 21:17:23: 请求处理图片: P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.png -> 001602
+2025-03-05 21:17:23: 源路径: /var/www/home-photo-vue/public/original/images/P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.png
+2025-03-05 21:17:23: 目标路径: /var/www/home-photo-vue/data/photos/001602.jpg
+2025-03-05 21:17:23: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001602.jpg
+2025-03-05 21:17:23: 缩略图创建成功
+2025-03-05 21:17:23: 处理图片成功: P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.png -> 001602.jpg
+2025-03-05 21:17:23: 请求处理图片: P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.png -> 001603
+2025-03-05 21:17:23: 源路径: /var/www/home-photo-vue/public/original/images/P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.png
+2025-03-05 21:17:23: 目标路径: /var/www/home-photo-vue/data/photos/001603.jpg
+2025-03-05 21:17:23: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001603.jpg
+2025-03-05 21:17:23: 缩略图创建成功
+2025-03-05 21:17:23: 处理图片成功: P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.png -> 001603.jpg
+2025-03-05 21:17:23: 请求处理图片: c85ca642880411ebb6edd017c2d2eca2.jpg -> 001604
+2025-03-05 21:17:23: 源路径: /var/www/home-photo-vue/public/original/images/c85ca642880411ebb6edd017c2d2eca2.jpg
+2025-03-05 21:17:23: 目标路径: /var/www/home-photo-vue/data/photos/001604.jpg
+2025-03-05 21:17:23: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001604.jpg
+2025-03-05 21:17:23: 缩略图创建成功
+2025-03-05 21:17:23: 处理图片成功: c85ca642880411ebb6edd017c2d2eca2.jpg -> 001604.jpg
+2025-03-05 21:17:23: 请求处理图片: wallhaven-135jgw_3840x2160-2.png -> 001605
+2025-03-05 21:17:23: 源路径: /var/www/home-photo-vue/public/original/images/wallhaven-135jgw_3840x2160-2.png
+2025-03-05 21:17:23: 目标路径: /var/www/home-photo-vue/data/photos/001605.jpg
+2025-03-05 21:17:23: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001605.jpg
+2025-03-05 21:17:23: 缩略图创建成功
+2025-03-05 21:17:23: 处理图片成功: wallhaven-135jgw_3840x2160-2.png -> 001605.jpg
+2025-03-05 21:17:23: 请求处理图片: wallhaven-j5pzyw_3840x2160.png -> 001606
+2025-03-05 21:17:23: 源路径: /var/www/home-photo-vue/public/original/images/wallhaven-j5pzyw_3840x2160.png
+2025-03-05 21:17:23: 目标路径: /var/www/home-photo-vue/data/photos/001606.jpg
+2025-03-05 21:17:23: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001606.jpg
+2025-03-05 21:17:23: 缩略图创建成功
+2025-03-05 21:17:23: 处理图片成功: wallhaven-j5pzyw_3840x2160.png -> 001606.jpg
+2025-03-05 21:17:23: 请求处理图片: wallhaven-rd9gkm_3840x2160.png -> 001607
+2025-03-05 21:17:23: 源路径: /var/www/home-photo-vue/public/original/images/wallhaven-rd9gkm_3840x2160.png
+2025-03-05 21:17:23: 目标路径: /var/www/home-photo-vue/data/photos/001607.jpg
+2025-03-05 21:17:23: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001607.jpg
+2025-03-05 21:17:23: 缩略图创建成功
+2025-03-05 21:17:23: 处理图片成功: wallhaven-rd9gkm_3840x2160.png -> 001607.jpg
+2025-03-05 21:17:23: 请求处理图片: 刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.png -> 001608
+2025-03-05 21:17:23: 源路径: /var/www/home-photo-vue/public/original/images/刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.png
+2025-03-05 21:17:23: 目标路径: /var/www/home-photo-vue/data/photos/001608.jpg
+2025-03-05 21:17:23: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001608.jpg
+2025-03-05 21:17:23: 缩略图创建成功
+2025-03-05 21:17:23: 处理图片成功: 刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.png -> 001608.jpg
+2025-03-05 21:17:23: 请求写入序号: 001608
+2025-03-05 21:17:23: 写入序号成功: 001608
+2025-03-05 21:17:27: Socket.IO 客户端已断开: Id3x3lyBARwv5G4JAAAD
+2025-03-05 21:17:27: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:17:27: 目录是否存在: true
+2025-03-05 21:17:27: 目录内容: [
+2025-03-05 21:17:27:   '001589.jpg', '001590.jpg',
+2025-03-05 21:17:27:   '001591.jpg', '001592.jpg',
+2025-03-05 21:17:27:   '001593.jpg', '001594.jpg',
+2025-03-05 21:17:27:   '001595.jpg', '001596.jpg',
+2025-03-05 21:17:27:   '001597.jpg', '001598.jpg',
+2025-03-05 21:17:27:   '001599.jpg', '001600.jpg',
+2025-03-05 21:17:27:   '001601.jpg', '001602.jpg',
+2025-03-05 21:17:27:   '001603.jpg', '001604.jpg',
+2025-03-05 21:17:27:   '001605.jpg', '001606.jpg',
+2025-03-05 21:17:27:   '001607.jpg', '001608.jpg',
+2025-03-05 21:17:27:   'sn.txt',     'test.txt'
+2025-03-05 21:17:27: ]
+2025-03-05 21:17:27: 从 /var/www/home-photo-vue/data/photos 找到 20 张照片
+2025-03-05 21:17:29: Socket.IO 客户端已连接: u66NOQZc481dAIVWAAAF
+2025-03-05 21:17:30: Socket.IO 客户端已断开: u66NOQZc481dAIVWAAAF
+2025-03-05 21:17:30: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 21:17:30: 目录是否存在: true
+2025-03-05 21:17:30: 视频目录内容: [ 'sn.txt' ]
+2025-03-05 21:17:30: 文件 sn.txt 是否为视频: false
+2025-03-05 21:17:30: 从 /var/www/home-photo-vue/data/videos 找到 0 个视频
+2025-03-05 21:17:31: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:17:31: 目录是否存在: true
+2025-03-05 21:17:31: 目录内容: [
+2025-03-05 21:17:31:   '001589.jpg', '001590.jpg',
+2025-03-05 21:17:31:   '001591.jpg', '001592.jpg',
+2025-03-05 21:17:31:   '001593.jpg', '001594.jpg',
+2025-03-05 21:17:31:   '001595.jpg', '001596.jpg',
+2025-03-05 21:17:31:   '001597.jpg', '001598.jpg',
+2025-03-05 21:17:31:   '001599.jpg', '001600.jpg',
+2025-03-05 21:17:31:   '001601.jpg', '001602.jpg',
+2025-03-05 21:17:31:   '001603.jpg', '001604.jpg',
+2025-03-05 21:17:31:   '001605.jpg', '001606.jpg',
+2025-03-05 21:17:31:   '001607.jpg', '001608.jpg',
+2025-03-05 21:17:31:   'sn.txt',     'test.txt'
+2025-03-05 21:17:31: ]
+2025-03-05 21:17:31: 从 /var/www/home-photo-vue/data/photos 找到 20 张照片
+2025-03-05 21:17:32: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 21:17:32: 目录是否存在: true
+2025-03-05 21:17:32: 视频目录内容: [ 'sn.txt' ]
+2025-03-05 21:17:32: 文件 sn.txt 是否为视频: false
+2025-03-05 21:17:32: 从 /var/www/home-photo-vue/data/videos 找到 0 个视频
+2025-03-05 21:17:32: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:17:32: 目录是否存在: true
+2025-03-05 21:17:32: 目录内容: [
+2025-03-05 21:17:32:   '001589.jpg', '001590.jpg',
+2025-03-05 21:17:32:   '001591.jpg', '001592.jpg',
+2025-03-05 21:17:32:   '001593.jpg', '001594.jpg',
+2025-03-05 21:17:32:   '001595.jpg', '001596.jpg',
+2025-03-05 21:17:32:   '001597.jpg', '001598.jpg',
+2025-03-05 21:17:32:   '001599.jpg', '001600.jpg',
+2025-03-05 21:17:32:   '001601.jpg', '001602.jpg',
+2025-03-05 21:17:32:   '001603.jpg', '001604.jpg',
+2025-03-05 21:17:32:   '001605.jpg', '001606.jpg',
+2025-03-05 21:17:32:   '001607.jpg', '001608.jpg',
+2025-03-05 21:17:32:   'sn.txt',     'test.txt'
+2025-03-05 21:17:32: ]
+2025-03-05 21:17:32: 从 /var/www/home-photo-vue/data/photos 找到 20 张照片
+2025-03-05 21:17:32: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:17:32: 目录是否存在: true
+2025-03-05 21:17:32: 目录内容: [
+2025-03-05 21:17:32:   '001589.jpg', '001590.jpg',
+2025-03-05 21:17:32:   '001591.jpg', '001592.jpg',
+2025-03-05 21:17:32:   '001593.jpg', '001594.jpg',
+2025-03-05 21:17:32:   '001595.jpg', '001596.jpg',
+2025-03-05 21:17:32:   '001597.jpg', '001598.jpg',
+2025-03-05 21:17:32:   '001599.jpg', '001600.jpg',
+2025-03-05 21:17:32:   '001601.jpg', '001602.jpg',
+2025-03-05 21:17:32:   '001603.jpg', '001604.jpg',
+2025-03-05 21:17:32:   '001605.jpg', '001606.jpg',
+2025-03-05 21:17:32:   '001607.jpg', '001608.jpg',
+2025-03-05 21:17:32:   'sn.txt',     'test.txt'
+2025-03-05 21:17:32: ]
+2025-03-05 21:17:32: 从 /var/www/home-photo-vue/data/photos 找到 20 张照片
+2025-03-05 21:17:42: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:17:42: 目录是否存在: true
+2025-03-05 21:17:42: 目录内容: [
+2025-03-05 21:17:42:   '001589.jpg', '001590.jpg',
+2025-03-05 21:17:42:   '001591.jpg', '001592.jpg',
+2025-03-05 21:17:42:   '001593.jpg', '001594.jpg',
+2025-03-05 21:17:42:   '001595.jpg', '001596.jpg',
+2025-03-05 21:17:42:   '001597.jpg', '001598.jpg',
+2025-03-05 21:17:42:   '001599.jpg', '001600.jpg',
+2025-03-05 21:17:42:   '001601.jpg', '001602.jpg',
+2025-03-05 21:17:42:   '001603.jpg', '001604.jpg',
+2025-03-05 21:17:42:   '001605.jpg', '001606.jpg',
+2025-03-05 21:17:42:   '001607.jpg', '001608.jpg',
+2025-03-05 21:17:42:   'sn.txt',     'test.txt'
+2025-03-05 21:17:42: ]
+2025-03-05 21:17:42: 从 /var/www/home-photo-vue/data/photos 找到 20 张照片
+2025-03-05 21:25:38: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 21:25:38: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 21:25:44: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:25:44: 目录是否存在: true
+2025-03-05 21:25:44: 目录内容: [
+2025-03-05 21:25:44:   '001589.jpg', '001590.jpg',
+2025-03-05 21:25:44:   '001591.jpg', '001592.jpg',
+2025-03-05 21:25:44:   '001593.jpg', '001594.jpg',
+2025-03-05 21:25:44:   '001595.jpg', '001596.jpg',
+2025-03-05 21:25:44:   '001597.jpg', '001598.jpg',
+2025-03-05 21:25:44:   '001599.jpg', '001600.jpg',
+2025-03-05 21:25:44:   '001601.jpg', '001602.jpg',
+2025-03-05 21:25:44:   '001603.jpg', '001604.jpg',
+2025-03-05 21:25:44:   '001605.jpg', '001606.jpg',
+2025-03-05 21:25:44:   '001607.jpg', '001608.jpg',
+2025-03-05 21:25:44:   'sn.txt'
+2025-03-05 21:25:44: ]
+2025-03-05 21:25:44: 从 /var/www/home-photo-vue/data/photos 找到 20 张照片
+2025-03-05 21:25:45: Socket.IO 客户端已连接: KPNjSgWnZgpvrHfYAAAB
+2025-03-05 21:25:46: 找到 10 张待处理图片
+2025-03-05 21:25:46: 请求读取序号，文件路径: /var/www/home-photo-vue/data/photos/sn.txt
+2025-03-05 21:25:46: 读取到序号: 001608
+2025-03-05 21:25:46: 请求处理图片: 8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.png -> 001609
+2025-03-05 21:25:46: 源路径: /var/www/home-photo-vue/public/original/images/8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.png
+2025-03-05 21:25:46: 目标路径: /var/www/home-photo-vue/data/photos/001609.jpg
+2025-03-05 21:25:46: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001609.jpg
+2025-03-05 21:25:46: 缩略图创建成功
+2025-03-05 21:25:46: 已删除原始文件: /var/www/home-photo-vue/public/original/images/8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.png
+2025-03-05 21:25:46: 处理图片成功: 8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.png -> 001609.jpg
+2025-03-05 21:25:46: 请求处理图片: 8d4b4d30e99347ef972ad4bac8b18e86.jpg -> 001610
+2025-03-05 21:25:46: 源路径: /var/www/home-photo-vue/public/original/images/8d4b4d30e99347ef972ad4bac8b18e86.jpg
+2025-03-05 21:25:46: 目标路径: /var/www/home-photo-vue/data/photos/001610.jpg
+2025-03-05 21:25:46: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001610.jpg
+2025-03-05 21:25:46: 缩略图创建成功
+2025-03-05 21:25:46: 已删除原始文件: /var/www/home-photo-vue/public/original/images/8d4b4d30e99347ef972ad4bac8b18e86.jpg
+2025-03-05 21:25:46: 处理图片成功: 8d4b4d30e99347ef972ad4bac8b18e86.jpg -> 001610.jpg
+2025-03-05 21:25:46: 请求处理图片: CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.png -> 001611
+2025-03-05 21:25:46: 源路径: /var/www/home-photo-vue/public/original/images/CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.png
+2025-03-05 21:25:46: 目标路径: /var/www/home-photo-vue/data/photos/001611.jpg
+2025-03-05 21:25:46: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001611.jpg
+2025-03-05 21:25:46: 缩略图创建成功
+2025-03-05 21:25:46: 已删除原始文件: /var/www/home-photo-vue/public/original/images/CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.png
+2025-03-05 21:25:46: 处理图片成功: CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.png -> 001611.jpg
+2025-03-05 21:25:46: 请求处理图片: P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.png -> 001612
+2025-03-05 21:25:46: 源路径: /var/www/home-photo-vue/public/original/images/P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.png
+2025-03-05 21:25:46: 目标路径: /var/www/home-photo-vue/data/photos/001612.jpg
+2025-03-05 21:25:46: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001612.jpg
+2025-03-05 21:25:46: 缩略图创建成功
+2025-03-05 21:25:46: 已删除原始文件: /var/www/home-photo-vue/public/original/images/P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.png
+2025-03-05 21:25:46: 处理图片成功: P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.png -> 001612.jpg
+2025-03-05 21:25:46: 请求处理图片: P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.png -> 001613
+2025-03-05 21:25:46: 源路径: /var/www/home-photo-vue/public/original/images/P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.png
+2025-03-05 21:25:46: 目标路径: /var/www/home-photo-vue/data/photos/001613.jpg
+2025-03-05 21:25:46: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001613.jpg
+2025-03-05 21:25:46: 缩略图创建成功
+2025-03-05 21:25:46: 已删除原始文件: /var/www/home-photo-vue/public/original/images/P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.png
+2025-03-05 21:25:46: 处理图片成功: P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.png -> 001613.jpg
+2025-03-05 21:25:46: 请求处理图片: c85ca642880411ebb6edd017c2d2eca2.jpg -> 001614
+2025-03-05 21:25:46: 源路径: /var/www/home-photo-vue/public/original/images/c85ca642880411ebb6edd017c2d2eca2.jpg
+2025-03-05 21:25:46: 目标路径: /var/www/home-photo-vue/data/photos/001614.jpg
+2025-03-05 21:25:46: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001614.jpg
+2025-03-05 21:25:46: 缩略图创建成功
+2025-03-05 21:25:46: 已删除原始文件: /var/www/home-photo-vue/public/original/images/c85ca642880411ebb6edd017c2d2eca2.jpg
+2025-03-05 21:25:46: 处理图片成功: c85ca642880411ebb6edd017c2d2eca2.jpg -> 001614.jpg
+2025-03-05 21:25:46: 请求处理图片: wallhaven-135jgw_3840x2160-2.png -> 001615
+2025-03-05 21:25:46: 源路径: /var/www/home-photo-vue/public/original/images/wallhaven-135jgw_3840x2160-2.png
+2025-03-05 21:25:46: 目标路径: /var/www/home-photo-vue/data/photos/001615.jpg
+2025-03-05 21:25:46: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001615.jpg
+2025-03-05 21:25:46: 缩略图创建成功
+2025-03-05 21:25:46: 已删除原始文件: /var/www/home-photo-vue/public/original/images/wallhaven-135jgw_3840x2160-2.png
+2025-03-05 21:25:46: 处理图片成功: wallhaven-135jgw_3840x2160-2.png -> 001615.jpg
+2025-03-05 21:25:46: 请求处理图片: wallhaven-j5pzyw_3840x2160.png -> 001616
+2025-03-05 21:25:46: 源路径: /var/www/home-photo-vue/public/original/images/wallhaven-j5pzyw_3840x2160.png
+2025-03-05 21:25:46: 目标路径: /var/www/home-photo-vue/data/photos/001616.jpg
+2025-03-05 21:25:46: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001616.jpg
+2025-03-05 21:25:46: 缩略图创建成功
+2025-03-05 21:25:46: 已删除原始文件: /var/www/home-photo-vue/public/original/images/wallhaven-j5pzyw_3840x2160.png
+2025-03-05 21:25:46: 处理图片成功: wallhaven-j5pzyw_3840x2160.png -> 001616.jpg
+2025-03-05 21:25:46: 请求处理图片: wallhaven-rd9gkm_3840x2160.png -> 001617
+2025-03-05 21:25:46: 源路径: /var/www/home-photo-vue/public/original/images/wallhaven-rd9gkm_3840x2160.png
+2025-03-05 21:25:46: 目标路径: /var/www/home-photo-vue/data/photos/001617.jpg
+2025-03-05 21:25:46: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001617.jpg
+2025-03-05 21:25:46: 缩略图创建成功
+2025-03-05 21:25:46: 已删除原始文件: /var/www/home-photo-vue/public/original/images/wallhaven-rd9gkm_3840x2160.png
+2025-03-05 21:25:46: 处理图片成功: wallhaven-rd9gkm_3840x2160.png -> 001617.jpg
+2025-03-05 21:25:46: 请求处理图片: 刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.png -> 001618
+2025-03-05 21:25:46: 源路径: /var/www/home-photo-vue/public/original/images/刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.png
+2025-03-05 21:25:46: 目标路径: /var/www/home-photo-vue/data/photos/001618.jpg
+2025-03-05 21:25:46: 缩略图路径: /var/www/home-photo-vue/data/photo_thumbnails/001618.jpg
+2025-03-05 21:25:46: 缩略图创建成功
+2025-03-05 21:25:46: 已删除原始文件: /var/www/home-photo-vue/public/original/images/刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.png
+2025-03-05 21:25:46: 处理图片成功: 刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.png -> 001618.jpg
+2025-03-05 21:25:46: 请求写入序号: 001618
+2025-03-05 21:25:46: 写入序号成功: 001618
+2025-03-05 21:25:55: Socket.IO 客户端已断开: KPNjSgWnZgpvrHfYAAAB
+2025-03-05 21:25:55: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 21:25:55: 目录是否存在: true
+2025-03-05 21:25:55: 视频目录内容: [ 'sn.txt' ]
+2025-03-05 21:25:55: 文件 sn.txt 是否为视频: false
+2025-03-05 21:25:55: 从 /var/www/home-photo-vue/data/videos 找到 0 个视频
+2025-03-05 21:25:55: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:25:55: 目录是否存在: true
+2025-03-05 21:25:55: 目录内容: [
+2025-03-05 21:25:55:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 21:25:55:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 21:25:55:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 21:25:55:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 21:25:55:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 21:25:55:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 21:25:55:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 21:25:55:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 21:25:55:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 21:25:55:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 21:25:55:   'sn.txt'
+2025-03-05 21:25:55: ]
+2025-03-05 21:25:55: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 21:25:55: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:25:55: 目录是否存在: true
+2025-03-05 21:25:55: 目录内容: [
+2025-03-05 21:25:55:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 21:25:55:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 21:25:55:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 21:25:55:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 21:25:55:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 21:25:55:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 21:25:55:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 21:25:55:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 21:25:55:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 21:25:55:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 21:25:55:   'sn.txt'
+2025-03-05 21:25:55: ]
+2025-03-05 21:25:55: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 21:25:56: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:25:56: 目录是否存在: true
+2025-03-05 21:25:56: 目录内容: [
+2025-03-05 21:25:56:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 21:25:56:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 21:25:56:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 21:25:56:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 21:25:56:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 21:25:56:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 21:25:56:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 21:25:56:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 21:25:56:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 21:25:56:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 21:25:56:   'sn.txt'
+2025-03-05 21:25:56: ]
+2025-03-05 21:25:56: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 21:25:57: Socket.IO 客户端已连接: 9rmsa4iOtSxupD7QAAAD
+2025-03-05 21:25:58: 找到 0 张待处理图片
+2025-03-05 21:27:47: 找到 0 张待处理图片
+2025-03-05 21:27:48: Socket.IO 客户端已断开: 9rmsa4iOtSxupD7QAAAD
+2025-03-05 21:27:49: Socket.IO 客户端已连接: lZmVyQmQPtZbruO0AAAF
+2025-03-05 21:27:50: Socket.IO 客户端已断开: lZmVyQmQPtZbruO0AAAF
+2025-03-05 21:27:50: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:27:50: 目录是否存在: true
+2025-03-05 21:27:50: 目录内容: [
+2025-03-05 21:27:50:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 21:27:50:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 21:27:50:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 21:27:50:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 21:27:50:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 21:27:50:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 21:27:50:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 21:27:50:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 21:27:50:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 21:27:50:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 21:27:50:   'sn.txt'
+2025-03-05 21:27:50: ]
+2025-03-05 21:27:50: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 21:27:50: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 21:27:50: 目录是否存在: true
+2025-03-05 21:27:50: 视频目录内容: [ 'sn.txt' ]
+2025-03-05 21:27:50: 文件 sn.txt 是否为视频: false
+2025-03-05 21:27:50: 从 /var/www/home-photo-vue/data/videos 找到 0 个视频
+2025-03-05 21:27:50: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:27:50: 目录是否存在: true
+2025-03-05 21:27:50: 目录内容: [
+2025-03-05 21:27:50:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 21:27:50:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 21:27:50:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 21:27:50:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 21:27:50:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 21:27:50:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 21:27:50:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 21:27:50:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 21:27:50:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 21:27:50:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 21:27:50:   'sn.txt'
+2025-03-05 21:27:50: ]
+2025-03-05 21:27:50: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 21:27:52: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:27:52: 目录是否存在: true
+2025-03-05 21:27:52: 目录内容: [
+2025-03-05 21:27:52:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 21:27:52:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 21:27:52:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 21:27:52:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 21:27:52:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 21:27:52:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 21:27:52:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 21:27:52:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 21:27:52:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 21:27:52:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 21:27:52:   'sn.txt'
+2025-03-05 21:27:52: ]
+2025-03-05 21:27:52: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 21:27:54: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 21:27:54: 目录是否存在: true
+2025-03-05 21:27:54: 视频目录内容: [ 'sn.txt' ]
+2025-03-05 21:27:54: 文件 sn.txt 是否为视频: false
+2025-03-05 21:27:54: 从 /var/www/home-photo-vue/data/videos 找到 0 个视频
+2025-03-05 21:27:56: Socket.IO 客户端已连接: -XKcptwRJb6bc76xAAAH
+2025-03-05 21:27:57: 找到 0 张待处理图片
+2025-03-05 21:36:11: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 21:36:11: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 21:36:12: Socket.IO 客户端已连接: FBUd-dJCqGMZkdl7AAAB
+2025-03-05 21:39:44: Socket.IO 客户端已断开: FBUd-dJCqGMZkdl7AAAB
+2025-03-05 21:39:45: Socket.IO 客户端已连接: Q9MjBWV-y9_-kKFRAAAD
+2025-03-05 21:39:48: 找到 0 张待处理图片
+2025-03-05 21:39:52: Socket.IO 客户端已断开: Q9MjBWV-y9_-kKFRAAAD
+2025-03-05 21:39:52: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 21:39:52: 目录是否存在: true
+2025-03-05 21:39:52: 视频目录内容: [ 'sn.txt' ]
+2025-03-05 21:39:52: 文件 sn.txt 是否为视频: false
+2025-03-05 21:39:52: 从 /var/www/home-photo-vue/data/videos 找到 0 个视频
+2025-03-05 21:39:53: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 21:39:53: 目录是否存在: true
+2025-03-05 21:39:53: 目录内容: [
+2025-03-05 21:39:53:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 21:39:53:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 21:39:53:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 21:39:53:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 21:39:53:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 21:39:53:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 21:39:53:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 21:39:53:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 21:39:53:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 21:39:53:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 21:39:53:   'sn.txt'
+2025-03-05 21:39:53: ]
+2025-03-05 21:39:53: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 21:39:54: Socket.IO 客户端已连接: MQIv-Q7wcIIv0DOQAAAF
+2025-03-05 21:40:36: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 21:40:36: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 21:40:37: Socket.IO 客户端已连接: rPTRUZ5hXNSJNz0oAAAB
+2025-03-05 21:40:41: Socket.IO 客户端已断开: rPTRUZ5hXNSJNz0oAAAB
+2025-03-05 21:40:41: Socket.IO 客户端已连接: rlhOGlSGq__i0FRTAAAD
+2025-03-05 21:40:42: 请求原始视频列表，目录路径: /var/www/home-photo-vue/public/original/videos
+2025-03-05 21:40:42: 找到 5 个待处理视频: [
+2025-03-05 21:40:42:   '8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4',
+2025-03-05 21:40:42:   'CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4',
+2025-03-05 21:40:42:   'P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4',
+2025-03-05 21:40:42:   'P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4',
+2025-03-05 21:40:42:   '刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4'
+2025-03-05 21:40:42: ]
+2025-03-05 21:40:46: 请求原始视频列表，目录路径: /var/www/home-photo-vue/public/original/videos
+2025-03-05 21:40:46: 找到 5 个待处理视频: [
+2025-03-05 21:40:46:   '8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4',
+2025-03-05 21:40:46:   'CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4',
+2025-03-05 21:40:46:   'P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4',
+2025-03-05 21:40:46:   'P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4',
+2025-03-05 21:40:46:   '刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4'
+2025-03-05 21:40:46: ]
+2025-03-05 21:47:21: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 21:47:21: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 21:47:21: Socket.IO 客户端已连接: S8lyvQMVtqInRtQPAAAB
+2025-03-05 21:47:51: Socket.IO 客户端已断开: S8lyvQMVtqInRtQPAAAB
+2025-03-05 21:47:51: Socket.IO 客户端已连接: Zgde0DzZILgsMy-2AAAD
+2025-03-05 21:47:52: 请求原始视频列表，目录路径: /var/www/home-photo-vue/public/original/videos
+2025-03-05 21:47:52: 找到 5 个待处理视频: [
+2025-03-05 21:47:52:   '8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4',
+2025-03-05 21:47:52:   'CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4',
+2025-03-05 21:47:52:   'P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4',
+2025-03-05 21:47:52:   'P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4',
+2025-03-05 21:47:52:   '刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4'
+2025-03-05 21:47:52: ]
+2025-03-05 21:47:52: 请求读取视频序号，文件路径: /var/www/home-photo-vue/data/videos/sn.txt
+2025-03-05 21:47:52: 请求方法: POST
+2025-03-05 21:47:52: 读取到视频序号: 000533
+2025-03-05 21:47:53: 请求处理视频: 8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4 -> undefined
+2025-03-05 21:47:53: 请求处理视频: CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4 -> undefined
+2025-03-05 21:47:53: 请求处理视频: P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4 -> undefined
+2025-03-05 21:47:53: 请求处理视频: P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4 -> undefined
+2025-03-05 21:47:53: 请求处理视频: 刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4 -> undefined
+2025-03-05 22:01:32: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 22:01:32: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 22:01:32: Socket.IO 客户端已连接: v9v75PhGOpA6ZuDQAAAB
+2025-03-05 22:01:36: Socket.IO 客户端已断开: v9v75PhGOpA6ZuDQAAAB
+2025-03-05 22:01:36: Socket.IO 客户端已连接: SMt0duGcPBBrswymAAAD
+2025-03-05 22:01:37: 请求原始视频列表，目录路径: /var/www/home-photo-vue/public/original/videos
+2025-03-05 22:01:37: 找到 5 个待处理视频: [
+2025-03-05 22:01:37:   '8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4',
+2025-03-05 22:01:37:   'CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4',
+2025-03-05 22:01:37:   'P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4',
+2025-03-05 22:01:37:   'P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4',
+2025-03-05 22:01:37:   '刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4'
+2025-03-05 22:01:37: ]
+2025-03-05 22:01:37: 请求读取视频序号，文件路径: /var/www/home-photo-vue/data/videos/sn.txt
+2025-03-05 22:01:37: 请求方法: POST
+2025-03-05 22:01:37: 读取到视频序号: 000533
+2025-03-05 22:01:37: 请求处理视频: 8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4 -> 000533
+2025-03-05 22:01:37: 请求体: {
+2025-03-05 22:01:37:   filename: '8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4',
+2025-03-05 22:01:37:   sn: '000533'
+2025-03-05 22:01:37: }
+2025-03-05 22:01:37: 源路径: /var/www/home-photo-vue/public/original/videos/8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4
+2025-03-05 22:01:37: 目标路径: /var/www/home-photo-vue/data/videos/000533.mp4
+2025-03-05 22:01:37: 缩略图路径: /var/www/home-photo-vue/data/video_thumbnails/000533.jpg
+2025-03-05 22:01:37: 尝试为视频创建缩略图: /var/www/home-photo-vue/data/videos/000533.mp4
+2025-03-05 22:01:37: 执行命令: ffmpeg -i '/var/www/home-photo-vue/data/videos/000533.mp4' -ss 00:00:01 -vframes 1 -s 320x240 -f image2 '/var/www/home-photo-vue/data/video_thumbnails/000533.jpg' -y
+2025-03-05 22:01:37: 使用 FFmpeg 创建视频缩略图成功
+2025-03-05 22:01:37: 视频缩略图创建成功
+2025-03-05 22:01:37: 已删除原始视频文件: /var/www/home-photo-vue/public/original/videos/8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4
+2025-03-05 22:01:37: 处理视频成功: 8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4 -> 000533.mp4
+2025-03-05 22:01:37: 请求处理视频: CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4 -> 000534
+2025-03-05 22:01:37: 请求体: {
+2025-03-05 22:01:37:   filename: 'CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4',
+2025-03-05 22:01:37:   sn: '000534'
+2025-03-05 22:01:37: }
+2025-03-05 22:01:37: 源路径: /var/www/home-photo-vue/public/original/videos/CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4
+2025-03-05 22:01:37: 目标路径: /var/www/home-photo-vue/data/videos/000534.mp4
+2025-03-05 22:01:37: 缩略图路径: /var/www/home-photo-vue/data/video_thumbnails/000534.jpg
+2025-03-05 22:01:37: 尝试为视频创建缩略图: /var/www/home-photo-vue/data/videos/000534.mp4
+2025-03-05 22:01:37: 执行命令: ffmpeg -i '/var/www/home-photo-vue/data/videos/000534.mp4' -ss 00:00:01 -vframes 1 -s 320x240 -f image2 '/var/www/home-photo-vue/data/video_thumbnails/000534.jpg' -y
+2025-03-05 22:01:37: 使用 FFmpeg 创建视频缩略图成功
+2025-03-05 22:01:37: 视频缩略图创建成功
+2025-03-05 22:01:37: 已删除原始视频文件: /var/www/home-photo-vue/public/original/videos/CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4
+2025-03-05 22:01:37: 处理视频成功: CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4 -> 000534.mp4
+2025-03-05 22:01:37: 请求处理视频: P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4 -> 000535
+2025-03-05 22:01:37: 请求体: {
+2025-03-05 22:01:37:   filename: 'P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4',
+2025-03-05 22:01:37:   sn: '000535'
+2025-03-05 22:01:37: }
+2025-03-05 22:01:37: 源路径: /var/www/home-photo-vue/public/original/videos/P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4
+2025-03-05 22:01:37: 目标路径: /var/www/home-photo-vue/data/videos/000535.mp4
+2025-03-05 22:01:37: 缩略图路径: /var/www/home-photo-vue/data/video_thumbnails/000535.jpg
+2025-03-05 22:01:37: 尝试为视频创建缩略图: /var/www/home-photo-vue/data/videos/000535.mp4
+2025-03-05 22:01:37: 执行命令: ffmpeg -i '/var/www/home-photo-vue/data/videos/000535.mp4' -ss 00:00:01 -vframes 1 -s 320x240 -f image2 '/var/www/home-photo-vue/data/video_thumbnails/000535.jpg' -y
+2025-03-05 22:01:38: 使用 FFmpeg 创建视频缩略图成功
+2025-03-05 22:01:38: 视频缩略图创建成功
+2025-03-05 22:01:38: 已删除原始视频文件: /var/www/home-photo-vue/public/original/videos/P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4
+2025-03-05 22:01:38: 处理视频成功: P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4 -> 000535.mp4
+2025-03-05 22:01:38: 请求处理视频: P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4 -> 000536
+2025-03-05 22:01:38: 请求体: {
+2025-03-05 22:01:38:   filename: 'P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4',
+2025-03-05 22:01:38:   sn: '000536'
+2025-03-05 22:01:38: }
+2025-03-05 22:01:38: 源路径: /var/www/home-photo-vue/public/original/videos/P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4
+2025-03-05 22:01:38: 目标路径: /var/www/home-photo-vue/data/videos/000536.mp4
+2025-03-05 22:01:38: 缩略图路径: /var/www/home-photo-vue/data/video_thumbnails/000536.jpg
+2025-03-05 22:01:38: 尝试为视频创建缩略图: /var/www/home-photo-vue/data/videos/000536.mp4
+2025-03-05 22:01:38: 执行命令: ffmpeg -i '/var/www/home-photo-vue/data/videos/000536.mp4' -ss 00:00:01 -vframes 1 -s 320x240 -f image2 '/var/www/home-photo-vue/data/video_thumbnails/000536.jpg' -y
+2025-03-05 22:01:38: 使用 FFmpeg 创建视频缩略图成功
+2025-03-05 22:01:38: 视频缩略图创建成功
+2025-03-05 22:01:38: 已删除原始视频文件: /var/www/home-photo-vue/public/original/videos/P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4
+2025-03-05 22:01:38: 处理视频成功: P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4 -> 000536.mp4
+2025-03-05 22:01:38: 请求处理视频: 刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4 -> 000537
+2025-03-05 22:01:38: 请求体: {
+2025-03-05 22:01:38:   filename: '刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4',
+2025-03-05 22:01:38:   sn: '000537'
+2025-03-05 22:01:38: }
+2025-03-05 22:01:38: 源路径: /var/www/home-photo-vue/public/original/videos/刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4
+2025-03-05 22:01:38: 目标路径: /var/www/home-photo-vue/data/videos/000537.mp4
+2025-03-05 22:01:38: 缩略图路径: /var/www/home-photo-vue/data/video_thumbnails/000537.jpg
+2025-03-05 22:01:38: 尝试为视频创建缩略图: /var/www/home-photo-vue/data/videos/000537.mp4
+2025-03-05 22:01:38: 执行命令: ffmpeg -i '/var/www/home-photo-vue/data/videos/000537.mp4' -ss 00:00:01 -vframes 1 -s 320x240 -f image2 '/var/www/home-photo-vue/data/video_thumbnails/000537.jpg' -y
+2025-03-05 22:01:38: 使用 FFmpeg 创建视频缩略图成功
+2025-03-05 22:01:38: 视频缩略图创建成功
+2025-03-05 22:01:38: 已删除原始视频文件: /var/www/home-photo-vue/public/original/videos/刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4
+2025-03-05 22:01:38: 处理视频成功: 刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4 -> 000537.mp4
+2025-03-05 22:01:38: 请求写入视频序号: 000538
+2025-03-05 22:01:38: 写入视频序号成功: 000538
+2025-03-05 22:01:42: Socket.IO 客户端已断开: SMt0duGcPBBrswymAAAD
+2025-03-05 22:01:42: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:01:42: 目录是否存在: true
+2025-03-05 22:01:42: 视频目录内容: [
+2025-03-05 22:01:42:   '000533.mp4',
+2025-03-05 22:01:42:   '000534.mp4',
+2025-03-05 22:01:42:   '000535.mp4',
+2025-03-05 22:01:42:   '000536.mp4',
+2025-03-05 22:01:42:   '000537.mp4',
+2025-03-05 22:01:42:   'sn.txt'
+2025-03-05 22:01:42: ]
+2025-03-05 22:01:42: 文件 000533.mp4 是否为视频: true
+2025-03-05 22:01:42: 文件 000534.mp4 是否为视频: true
+2025-03-05 22:01:42: 文件 000535.mp4 是否为视频: true
+2025-03-05 22:01:42: 文件 000536.mp4 是否为视频: true
+2025-03-05 22:01:42: 文件 000537.mp4 是否为视频: true
+2025-03-05 22:01:42: 文件 sn.txt 是否为视频: false
+2025-03-05 22:01:42: 从 /var/www/home-photo-vue/data/videos 找到 5 个视频
+2025-03-05 22:02:27: Socket.IO 客户端已连接: 8QwHLR_ABlzK4NNcAAAF
+2025-03-05 22:02:28: 请求原始视频列表，目录路径: /var/www/home-photo-vue/public/original/videos
+2025-03-05 22:02:28: 找到 0 个待处理视频: []
+2025-03-05 22:02:30: Socket.IO 客户端已断开: 8QwHLR_ABlzK4NNcAAAF
+2025-03-05 22:02:30: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:02:30: 目录是否存在: true
+2025-03-05 22:02:30: 目录内容: [
+2025-03-05 22:02:30:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:02:30:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:02:30:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:02:30:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:02:30:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:02:30:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:02:30:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:02:30:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:02:30:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:02:30:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:02:30:   'sn.txt'
+2025-03-05 22:02:30: ]
+2025-03-05 22:02:30: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:02:31: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:02:31: 目录是否存在: true
+2025-03-05 22:02:31: 视频目录内容: [
+2025-03-05 22:02:31:   '000533.mp4',
+2025-03-05 22:02:31:   '000534.mp4',
+2025-03-05 22:02:31:   '000535.mp4',
+2025-03-05 22:02:31:   '000536.mp4',
+2025-03-05 22:02:31:   '000537.mp4',
+2025-03-05 22:02:31:   'sn.txt'
+2025-03-05 22:02:31: ]
+2025-03-05 22:02:31: 文件 000533.mp4 是否为视频: true
+2025-03-05 22:02:31: 文件 000534.mp4 是否为视频: true
+2025-03-05 22:02:31: 文件 000535.mp4 是否为视频: true
+2025-03-05 22:02:31: 文件 000536.mp4 是否为视频: true
+2025-03-05 22:02:31: 文件 000537.mp4 是否为视频: true
+2025-03-05 22:02:31: 文件 sn.txt 是否为视频: false
+2025-03-05 22:02:31: 从 /var/www/home-photo-vue/data/videos 找到 5 个视频
+2025-03-05 22:02:31: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:02:31: 目录是否存在: true
+2025-03-05 22:02:31: 目录内容: [
+2025-03-05 22:02:31:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:02:31:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:02:31:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:02:31:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:02:31:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:02:31:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:02:31:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:02:31:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:02:31:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:02:31:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:02:31:   'sn.txt'
+2025-03-05 22:02:31: ]
+2025-03-05 22:02:31: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:02:31: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:02:31: 目录是否存在: true
+2025-03-05 22:02:31: 目录内容: [
+2025-03-05 22:02:31:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:02:31:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:02:31:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:02:31:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:02:31:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:02:31:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:02:31:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:02:31:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:02:31:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:02:31:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:02:31:   'sn.txt'
+2025-03-05 22:02:31: ]
+2025-03-05 22:02:31: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:02:37: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:02:37: 目录是否存在: true
+2025-03-05 22:02:37: 目录内容: [
+2025-03-05 22:02:37:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:02:37:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:02:37:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:02:37:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:02:37:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:02:37:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:02:37:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:02:37:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:02:37:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:02:37:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:02:37:   'sn.txt'
+2025-03-05 22:02:37: ]
+2025-03-05 22:02:37: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:02:38: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:02:38: 目录是否存在: true
+2025-03-05 22:02:38: 视频目录内容: [
+2025-03-05 22:02:38:   '000533.mp4',
+2025-03-05 22:02:38:   '000534.mp4',
+2025-03-05 22:02:38:   '000535.mp4',
+2025-03-05 22:02:38:   '000536.mp4',
+2025-03-05 22:02:38:   '000537.mp4',
+2025-03-05 22:02:38:   'sn.txt'
+2025-03-05 22:02:38: ]
+2025-03-05 22:02:38: 文件 000533.mp4 是否为视频: true
+2025-03-05 22:02:38: 文件 000534.mp4 是否为视频: true
+2025-03-05 22:02:38: 文件 000535.mp4 是否为视频: true
+2025-03-05 22:02:38: 文件 000536.mp4 是否为视频: true
+2025-03-05 22:02:38: 文件 000537.mp4 是否为视频: true
+2025-03-05 22:02:38: 文件 sn.txt 是否为视频: false
+2025-03-05 22:02:38: 从 /var/www/home-photo-vue/data/videos 找到 5 个视频
+2025-03-05 22:02:40: Socket.IO 客户端已连接: 6TysB9L8WK3VgYvDAAAH
+2025-03-05 22:02:42: 请求原始视频列表，目录路径: /var/www/home-photo-vue/public/original/videos
+2025-03-05 22:02:42: 找到 0 个待处理视频: []
+2025-03-05 22:02:43: 找到 0 张待处理图片
+2025-03-05 22:02:44: Socket.IO 客户端已断开: 6TysB9L8WK3VgYvDAAAH
+2025-03-05 22:02:44: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:02:44: 目录是否存在: true
+2025-03-05 22:02:44: 视频目录内容: [
+2025-03-05 22:02:44:   '000533.mp4',
+2025-03-05 22:02:44:   '000534.mp4',
+2025-03-05 22:02:44:   '000535.mp4',
+2025-03-05 22:02:44:   '000536.mp4',
+2025-03-05 22:02:44:   '000537.mp4',
+2025-03-05 22:02:44:   'sn.txt'
+2025-03-05 22:02:44: ]
+2025-03-05 22:02:44: 文件 000533.mp4 是否为视频: true
+2025-03-05 22:02:44: 文件 000534.mp4 是否为视频: true
+2025-03-05 22:02:44: 文件 000535.mp4 是否为视频: true
+2025-03-05 22:02:44: 文件 000536.mp4 是否为视频: true
+2025-03-05 22:02:44: 文件 000537.mp4 是否为视频: true
+2025-03-05 22:02:44: 文件 sn.txt 是否为视频: false
+2025-03-05 22:02:44: 从 /var/www/home-photo-vue/data/videos 找到 5 个视频
+2025-03-05 22:02:44: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:02:44: 目录是否存在: true
+2025-03-05 22:02:44: 目录内容: [
+2025-03-05 22:02:44:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:02:44:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:02:44:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:02:44:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:02:44:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:02:44:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:02:44:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:02:44:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:02:44:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:02:44:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:02:44:   'sn.txt'
+2025-03-05 22:02:44: ]
+2025-03-05 22:02:44: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:02:44: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:02:44: 目录是否存在: true
+2025-03-05 22:02:44: 目录内容: [
+2025-03-05 22:02:44:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:02:44:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:02:44:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:02:44:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:02:44:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:02:44:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:02:44:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:02:44:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:02:44:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:02:44:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:02:44:   'sn.txt'
+2025-03-05 22:02:44: ]
+2025-03-05 22:02:44: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:04:03: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:04:03: 目录是否存在: true
+2025-03-05 22:04:03: 目录内容: [
+2025-03-05 22:04:03:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:04:03:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:04:03:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:04:03:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:04:03:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:04:03:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:04:03:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:04:03:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:04:03:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:04:03:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:04:03:   'sn.txt'
+2025-03-05 22:04:03: ]
+2025-03-05 22:04:03: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:04:03: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:04:03: 目录是否存在: true
+2025-03-05 22:04:03: 视频目录内容: [
+2025-03-05 22:04:03:   '000533.mp4',
+2025-03-05 22:04:03:   '000534.mp4',
+2025-03-05 22:04:03:   '000535.mp4',
+2025-03-05 22:04:03:   '000536.mp4',
+2025-03-05 22:04:03:   '000537.mp4',
+2025-03-05 22:04:03:   'sn.txt'
+2025-03-05 22:04:03: ]
+2025-03-05 22:04:03: 文件 000533.mp4 是否为视频: true
+2025-03-05 22:04:03: 文件 000534.mp4 是否为视频: true
+2025-03-05 22:04:03: 文件 000535.mp4 是否为视频: true
+2025-03-05 22:04:03: 文件 000536.mp4 是否为视频: true
+2025-03-05 22:04:03: 文件 000537.mp4 是否为视频: true
+2025-03-05 22:04:03: 文件 sn.txt 是否为视频: false
+2025-03-05 22:04:03: 从 /var/www/home-photo-vue/data/videos 找到 5 个视频
+2025-03-05 22:04:03: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:04:03: 目录是否存在: true
+2025-03-05 22:04:03: 目录内容: [
+2025-03-05 22:04:03:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:04:03:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:04:03:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:04:03:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:04:03:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:04:03:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:04:03:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:04:03:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:04:03:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:04:03:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:04:03:   'sn.txt'
+2025-03-05 22:04:03: ]
+2025-03-05 22:04:03: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:07:22: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:07:22: 目录是否存在: true
+2025-03-05 22:07:22: 视频目录内容: [
+2025-03-05 22:07:22:   '000533.mp4',
+2025-03-05 22:07:22:   '000534.mp4',
+2025-03-05 22:07:22:   '000535.mp4',
+2025-03-05 22:07:22:   '000536.mp4',
+2025-03-05 22:07:22:   '000537.mp4',
+2025-03-05 22:07:22:   'sn.txt'
+2025-03-05 22:07:22: ]
+2025-03-05 22:07:22: 文件 000533.mp4 是否为视频: true
+2025-03-05 22:07:22: 文件 000534.mp4 是否为视频: true
+2025-03-05 22:07:22: 文件 000535.mp4 是否为视频: true
+2025-03-05 22:07:22: 文件 000536.mp4 是否为视频: true
+2025-03-05 22:07:22: 文件 000537.mp4 是否为视频: true
+2025-03-05 22:07:22: 文件 sn.txt 是否为视频: false
+2025-03-05 22:07:22: 从 /var/www/home-photo-vue/data/videos 找到 5 个视频
+2025-03-05 22:10:25: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 22:10:25: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 22:10:38: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:10:38: 目录是否存在: true
+2025-03-05 22:10:38: 目录内容: [
+2025-03-05 22:10:38:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:10:38:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:10:38:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:10:38:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:10:38:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:10:38:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:10:38:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:10:38:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:10:38:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:10:38:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:10:38:   'sn.txt'
+2025-03-05 22:10:38: ]
+2025-03-05 22:10:38: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:10:38: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:10:38: 目录是否存在: true
+2025-03-05 22:10:38: 视频目录内容: [
+2025-03-05 22:10:38:   '000533.mp4',
+2025-03-05 22:10:38:   '000534.mp4',
+2025-03-05 22:10:38:   '000535.mp4',
+2025-03-05 22:10:38:   '000536.mp4',
+2025-03-05 22:10:38:   '000537.mp4',
+2025-03-05 22:10:38:   'sn.txt'
+2025-03-05 22:10:38: ]
+2025-03-05 22:10:38: 文件 000533.mp4 是否为视频: true
+2025-03-05 22:10:38: 文件 000534.mp4 是否为视频: true
+2025-03-05 22:10:38: 文件 000535.mp4 是否为视频: true
+2025-03-05 22:10:38: 文件 000536.mp4 是否为视频: true
+2025-03-05 22:10:38: 文件 000537.mp4 是否为视频: true
+2025-03-05 22:10:38: 文件 sn.txt 是否为视频: false
+2025-03-05 22:10:38: 从 /var/www/home-photo-vue/data/videos 找到 5 个视频
+2025-03-05 22:10:38: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:10:38: 目录是否存在: true
+2025-03-05 22:10:38: 目录内容: [
+2025-03-05 22:10:38:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:10:38:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:10:38:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:10:38:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:10:38:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:10:38:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:10:38:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:10:38:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:10:38:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:10:38:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:10:38:   'sn.txt'
+2025-03-05 22:10:38: ]
+2025-03-05 22:10:38: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:23:51: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 22:23:51: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 22:23:54: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:23:54: 目录是否存在: true
+2025-03-05 22:23:54: 从 /var/www/home-photo-vue/data/videos 找到 5 个视频
+2025-03-05 22:23:54: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:23:54: 目录是否存在: true
+2025-03-05 22:23:54: 目录内容: [
+2025-03-05 22:23:54:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:23:54:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:23:54:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:23:54:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:23:54:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:23:54:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:23:54:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:23:54:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:23:54:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:23:54:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:23:54:   'sn.txt'
+2025-03-05 22:23:54: ]
+2025-03-05 22:23:54: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:23:54: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:23:54: 目录是否存在: true
+2025-03-05 22:23:54: 目录内容: [
+2025-03-05 22:23:54:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:23:54:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:23:54:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:23:54:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:23:54:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:23:54:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:23:54:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:23:54:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:23:54:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:23:54:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:23:54:   'sn.txt'
+2025-03-05 22:23:54: ]
+2025-03-05 22:23:54: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:23:56: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:23:56: 目录是否存在: true
+2025-03-05 22:23:56: 目录内容: [
+2025-03-05 22:23:56:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:23:56:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:23:56:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:23:56:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:23:56:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:23:56:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:23:56:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:23:56:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:23:56:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:23:56:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:23:56:   'sn.txt'
+2025-03-05 22:23:56: ]
+2025-03-05 22:23:56: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:23:56: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:23:56: 目录是否存在: true
+2025-03-05 22:23:56: 从 /var/www/home-photo-vue/data/videos 找到 5 个视频
+2025-03-05 22:23:56: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:23:56: 目录是否存在: true
+2025-03-05 22:23:56: 目录内容: [
+2025-03-05 22:23:56:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:23:56:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:23:56:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:23:56:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:23:56:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:23:56:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:23:56:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:23:56:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:23:56:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:23:56:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:23:56:   'sn.txt'
+2025-03-05 22:23:56: ]
+2025-03-05 22:23:56: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:24:00: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:24:00: 目录是否存在: true
+2025-03-05 22:24:00: 目录内容: [
+2025-03-05 22:24:00:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:24:00:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:24:00:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:24:00:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:24:00:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:24:00:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:24:00:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:24:00:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:24:00:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:24:00:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:24:00:   'sn.txt'
+2025-03-05 22:24:00: ]
+2025-03-05 22:24:00: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:24:00: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:24:00: 目录是否存在: true
+2025-03-05 22:24:00: 从 /var/www/home-photo-vue/data/videos 找到 5 个视频
+2025-03-05 22:24:00: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:24:00: 目录是否存在: true
+2025-03-05 22:24:00: 目录内容: [
+2025-03-05 22:24:00:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:24:00:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:24:00:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:24:00:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:24:00:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:24:00:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:24:00:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:24:00:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:24:00:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:24:00:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:24:00:   'sn.txt'
+2025-03-05 22:24:00: ]
+2025-03-05 22:24:00: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:24:49: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:24:49: 目录是否存在: true
+2025-03-05 22:24:49: 从 /var/www/home-photo-vue/data/videos 找到 5 个视频
+2025-03-05 22:24:49: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:24:49: 目录是否存在: true
+2025-03-05 22:24:49: 目录内容: [
+2025-03-05 22:24:49:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:24:49:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:24:49:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:24:49:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:24:49:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:24:49:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:24:49:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:24:49:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:24:49:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:24:49:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:24:49:   'sn.txt'
+2025-03-05 22:24:49: ]
+2025-03-05 22:24:49: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:24:49: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:24:49: 目录是否存在: true
+2025-03-05 22:24:49: 目录内容: [
+2025-03-05 22:24:49:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:24:49:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:24:49:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:24:49:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:24:49:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:24:49:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:24:49:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:24:49:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:24:49:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:24:49:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:24:49:   'sn.txt'
+2025-03-05 22:24:49: ]
+2025-03-05 22:24:49: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:24:55: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:24:55: 目录是否存在: true
+2025-03-05 22:24:55: 目录内容: [
+2025-03-05 22:24:55:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:24:55:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:24:55:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:24:55:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:24:55:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:24:55:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:24:55:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:24:55:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:24:55:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:24:55:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:24:55:   'sn.txt'
+2025-03-05 22:24:55: ]
+2025-03-05 22:24:55: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:24:56: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:24:56: 目录是否存在: true
+2025-03-05 22:24:56: 从 /var/www/home-photo-vue/data/videos 找到 5 个视频
+2025-03-05 22:25:03: Socket.IO 客户端已连接: fmtYDaERddcLkeKJAAAB
+2025-03-05 22:25:04: 请求原始视频列表，目录路径: /var/www/home-photo-vue/public/original/videos
+2025-03-05 22:25:04: 找到 5 个待处理视频: [
+2025-03-05 22:25:04:   '8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4',
+2025-03-05 22:25:04:   'CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4',
+2025-03-05 22:25:04:   'P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4',
+2025-03-05 22:25:04:   'P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4',
+2025-03-05 22:25:04:   '刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4'
+2025-03-05 22:25:04: ]
+2025-03-05 22:25:04: 请求读取视频序号，文件路径: /var/www/home-photo-vue/data/videos/sn.txt
+2025-03-05 22:25:04: 请求方法: POST
+2025-03-05 22:25:04: 读取到视频序号: 000538
+2025-03-05 22:25:04: 请求处理视频: 8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4 -> 000538
+2025-03-05 22:25:04: 源路径: /var/www/home-photo-vue/public/original/videos/8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4
+2025-03-05 22:25:04: 目标路径: /var/www/home-photo-vue/data/videos/000538.mp4
+2025-03-05 22:25:04: 缩略图路径: /var/www/home-photo-vue/data/video_thumbnails/000538.jpg
+2025-03-05 22:25:04: 尝试为视频创建缩略图: /var/www/home-photo-vue/data/videos/000538.mp4
+2025-03-05 22:25:04: 执行命令: ffmpeg -i '/var/www/home-photo-vue/data/videos/000538.mp4' -ss 00:00:01 -vframes 1 -s 320x240 -f image2 '/var/www/home-photo-vue/data/video_thumbnails/000538.jpg' -y
+2025-03-05 22:25:04: 使用 FFmpeg 创建视频缩略图成功
+2025-03-05 22:25:04: 视频缩略图创建成功
+2025-03-05 22:25:04: 已删除原始视频文件: /var/www/home-photo-vue/public/original/videos/8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4
+2025-03-05 22:25:04: 处理视频成功: 8K珊瑚礁水下生物-8K宝库-BV1no4y1X7PC-hPUTK4NYoR8192Wm.mp4 -> 000538.mp4
+2025-03-05 22:25:04: 请求处理视频: CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4 -> 000539
+2025-03-05 22:25:04: 源路径: /var/www/home-photo-vue/public/original/videos/CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4
+2025-03-05 22:25:04: 目标路径: /var/www/home-photo-vue/data/videos/000539.mp4
+2025-03-05 22:25:04: 缩略图路径: /var/www/home-photo-vue/data/video_thumbnails/000539.jpg
+2025-03-05 22:25:04: 尝试为视频创建缩略图: /var/www/home-photo-vue/data/videos/000539.mp4
+2025-03-05 22:25:04: 执行命令: ffmpeg -i '/var/www/home-photo-vue/data/videos/000539.mp4' -ss 00:00:01 -vframes 1 -s 320x240 -f image2 '/var/www/home-photo-vue/data/video_thumbnails/000539.jpg' -y
+2025-03-05 22:25:05: 使用 FFmpeg 创建视频缩略图成功
+2025-03-05 22:25:05: 视频缩略图创建成功
+2025-03-05 22:25:05: 已删除原始视频文件: /var/www/home-photo-vue/public/original/videos/CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4
+2025-03-05 22:25:05: 处理视频成功: CS2还没有刀吗教你白嫖M9刺刀渐变大理石的方法-榴莲味的小芒果呢-BV1iJAyeUEND-MUSIAyAHDPScHzP5.mp4 -> 000539.mp4
+2025-03-05 22:25:05: 请求处理视频: P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4 -> 000540
+2025-03-05 22:25:05: 源路径: /var/www/home-photo-vue/public/original/videos/P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4
+2025-03-05 22:25:05: 目标路径: /var/www/home-photo-vue/data/videos/000540.mp4
+2025-03-05 22:25:05: 缩略图路径: /var/www/home-photo-vue/data/video_thumbnails/000540.jpg
+2025-03-05 22:25:05: 尝试为视频创建缩略图: /var/www/home-photo-vue/data/videos/000540.mp4
+2025-03-05 22:25:05: 执行命令: ffmpeg -i '/var/www/home-photo-vue/data/videos/000540.mp4' -ss 00:00:01 -vframes 1 -s 320x240 -f image2 '/var/www/home-photo-vue/data/video_thumbnails/000540.jpg' -y
+2025-03-05 22:25:05: 使用 FFmpeg 创建视频缩略图成功
+2025-03-05 22:25:05: 视频缩略图创建成功
+2025-03-05 22:25:05: 已删除原始视频文件: /var/www/home-photo-vue/public/original/videos/P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4
+2025-03-05 22:25:05: 处理视频成功: P1RelaxingWalkintheRainUmbrellaandNatureSoundsforSleepandRelaxation4-Victor555666-BV1g4411y7Sv-2wbfHmrJHOUPuArJ.mp4 -> 000540.mp4
+2025-03-05 22:25:05: 请求处理视频: P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4 -> 000541
+2025-03-05 22:25:05: 源路径: /var/www/home-photo-vue/public/original/videos/P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4
+2025-03-05 22:25:05: 目标路径: /var/www/home-photo-vue/data/videos/000541.mp4
+2025-03-05 22:25:05: 缩略图路径: /var/www/home-photo-vue/data/video_thumbnails/000541.jpg
+2025-03-05 22:25:05: 尝试为视频创建缩略图: /var/www/home-photo-vue/data/videos/000541.mp4
+2025-03-05 22:25:05: 执行命令: ffmpeg -i '/var/www/home-photo-vue/data/videos/000541.mp4' -ss 00:00:01 -vframes 1 -s 320x240 -f image2 '/var/www/home-photo-vue/data/video_thumbnails/000541.jpg' -y
+2025-03-05 22:25:05: 使用 FFmpeg 创建视频缩略图成功
+2025-03-05 22:25:05: 视频缩略图创建成功
+2025-03-05 22:25:05: 已删除原始视频文件: /var/www/home-photo-vue/public/original/videos/P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4
+2025-03-05 22:25:05: 处理视频成功: P24K版久违了-Victor555666-BV1g4411y7Sv-mfSLRcGGEhPPI4cE.mp4 -> 000541.mp4
+2025-03-05 22:25:05: 请求处理视频: 刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4 -> 000542
+2025-03-05 22:25:05: 源路径: /var/www/home-photo-vue/public/original/videos/刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4
+2025-03-05 22:25:05: 目标路径: /var/www/home-photo-vue/data/videos/000542.mp4
+2025-03-05 22:25:05: 缩略图路径: /var/www/home-photo-vue/data/video_thumbnails/000542.jpg
+2025-03-05 22:25:05: 尝试为视频创建缩略图: /var/www/home-photo-vue/data/videos/000542.mp4
+2025-03-05 22:25:05: 执行命令: ffmpeg -i '/var/www/home-photo-vue/data/videos/000542.mp4' -ss 00:00:01 -vframes 1 -s 320x240 -f image2 '/var/www/home-photo-vue/data/video_thumbnails/000542.jpg' -y
+2025-03-05 22:25:05: 使用 FFmpeg 创建视频缩略图成功
+2025-03-05 22:25:05: 视频缩略图创建成功
+2025-03-05 22:25:05: 已删除原始视频文件: /var/www/home-photo-vue/public/original/videos/刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4
+2025-03-05 22:25:05: 处理视频成功: 刚学会CS2开箱玄学就出货0026%概率的粉色AK47非酋的我在屏幕前当场泪崩真实伤害-野牛面前众生平等-BV1MRPKeNEuh-s6N0nHWeZnKGM3uJ.mp4 -> 000542.mp4
+2025-03-05 22:25:05: 请求写入视频序号: 000543
+2025-03-05 22:25:05: 写入视频序号成功: 000543
+2025-03-05 22:25:06: Socket.IO 客户端已断开: fmtYDaERddcLkeKJAAAB
+2025-03-05 22:25:06: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:25:06: 目录是否存在: true
+2025-03-05 22:25:06: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:25:08: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:25:08: 目录是否存在: true
+2025-03-05 22:25:08: 目录内容: [
+2025-03-05 22:25:08:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:25:08:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:25:08:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:25:08:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:25:08:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:25:08:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:25:08:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:25:08:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:25:08:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:25:08:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:25:08:   'sn.txt'
+2025-03-05 22:25:08: ]
+2025-03-05 22:25:08: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:25:08: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:25:08: 目录是否存在: true
+2025-03-05 22:25:08: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:25:08: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:25:08: 目录是否存在: true
+2025-03-05 22:25:08: 目录内容: [
+2025-03-05 22:25:08:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:25:08:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:25:08:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:25:08:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:25:08:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:25:08:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:25:08:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:25:08:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:25:08:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:25:08:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:25:08:   'sn.txt'
+2025-03-05 22:25:08: ]
+2025-03-05 22:25:08: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:25:08: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:25:08: 目录是否存在: true
+2025-03-05 22:25:08: 目录内容: [
+2025-03-05 22:25:08:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:25:08:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:25:08:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:25:08:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:25:08:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:25:08:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:25:08:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:25:08:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:25:08:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:25:08:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:25:08:   'sn.txt'
+2025-03-05 22:25:08: ]
+2025-03-05 22:25:08: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:34:22: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 22:34:22: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 22:34:25: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:34:25: 目录是否存在: true
+2025-03-05 22:34:25: 目录内容: [
+2025-03-05 22:34:25:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:34:25:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:34:25:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:34:25:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:34:25:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:34:25:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:34:25:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:34:25:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:34:25:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:34:25:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:34:25:   'sn.txt'
+2025-03-05 22:34:25: ]
+2025-03-05 22:34:25: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:34:25: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:34:25: 目录是否存在: true
+2025-03-05 22:34:25: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:34:25: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:34:25: 目录是否存在: true
+2025-03-05 22:34:25: 目录内容: [
+2025-03-05 22:34:25:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:34:25:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:34:25:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:34:25:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:34:25:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:34:25:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:34:25:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:34:25:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:34:25:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:34:25:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:34:25:   'sn.txt'
+2025-03-05 22:34:25: ]
+2025-03-05 22:34:25: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:34:27: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:34:27: 目录是否存在: true
+2025-03-05 22:34:27: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:34:27: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:34:27: 目录是否存在: true
+2025-03-05 22:34:27: 目录内容: [
+2025-03-05 22:34:27:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:34:27:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:34:27:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:34:27:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:34:27:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:34:27:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:34:27:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:34:27:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:34:27:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:34:27:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:34:27:   'sn.txt'
+2025-03-05 22:34:27: ]
+2025-03-05 22:34:27: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:34:27: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:34:27: 目录是否存在: true
+2025-03-05 22:34:27: 目录内容: [
+2025-03-05 22:34:27:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:34:27:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:34:27:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:34:27:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:34:27:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:34:27:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:34:27:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:34:27:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:34:27:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:34:27:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:34:27:   'sn.txt'
+2025-03-05 22:34:27: ]
+2025-03-05 22:34:27: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:34:31: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:34:31: 目录是否存在: true
+2025-03-05 22:34:31: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:34:31: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:34:31: 目录是否存在: true
+2025-03-05 22:34:31: 目录内容: [
+2025-03-05 22:34:31:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:34:31:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:34:31:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:34:31:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:34:31:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:34:31:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:34:31:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:34:31:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:34:31:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:34:31:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:34:31:   'sn.txt'
+2025-03-05 22:34:31: ]
+2025-03-05 22:34:31: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:34:31: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:34:31: 目录是否存在: true
+2025-03-05 22:34:31: 目录内容: [
+2025-03-05 22:34:31:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:34:31:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:34:31:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:34:31:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:34:31:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:34:31:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:34:31:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:34:31:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:34:31:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:34:31:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:34:31:   'sn.txt'
+2025-03-05 22:34:31: ]
+2025-03-05 22:34:31: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:34:32: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:34:32: 目录是否存在: true
+2025-03-05 22:34:32: 目录内容: [
+2025-03-05 22:34:32:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:34:32:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:34:32:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:34:32:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:34:32:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:34:32:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:34:32:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:34:32:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:34:32:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:34:32:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:34:32:   'sn.txt'
+2025-03-05 22:34:32: ]
+2025-03-05 22:34:32: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:34:33: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:34:33: 目录是否存在: true
+2025-03-05 22:34:33: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:34:34: Socket.IO 客户端已连接: Ycz6cX07e02zglXJAAAB
+2025-03-05 22:34:35: Socket.IO 客户端已断开: Ycz6cX07e02zglXJAAAB
+2025-03-05 22:34:35: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:34:35: 目录是否存在: true
+2025-03-05 22:34:35: 目录内容: [
+2025-03-05 22:34:35:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:34:35:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:34:35:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:34:35:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:34:35:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:34:35:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:34:35:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:34:35:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:34:35:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:34:35:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:34:35:   'sn.txt'
+2025-03-05 22:34:35: ]
+2025-03-05 22:34:35: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:34:35: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:34:35: 目录是否存在: true
+2025-03-05 22:34:35: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:34:35: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:34:35: 目录是否存在: true
+2025-03-05 22:34:35: 目录内容: [
+2025-03-05 22:34:35:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:34:35:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:34:35:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:34:35:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:34:35:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:34:35:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:34:35:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:34:35:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:34:35:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:34:35:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:34:35:   'sn.txt'
+2025-03-05 22:34:35: ]
+2025-03-05 22:34:35: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:35:29: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:35:29: 目录是否存在: true
+2025-03-05 22:35:29: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:35:29: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:35:29: 目录是否存在: true
+2025-03-05 22:35:29: 目录内容: [
+2025-03-05 22:35:29:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:35:29:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:35:29:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:35:29:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:35:29:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:35:29:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:35:29:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:35:29:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:35:29:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:35:29:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:35:29:   'sn.txt'
+2025-03-05 22:35:29: ]
+2025-03-05 22:35:29: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:35:29: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:35:29: 目录是否存在: true
+2025-03-05 22:35:29: 目录内容: [
+2025-03-05 22:35:29:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:35:29:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:35:29:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:35:29:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:35:29:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:35:29:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:35:29:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:35:29:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:35:29:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:35:29:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:35:29:   'sn.txt'
+2025-03-05 22:35:29: ]
+2025-03-05 22:35:29: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:35:34: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:35:34: 目录是否存在: true
+2025-03-05 22:35:34: 目录内容: [
+2025-03-05 22:35:34:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:35:34:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:35:34:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:35:34:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:35:34:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:35:34:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:35:34:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:35:34:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:35:34:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:35:34:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:35:34:   'sn.txt'
+2025-03-05 22:35:34: ]
+2025-03-05 22:35:34: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:35:34: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:35:34: 目录是否存在: true
+2025-03-05 22:35:34: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:35:34: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:35:34: 目录是否存在: true
+2025-03-05 22:35:34: 目录内容: [
+2025-03-05 22:35:34:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:35:34:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:35:34:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:35:34:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:35:34:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:35:34:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:35:34:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:35:34:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:35:34:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:35:34:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:35:34:   'sn.txt'
+2025-03-05 22:35:34: ]
+2025-03-05 22:35:34: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:42:09: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 22:42:09: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 22:42:12: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:42:12: 目录是否存在: true
+2025-03-05 22:42:12: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:42:12: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:42:12: 目录是否存在: true
+2025-03-05 22:42:12: 目录内容: [
+2025-03-05 22:42:12:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:42:12:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:42:12:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:42:12:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:42:12:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:42:12:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:42:12:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:42:12:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:42:12:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:42:12:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:42:12:   'sn.txt'
+2025-03-05 22:42:12: ]
+2025-03-05 22:42:12: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:42:13: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:42:13: 目录是否存在: true
+2025-03-05 22:42:13: 目录内容: [
+2025-03-05 22:42:13:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:42:13:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:42:13:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:42:13:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:42:13:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:42:13:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:42:13:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:42:13:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:42:13:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:42:13:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:42:13:   'sn.txt'
+2025-03-05 22:42:13: ]
+2025-03-05 22:42:13: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:42:14: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:42:14: 目录是否存在: true
+2025-03-05 22:42:14: 目录内容: [
+2025-03-05 22:42:14:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:42:14:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:42:14:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:42:14:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:42:14:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:42:14:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:42:14:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:42:14:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:42:14:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:42:14:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:42:14:   'sn.txt'
+2025-03-05 22:42:14: ]
+2025-03-05 22:42:14: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:42:14: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:42:14: 目录是否存在: true
+2025-03-05 22:42:14: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:42:14: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:42:14: 目录是否存在: true
+2025-03-05 22:42:14: 目录内容: [
+2025-03-05 22:42:14:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:42:14:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:42:14:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:42:14:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:42:14:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:42:14:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:42:14:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:42:14:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:42:14:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:42:14:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:42:14:   'sn.txt'
+2025-03-05 22:42:14: ]
+2025-03-05 22:42:14: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:42:17: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:42:17: 目录是否存在: true
+2025-03-05 22:42:17: 目录内容: [
+2025-03-05 22:42:17:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:42:17:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:42:17:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:42:17:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:42:17:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:42:17:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:42:17:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:42:17:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:42:17:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:42:17:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:42:17:   'sn.txt'
+2025-03-05 22:42:17: ]
+2025-03-05 22:42:17: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:42:17: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:42:17: 目录是否存在: true
+2025-03-05 22:42:17: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:42:17: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:42:17: 目录是否存在: true
+2025-03-05 22:42:17: 目录内容: [
+2025-03-05 22:42:17:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:42:17:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:42:17:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:42:17:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:42:17:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:42:17:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:42:17:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:42:17:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:42:17:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:42:17:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:42:17:   'sn.txt'
+2025-03-05 22:42:17: ]
+2025-03-05 22:42:17: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:45:00: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:45:00: 目录是否存在: true
+2025-03-05 22:45:00: 目录内容: [
+2025-03-05 22:45:00:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:45:00:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:45:00:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:45:00:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:45:00:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:45:00:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:45:00:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:45:00:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:45:00:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:45:00:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:45:00:   'sn.txt'
+2025-03-05 22:45:00: ]
+2025-03-05 22:45:00: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:45:00: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:45:00: 目录是否存在: true
+2025-03-05 22:45:00: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:45:00: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:45:00: 目录是否存在: true
+2025-03-05 22:45:00: 目录内容: [
+2025-03-05 22:45:00:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:45:00:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:45:00:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:45:00:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:45:00:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:45:00:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:45:00:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:45:00:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:45:00:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:45:00:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:45:00:   'sn.txt'
+2025-03-05 22:45:00: ]
+2025-03-05 22:45:00: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:45:01: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:45:01: 目录是否存在: true
+2025-03-05 22:45:01: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:45:01: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:45:01: 目录是否存在: true
+2025-03-05 22:45:01: 目录内容: [
+2025-03-05 22:45:01:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:45:01:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:45:01:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:45:01:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:45:01:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:45:01:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:45:01:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:45:01:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:45:01:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:45:01:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:45:01:   'sn.txt'
+2025-03-05 22:45:01: ]
+2025-03-05 22:45:01: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:45:01: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:45:01: 目录是否存在: true
+2025-03-05 22:45:01: 目录内容: [
+2025-03-05 22:45:01:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:45:01:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:45:01:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:45:01:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:45:01:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:45:01:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:45:01:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:45:01:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:45:01:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:45:01:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:45:01:   'sn.txt'
+2025-03-05 22:45:01: ]
+2025-03-05 22:45:01: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:45:17: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:45:17: 目录是否存在: true
+2025-03-05 22:45:17: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:45:17: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:45:17: 目录是否存在: true
+2025-03-05 22:45:17: 目录内容: [
+2025-03-05 22:45:17:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:45:17:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:45:17:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:45:17:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:45:17:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:45:17:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:45:17:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:45:17:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:45:17:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:45:17:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:45:17:   'sn.txt'
+2025-03-05 22:45:17: ]
+2025-03-05 22:45:17: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:45:17: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:45:17: 目录是否存在: true
+2025-03-05 22:45:17: 目录内容: [
+2025-03-05 22:45:17:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:45:17:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:45:17:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:45:17:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:45:17:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:45:17:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:45:17:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:45:17:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:45:17:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:45:17:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:45:17:   'sn.txt'
+2025-03-05 22:45:17: ]
+2025-03-05 22:45:17: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:45:20: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:45:20: 目录是否存在: true
+2025-03-05 22:45:20: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:45:20: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:45:20: 目录是否存在: true
+2025-03-05 22:45:20: 目录内容: [
+2025-03-05 22:45:20:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:45:20:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:45:20:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:45:20:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:45:20:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:45:20:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:45:20:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:45:20:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:45:20:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:45:20:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:45:20:   'sn.txt'
+2025-03-05 22:45:20: ]
+2025-03-05 22:45:20: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:45:20: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:45:20: 目录是否存在: true
+2025-03-05 22:45:20: 目录内容: [
+2025-03-05 22:45:20:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:45:20:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:45:20:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:45:20:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:45:20:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:45:20:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:45:20:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:45:20:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:45:20:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:45:20:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:45:20:   'sn.txt'
+2025-03-05 22:45:20: ]
+2025-03-05 22:45:20: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:45:21: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:45:21: 目录是否存在: true
+2025-03-05 22:45:21: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:45:22: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:45:22: 目录是否存在: true
+2025-03-05 22:45:22: 目录内容: [
+2025-03-05 22:45:22:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:45:22:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:45:22:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:45:22:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:45:22:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:45:22:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:45:22:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:45:22:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:45:22:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:45:22:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:45:22:   'sn.txt'
+2025-03-05 22:45:22: ]
+2025-03-05 22:45:22: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:45:25: Socket.IO 客户端已连接: YPdbd3toDDfsFHJYAAAB
+2025-03-05 22:45:26: Socket.IO 客户端已断开: YPdbd3toDDfsFHJYAAAB
+2025-03-05 22:45:26: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:45:26: 目录是否存在: true
+2025-03-05 22:45:26: 目录内容: [
+2025-03-05 22:45:26:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:45:26:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:45:26:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:45:26:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:45:26:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:45:26:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:45:26:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:45:26:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:45:26:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:45:26:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:45:26:   'sn.txt'
+2025-03-05 22:45:26: ]
+2025-03-05 22:45:26: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:45:26: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos
+2025-03-05 22:45:26: 目录是否存在: true
+2025-03-05 22:45:26: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频
+2025-03-05 22:45:26: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:45:26: 目录是否存在: true
+2025-03-05 22:45:26: 目录内容: [
+2025-03-05 22:45:26:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:45:26:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:45:26:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:45:26:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:45:26:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:45:26:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:45:26:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:45:26:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:45:26:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:45:26:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:45:26:   'sn.txt'
+2025-03-05 22:45:26: ]
+2025-03-05 22:45:26: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:47:03: 服务器运行在 http://0.0.0.0:3000
+2025-03-05 22:47:03: 照片目录: /var/www/home-photo-vue/data/photos
+2025-03-05 22:47:13: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:47:13: 目录是否存在: true
+2025-03-05 22:47:13: 目录内容: [
+2025-03-05 22:47:13:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:47:13:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:47:13:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:47:13:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:47:13:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:47:13:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:47:13:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:47:13:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:47:13:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:47:13:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:47:13:   'sn.txt'
+2025-03-05 22:47:13: ]
+2025-03-05 22:47:13: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:47:13: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos 限制: undefined
+2025-03-05 22:47:13: 目录是否存在: true
+2025-03-05 22:47:13: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频，返回 10 个视频
+2025-03-05 22:47:13: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:47:13: 目录是否存在: true
+2025-03-05 22:47:13: 目录内容: [
+2025-03-05 22:47:13:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:47:13:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:47:13:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:47:13:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:47:13:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:47:13:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:47:13:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:47:13:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:47:13:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:47:13:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:47:13:   'sn.txt'
+2025-03-05 22:47:13: ]
+2025-03-05 22:47:13: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:47:14: 请求视频 API，目录路径: /var/www/home-photo-vue/data/videos 限制: undefined
+2025-03-05 22:47:14: 目录是否存在: true
+2025-03-05 22:47:14: 从 /var/www/home-photo-vue/data/videos 找到 10 个视频，返回 10 个视频
+2025-03-05 22:47:14: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:47:14: 目录是否存在: true
+2025-03-05 22:47:14: 目录内容: [
+2025-03-05 22:47:14:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:47:14:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:47:14:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:47:14:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:47:14:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:47:14:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:47:14:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:47:14:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:47:14:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:47:14:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:47:14:   'sn.txt'
+2025-03-05 22:47:14: ]
+2025-03-05 22:47:14: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片
+2025-03-05 22:47:14: 请求照片 API，目录路径: /var/www/home-photo-vue/data/photos
+2025-03-05 22:47:14: 目录是否存在: true
+2025-03-05 22:47:14: 目录内容: [
+2025-03-05 22:47:14:   '001589.jpg', '001590.jpg', '001591.jpg',
+2025-03-05 22:47:14:   '001592.jpg', '001593.jpg', '001594.jpg',
+2025-03-05 22:47:14:   '001595.jpg', '001596.jpg', '001597.jpg',
+2025-03-05 22:47:14:   '001598.jpg', '001599.jpg', '001600.jpg',
+2025-03-05 22:47:14:   '001601.jpg', '001602.jpg', '001603.jpg',
+2025-03-05 22:47:14:   '001604.jpg', '001605.jpg', '001606.jpg',
+2025-03-05 22:47:14:   '001607.jpg', '001608.jpg', '001609.jpg',
+2025-03-05 22:47:14:   '001610.jpg', '001611.jpg', '001612.jpg',
+2025-03-05 22:47:14:   '001613.jpg', '001614.jpg', '001615.jpg',
+2025-03-05 22:47:14:   '001616.jpg', '001617.jpg', '001618.jpg',
+2025-03-05 22:47:14:   'sn.txt'
+2025-03-05 22:47:14: ]
+2025-03-05 22:47:14: 从 /var/www/home-photo-vue/data/photos 找到 30 张照片

@@ -2,8 +2,11 @@
 
 这是一个使用 Vue.js 构建的家庭照片与视频网站应用。该应用允许用户查看和管理家庭照片和视频。
 
+# 网站展视 [http://home.szgody.site](http://home.szgody.site)
+
 ## 项目结构
 
+```plaintext
 home-photo-vue/
 ├── backend/
 │   ├── src/
@@ -19,6 +22,7 @@ home-photo-vue/
     └── videos/
         ├── original/    # 原始视频
         └── processed/   # 处理后的视频
+```
 
 - `public/index.html`: 应用的主 HTML 文件，作为 Vue 应用的入口点。
 - `src/assets/styles/main.css`: 应用的主要样式文件。
@@ -35,11 +39,13 @@ home-photo-vue/
 - `package.json`: 包含项目的元数据，包括依赖项、脚本和项目配置。
 - `vite.config.js`: 包含 Vite 的配置，Vite 是用于该项目的构建工具。
 
+
+
 ## 安装与运行
 
 1. 克隆该项目：
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/szgody/homePhotosVideos.git
    ```
 
 2. 进入项目目录：
@@ -56,5 +62,3 @@ home-photo-vue/
    ```bash
    npm run dev
    ```
-
-访问 `http://localhost:3000` 查看应用。

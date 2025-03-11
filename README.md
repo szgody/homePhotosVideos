@@ -3,6 +3,15 @@
 ## 网站演示
 [在线体验](http://110.40.168.84:8081/)
 
+## 目录
+
+- [功能特点](#功能特点)
+- [项目结构](#项目结构)
+- [主要组件](#主要组件)
+- [安装说明](#安装说明)
+- [运行应用](#运行应用)
+- [部署](#部署)
+
 ## 功能特点
 - 📷 照片库浏览与管理
 - 🎬 视频库浏览与播放
@@ -121,3 +130,33 @@ pm2 start ecosystem.config.js
 通过 .env.local 或 .env.production 文件配置应用:
 
 - `VITE_API_URL`: API 服务器地址 (例如 http://localhost:3000)
+
+## 技术栈
+
+- 前端: Vue.js, Vite
+- 后端: Node.js, Express
+- 数据处理: FFmpeg
+- 部署: PM2
+
+## 网页截图
+index
+![Image](https://github.com/user-attachments/assets/b4f315ab-ac8f-41f7-9d41-8cc1fdf802b6)
+
+photos
+![Image](https://github.com/user-attachments/assets/f5b97c09-b20b-4088-ae0f-469067e7d3f7)
+
+videos
+![Image](https://github.com/user-attachments/assets/ef5f9263-f24d-48e9-a23e-7c28cb28be7e)
+
+processing
+![Image](https://github.com/user-attachments/assets/d8bf91d2-16fe-4559-91f8-13aaa28dfc61)
+
+processing_photos
+![Image](https://github.com/user-attachments/assets/5a2e5893-187c-414e-a1ab-1ec2c0b69746)
+
+processing_videos
+![Image](https://github.com/user-attachments/assets/47c67020-6710-41bb-bb21-1525ca02682a)
+
+## 许可证
+
+本项目采用 MIT 许可证 - 详情请查看 [LICENSE](LICENSE) 文件

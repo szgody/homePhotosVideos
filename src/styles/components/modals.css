@@ -1,0 +1,148 @@
+/* 通用遮罩层样式 */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 常规遮罩层样式 General overlay styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 模态框容器 */
+.modal-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 容器通用样式 Container common styles */
+.modal-container {
+  position: relative;
+  max-width: 80%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* 视频遮罩层样式 Video overlay styles */
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 照片预览遮罩层 Photo preview overlay */
+.preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* 视频容器样式 Video container styles */
+.video-container {
+  position: relative;
+  width: 80%;
+  max-width: 1000px;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* 照片预览容器样式 */
+.preview-container {
+  position: relative;
+  max-width: 80vw;
+  max-height: 80vh;
+  background: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 确认对话框遮罩层 */
+.confirm-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 确认对话框 */
+.confirm-dialog {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  min-width: 300px;
+  max-width: 90%;
+}
+
+.confirm-dialog h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.confirm-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* 响应式样式 */
+@media (max-width: 768px) {
+  .modal-container,
+  .video-container {
+    width: 95%;
+  }
+
+  .preview-container {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+}

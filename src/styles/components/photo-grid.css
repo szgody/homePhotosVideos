@@ -1,0 +1,139 @@
+/* 照片容器样式 Photo container styles */
+.photo-container {
+  margin-bottom: 20px;    /* 底部外边距 Bottom margin */
+}
+
+/* 照片信息样式 Photo information styles */
+.photo-info {
+  font-size: 14px;        /* 字体大小 Font size */
+  color: #666;            /* 文字颜色 Text color */
+  margin-bottom: 10px;    /* 底部外边距 Bottom margin */
+  padding-left: 10px;     /* 左侧内边距 Left padding */
+}
+
+/* 照片网格样式 Photo grid styles */
+.photo-grid {
+  display: flex;          /* 弹性布局 Flex layout */
+  flex-direction: row;    /* 横向排列 Horizontal arrangement */
+  align-items: center;    /* 垂直居中 Vertical center */
+  white-space: nowrap;    /* 不换行 No wrapping */
+  font-size: 0;          /* 消除间距 Remove spacing */
+  line-height: 0;        /* 行高为0 Zero line height */
+  letter-spacing: 0;     /* 字间距为0 Zero letter spacing */
+  word-spacing: 0;       /* 词间距为0 Zero word spacing */
+  margin-bottom: 20px;   /* 底部外边距 Bottom margin */
+}
+
+/* 照片项目样式 Photo item styles */
+.photo-item {
+  display: inline-block;  /* 内联块级显示 Inline block display */
+  width: 60px;           /* 照片宽度 Photo width */
+  height: 60px;          /* 照片高度 Photo height */
+  margin: 0;             /* 外边距为0 Zero margin */
+  padding: 0;            /* 内边距为0 Zero padding */
+  border: none;          /* 无边框 No border */
+  vertical-align: top;   /* 顶部对齐 Top alignment */
+  cursor: pointer;       /* 鼠标指针样式 Cursor style */
+  transition: transform 0.2s; /* 变换过渡效果 Transform transition */
+}
+
+/* 照片项目悬停效果 Photo item hover effect */
+.photo-item:hover {
+  transform: scale(1.05); /* 放大效果 Scale up effect */
+}
+
+/* 缩略图样式 Thumbnail styles */
+.thumbnail-photo {
+  width: 100%;           /* 宽度100% Full width */
+  height: 100%;          /* 高度100% Full height */
+  object-fit: cover;     /* 保持图片比例 Maintain aspect ratio */
+  display: block;        /* 块级显示 Block display */
+  margin: 0 10px 0 0;    /* 右侧外边距 Right margin */
+  padding: 0;            /* 内边距为0 Zero padding */
+}
+
+/* 隐藏滚动条 Hide scrollbar */
+.photo-grid::-webkit-scrollbar {
+  display: none;         /* 不显示滚动条 Hide scrollbar */
+}
+
+/* 预览遮罩层样式 Preview overlay styles */
+.preview-overlay {
+  position: fixed;      /* 固定定位 Fixed positioning */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9); /* 半透明背景 Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;       /* 层级 Z-index */
+  padding: 20px;       /* 添加内边距 Add padding */
+}
+
+/* 预览容器样式 Preview container styles */
+.preview-container {
+  position: relative;   /* 相对定位 Relative positioning */
+  max-width: 80vw;     /* 最大宽度为视窗宽度的80% Max width 80% of viewport width */
+  max-height: 80vh;    /* 最大高度为视窗高度的80% Max height 80% of viewport height */
+  background: transparent;  /* 背景透明 Transparent background */
+  border-radius: 8px;  /* 圆角边框 Rounded corners */
+  overflow: hidden;    /* 隐藏溢出内容 Hide overflow */
+  display: flex;       /* 使用弹性布局 Use flexbox */
+  align-items: center; /* 垂直居中 Center vertically */
+  justify-content: center; /* 水平居中 Center horizontally */
+}
+
+/* 大图样式 Featured image styles */
+.featured-image {
+  max-width: 100%;     /* 最大宽度为容器的100% Max width 100% of container */
+  max-height: 80vh;    /* 最大高度为视窗高度的80% Max height 80% of viewport */
+  object-fit: contain; /* 保持纵横比 Maintain aspect ratio */
+  display: block;      /* 作为块级元素显示 Display as block */
+  border-radius: 4px;  /* 圆角边框 Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 阴影效果 Shadow effect */
+}
+
+/* 关闭按钮样式 Close button styles */
+.close-button {
+  position: absolute;   /* 绝对定位 Absolute positioning */
+  top: 10px;           /* 调整位置 Adjust position */
+  right: 10px;         /* 调整位置 Adjust position */
+  width: 36px;         /* 增大按钮尺寸 Increase button size */
+  height: 36px;        /* 增大按钮尺寸 Increase button size */
+  border-radius: 50%;  /* 圆形按钮 Circular button */
+  border: none;
+  background: rgba(255, 255, 255, 0.8); /* 半透明背景 Semi-transparent background */
+  color: #333;
+  font-size: 24px;     /* 增大字体 Increase font size */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 按钮阴影 Button shadow */
+  z-index: 1001;       /* 确保在最上层 Ensure it's on top */
+}
+
+/* 关闭按钮悬停效果 Close button hover effect */
+.close-button:hover {
+  background: #fff;   /* 悬停时完全不透明 Fully opaque on hover */
+  transform: scale(1.1); /* 轻微放大效果 Slightly scale up */
+}
+
+/* 添加响应式设计 Add responsive design */
+@media (max-width: 768px) {
+  .preview-container {
+    max-width: 95vw;   /* 在移动设备上最大宽度为视窗的95% Wider on mobile */
+    max-height: 95vh;  /* 在移动设备上最大高度为视窗的95% Taller on mobile */
+  }
+  
+  .featured-image {
+    max-height: 95vh;  /* 在移动设备上最大高度为视窗的95% Taller on mobile */
+  }
+  
+  .close-button {
+    top: 5px;
+    right: 5px;
+  }
+}

@@ -1,0 +1,153 @@
+/* 标题样式 Heading styles */
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+  margin: 0.5em 0;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+/* 段落样式 Paragraph styles */
+p {
+  margin: 0.5em 0;
+  line-height: 1.6;
+}
+
+/* 链接样式 Link styles */
+a {
+  color: #42b983;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #36a76f;
+  text-decoration: underline;
+}
+
+/* 强调文本 Emphasized text */
+em {
+  font-style: italic;
+}
+
+/* 加粗文本 Bold text */
+strong {
+  font-weight: 700;
+}
+
+/* 引用样式 Quote styles */
+blockquote {
+  border-left: 4px solid #ccc;
+  margin-left: 0;
+  padding-left: 1em;
+  color: #666;
+}
+
+/* 代码样式 Code styles */
+code {
+  font-family: monospace;
+  background-color: #f5f5f5;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+/* 预格式化文本 Pre-formatted text */
+pre {
+  background-color: #f5f5f5;
+  padding: 1em;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+/* 列表样式 List styles */
+ul, ol {
+  padding-left: 20px;
+  margin: 1em 0;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* 部分标题样式 Section title styles */
+.section-title {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0;
+  padding-left: 10px;
+  border-left: 3px solid #42b983;
+}
+
+/* 较小部分标题 Small section title */
+.section-title-small {
+  font-size: 16px;
+}
+
+/* 较大部分标题 Large section title */
+.section-title-large {
+  font-size: 20px;
+}
+
+/* 文本对齐 Text alignment */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+/* 文本颜色 Text colors */
+.text-primary {
+  color: #42b983;
+}
+
+.text-secondary {
+  color: #2c3e50;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+.text-warning {
+  color: #ffc107;
+}
+
+.text-success {
+  color: #28a745;
+}
+
+/* 响应式字体大小调整 Responsive typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+}

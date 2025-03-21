@@ -1,0 +1,106 @@
+# 家庭照片与视频网站 Nginx 配置模板
+# 使用前请替换所有 <PROJECT_ROOT> 为实际安装路径
+# 使用前请替换 <YOUR_DOMAIN> 为实际域名或IP地址
+
+server {
+    listen 80;
+    server_name <YOUR_DOMAIN>;
+
+    # 日志配置
+    access_log /var/log/nginx/home-photo-access.log;
+    error_log /var/log/nginx/home-photo-error.log;
+
+    # 前端静态文件
+    root <PROJECT_ROOT>/dist;
+    index index.html;
+
+    # 静态资源缓存策略
+    location ~* \.(jpg|jpeg|png|gif|ico|css|js|svg)$ {
+        expires 30d;
+        add_header Cache-Control "public, no-transform";
+    }
+
+    # API 代理
+    location /api {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_cache_bypass $http_upgrade;
+        
+        # 超时设置
+        proxy_connect_timeout 300s;
+        proxy_send_timeout 300s;
+        proxy_read_timeout 300s;
+        
+        # 缓冲区设置
+        proxy_buffering on;
+        proxy_buffer_size 128k;
+        proxy_buffers 4 256k;
+        proxy_busy_buffers_size 256k;
+        
+        # 请求体大小限制
+        client_max_body_size 50M;
+    }
+
+    # 静态媒体文件代理
+    location /photos/ {
+        proxy_pass http://127.0.0.1:3000/data/photos/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        client_max_body_size 100M;
+    }
+
+    location /photo_thumbnails/ {
+        proxy_pass http://127.0.0.1:3000/data/photo_thumbnails/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        expires 7d;
+        add_header Cache-Control "public, no-transform";
+    }
+
+    location /videos/ {
+        proxy_pass http://127.0.0.1:3000/data/videos/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        client_max_body_size 500M;
+    }
+
+    location /video_thumbnails/ {
+        proxy_pass http://127.0.0.1:3000/data/video_thumbnails/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        expires 7d;
+        add_header Cache-Control "public, no-transform";
+    }
+
+    # Socket.io 支持
+    location /socket.io/ {
+        proxy_pass http://127.0.0.1:3000/socket.io/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+    }
+
+    # 处理前端路由 - SPA 应用需要
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # 安全设置
+    add_header X-Content-Type-Options nosniff;
+    add_header X-Frame-Options SAMEORIGIN;
+    add_header X-XSS-Protection "1; mode=block";
+
+    # 禁止访问隐藏文件
+    location ~ /\. {
+        deny all;
+        access_log off;
+        log_not_found off;
+    }
+}

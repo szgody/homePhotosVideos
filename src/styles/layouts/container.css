@@ -1,0 +1,57 @@
+/* 容器基础样式 Container base styles */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* 窄容器 Narrow container */
+.container-narrow {
+  max-width: 800px;
+}
+
+/* 宽容器 Wide container */
+.container-wide {
+  max-width: 1600px;
+}
+
+/* 全宽容器 Full width container */
+.container-fluid {
+  max-width: none;
+  padding: 0 40px;
+}
+
+/* 内边距容器 Padded container */
+.container-padded {
+  padding: 20px;
+}
+
+/* 居中容器 Centered container */
+.container-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 容器行 Container row */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+
+/* 容器列 Container column */
+.col {
+  flex: 1;
+  padding: 10px;
+  min-width: 0;
+}
+
+/* 响应式设计 Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;                /* 移动设备内边距 Mobile padding */
+  }
+}

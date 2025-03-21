@@ -1,8 +1,0 @@
-{
-    "http.proxy": "http://localhost:7890",
-    "http.proxyStrictSSL": false,
-    "github.copilot.advanced": {
-        "authProvider": "github",
-        "proxy": "http://localhost:7890"
-    }
-}

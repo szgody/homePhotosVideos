@@ -18,7 +18,9 @@
   border-radius: 4px;
   overflow: hidden;
   background-color: white;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   position: relative;
 }
 
@@ -80,7 +82,9 @@
   justify-content: center;
   align-items: center;
   opacity: 0.8;
-  transition: opacity 0.3s, background-color 0.3s;
+  transition:
+    opacity 0.3s,
+    background-color 0.3s;
 }
 
 .video-item:hover .play-icon {
@@ -106,7 +110,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  overflow-x: auto;  /* 允许横向滚动 Allow horizontal scrolling */
+  overflow-x: auto; /* 允许横向滚动 Allow horizontal scrolling */
   padding: 10px 0;
   gap: 10px;
   background-color: white; /* 添加白色背景 Add white background */
@@ -115,14 +119,14 @@
 
 /* 视频项目样式 Video item styles */
 .video-item {
-  position: relative;  /* 相对定位以便定位播放图标 Relative positioning for play icon */
-  min-width: 80px;    /* 最小宽度 Minimum width */
-  width: 80px;        /* 宽度 Width */
-  height: 80px;       /* 高度 Height */
+  position: relative; /* 相对定位以便定位播放图标 Relative positioning for play icon */
+  min-width: 80px; /* 最小宽度 Minimum width */
+  width: 80px; /* 宽度 Width */
+  height: 80px; /* 高度 Height */
   border-radius: 4px; /* 圆角 Rounded corners */
-  overflow: hidden;   /* 隐藏溢出内容 Hide overflow content */
-  cursor: pointer;    /* 鼠标指针变为手形 Pointer cursor */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 添加阴影 Add shadow */
+  overflow: hidden; /* 隐藏溢出内容 Hide overflow content */
+  cursor: pointer; /* 鼠标指针变为手形 Pointer cursor */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 Add shadow */
   transition: transform 0.2s; /* 添加变换过渡效果 Add transform transition */
 }
 
@@ -147,7 +151,7 @@
   transform: translate(-50%, -50%);
   font-size: 24px;
   color: white;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   width: 30px;
   height: 30px;
@@ -160,7 +164,7 @@
 /* 鼠标悬停时的播放图标样式 Play icon hover styles */
 .video-item:hover .play-icon {
   opacity: 1;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* 视频模态框样式 Video modal styles */
@@ -170,7 +174,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   z-index: 1000;
   display: flex;
   justify-content: center;
@@ -185,7 +189,7 @@
   background-color: #fcfafa;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* 视频标题样式 Video title styles */
@@ -194,7 +198,7 @@
   padding: 10px 15px;
   margin: 0;
   font-size: 16px;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* 视频播放器样式 Video player styles */
@@ -213,7 +217,7 @@
   height: 30px;
   border-radius: 50%;
   border: none;
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255, 255, 255, 0.3);
   color: white;
   font-size: 20px;
   cursor: pointer;
@@ -225,7 +229,7 @@
 
 /* 鼠标悬停时的关闭按钮样式 Close button hover styles */
 .close-button:hover {
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* 响应式设计 Responsive design */
@@ -233,16 +237,16 @@
   .video-player-container {
     width: 95%;
   }
-  
+
   .video-grid {
     gap: 5px; /* 调整间距 */
   }
-  
+
   .video-item {
     width: 80px; /* 调整宽度 */
     height: 60px; /* 调整高度 */
   }
-  
+
   .play-icon {
     font-size: 16px; /* 调整图标大小 */
     width: 24px; /* 调整图标容器大小 */
@@ -256,6 +260,6 @@
 }
 
 .video-grid {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

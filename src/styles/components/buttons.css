@@ -13,7 +13,10 @@
   border-radius: 4px;
   background-color: #42b983;
   color: #fff;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
   user-select: none;
 }
 
@@ -68,7 +71,7 @@
 
 .btn-outline:hover {
   background-color: #42b983;
-    color: white;
+  color: white;
 }
 
 /* 按钮尺寸 Button sizes */
@@ -115,11 +118,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
 }
 
 .btn-floating:hover {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   transform: translateY(-2px);
 }
 
@@ -137,7 +140,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-    border: none;
+  border: none;
   background: rgba(255, 255, 255, 0.3);
   color: white;
   font-size: 20px;
@@ -147,12 +150,12 @@
   justify-content: center;
   transition: background-color 0.2s;
   z-index: 1001;
-  }
-  
+}
+
 .close-button:hover {
   background: rgba(255, 255, 255, 0.5);
-  }
-  
+}
+
 /* 链接按钮 */
 .btn-link {
   background: transparent;
@@ -166,111 +169,111 @@
 .btn-link:hover {
   color: #36a76f;
   background: transparent;
+}
+
+/* 圆形按钮 */
+.btn-circle {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 状态按钮 */
+.status-button {
+  background-color: #2196f3;
+}
+
+.status-button:hover {
+  background-color: #0b7dda;
+}
+
+/* 停止按钮 */
+.stop-button {
+  background-color: #f44336;
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+.stop-button:hover {
+  background-color: #d32f2f;
+  animation: none;
+}
+
+/* 删除按钮 */
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+/* 取消按钮 */
+.cancel-button {
+  background-color: #f8f9fa;
+  color: #343a40;
+  border: 1px solid #dee2e6;
+}
+
+.cancel-button:hover {
+  background-color: #e2e6ea;
+}
+
+/* 小型按钮 */
+.small-button {
+  padding: 5px 10px;
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.small-button:hover {
+  background-color: #e2e6ea;
+}
+
+/* 确认按钮 */
+.confirm-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* 动画 */
+@keyframes pulse {
+  0% {
+    opacity: 1;
   }
-  
-  /* 圆形按钮 */
-  .btn-circle {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  50% {
+    opacity: 0.7;
   }
-  
-  /* 状态按钮 */
-  .status-button {
-    background-color: #2196F3;
+  100% {
+    opacity: 1;
   }
-  
-  .status-button:hover {
-    background-color: #0b7dda;
-  }
-  
-  /* 停止按钮 */
-  .stop-button {
-    background-color: #f44336;
-    color: white;
-    animation: pulse 1.5s infinite;
-  }
-  
-  .stop-button:hover {
-    background-color: #d32f2f;
-    animation: none;
-  }
-  
-  /* 删除按钮 */
-  .delete-button {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-  }
-  
-  .delete-button:hover {
-    background-color: #c82333;
-  }
-  
-  /* 取消按钮 */
-  .cancel-button {
-    background-color: #f8f9fa;
-    color: #343a40;
-    border: 1px solid #dee2e6;
-  }
-  
-  .cancel-button:hover {
-    background-color: #e2e6ea;
-  }
-  
-  /* 小型按钮 */
-  .small-button {
-    padding: 5px 10px;
-    background-color: #f8f9fa;
-    color: #6c757d;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-  
-  .small-button:hover {
-    background-color: #e2e6ea;
-  }
-  
-  /* 确认按钮 */
-  .confirm-button {
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  /* 动画 */
-  @keyframes pulse {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.7;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  /* 导航按钮样式 Navigation button styles */
-  .button {
-    margin-right: 10px;        /* 右侧外边距 Right margin */
-    display: inline-block;     /* 内联块级显示 Inline block display */
-    padding: 8px 16px;         /* 内边距 Padding */
-    background-color: #42b983; /* 背景色 Background color */
-    color: white;              /* 文字颜色 Text color */
-    text-decoration: none;     /* 无下划线 No underline */
-    border-radius: 4px;        /* 圆角 Border radius */
-    transition: background-color 0.2s; /* 背景色过渡 Background transition */
-    cursor: pointer;           /* 鼠标指针 Mouse cursor */
-  }
-  
-  /* 导航按钮悬停效果 Button hover effect */
-  .button:hover {
-    background-color: #3aa876; /* 悬停背景色 Hover background color */
+}
+
+/* 导航按钮样式 Navigation button styles */
+.button {
+  margin-right: 10px; /* 右侧外边距 Right margin */
+  display: inline-block; /* 内联块级显示 Inline block display */
+  padding: 8px 16px; /* 内边距 Padding */
+  background-color: #42b983; /* 背景色 Background color */
+  color: white; /* 文字颜色 Text color */
+  text-decoration: none; /* 无下划线 No underline */
+  border-radius: 4px; /* 圆角 Border radius */
+  transition: background-color 0.2s; /* 背景色过渡 Background transition */
+  cursor: pointer; /* 鼠标指针 Mouse cursor */
+}
+
+/* 导航按钮悬停效果 Button hover effect */
+.button:hover {
+  background-color: #3aa876; /* 悬停背景色 Hover background color */
 }

@@ -1,30 +1,30 @@
 /* 首页样式 Home styles */
 .home {
-  padding: 20px;              /* 内边距 Padding */
+  padding: 20px; /* 内边距 Padding */
 }
 
 /* 内容区域样式 Content area styles */
 .content {
-  max-width: 1200px;         /* 最大宽度 Maximum width */
-  margin: 0 auto;            /* 居中对齐 Center alignment */
-  padding: 20px;             /* 内边距 Padding */
+  max-width: 1200px; /* 最大宽度 Maximum width */
+  margin: 0 auto; /* 居中对齐 Center alignment */
+  padding: 20px; /* 内边距 Padding */
 }
 
 /* 查看更多区域样式 View more area styles */
 .view-more {
-  margin-top: 20px;          /* 顶部外边距 Top margin */
-  text-align: center;        /* 文本居中 Text center */
+  margin-top: 20px; /* 顶部外边距 Top margin */
+  text-align: center; /* 文本居中 Text center */
 }
 
 /* 按钮样式 Button styles */
 .button {
-  margin-right: 10px;        /* 右侧外边距 Right margin */
-  display: inline-block;     /* 内联块级显示 Inline block display */
-  padding: 8px 16px;         /* 内边距 Padding */
+  margin-right: 10px; /* 右侧外边距 Right margin */
+  display: inline-block; /* 内联块级显示 Inline block display */
+  padding: 8px 16px; /* 内边距 Padding */
   background-color: #42b983; /* 背景色 Background color */
-  color: white;              /* 文字颜色 Text color */
-  text-decoration: none;     /* 无下划线 No underline */
-  border-radius: 4px;        /* 圆角 Border radius */
+  color: white; /* 文字颜色 Text color */
+  text-decoration: none; /* 无下划线 No underline */
+  border-radius: 4px; /* 圆角 Border radius */
   transition: background-color 0.2s; /* 背景色过渡 Background transition */
 }
 
@@ -35,80 +35,80 @@
 
 /* 照片网格样式 Photo grid styles */
 .photo-grid {
-  display: flex;             /* 弹性布局 Flex layout */
-  flex-direction: row;       /* 水平方向 Horizontal direction */
-  gap: 10px;                /* 间距 Gap */
-  padding: 20px;            /* 内边距 Padding */
-  justify-content: center;   /* 居中对齐 Center alignment */
-  flex-wrap: nowrap;        /* 不换行 No wrap */
-  overflow-x: auto;         /* 水平滚动 Horizontal scroll */
+  display: flex; /* 弹性布局 Flex layout */
+  flex-direction: row; /* 水平方向 Horizontal direction */
+  gap: 10px; /* 间距 Gap */
+  padding: 20px; /* 内边距 Padding */
+  justify-content: center; /* 居中对齐 Center alignment */
+  flex-wrap: nowrap; /* 不换行 No wrap */
+  overflow-x: auto; /* 水平滚动 Horizontal scroll */
 }
 
 /* 照片项目样式 Photo item styles */
 .photo-item {
-  flex: 0 0 60px;           /* 固定宽度 Fixed width */
-  width: 60px;              /* 宽度 Width */
-  height: 60px;             /* 高度 Height */
-  overflow: hidden;         /* 溢出隐藏 Hide overflow */
-  border-radius: 4px;       /* 圆角 Border radius */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 阴影效果 Shadow effect */
+  flex: 0 0 60px; /* 固定宽度 Fixed width */
+  width: 60px; /* 宽度 Width */
+  height: 60px; /* 高度 Height */
+  overflow: hidden; /* 溢出隐藏 Hide overflow */
+  border-radius: 4px; /* 圆角 Border radius */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 Shadow effect */
 }
 
 /* 照片样式 Photo styles */
 .photo-item img {
-  width: 100%;              /* 宽度 Width */
-  height: 100%;             /* 高度 Height */
-  object-fit: cover;        /* 填充方式 Object fit */
-  display: block;           /* 块级显示 Block display */
+  width: 100%; /* 宽度 Width */
+  height: 100%; /* 高度 Height */
+  object-fit: cover; /* 填充方式 Object fit */
+  display: block; /* 块级显示 Block display */
 }
 
 /* 调试信息样式 Debug info styles */
 .debug-info {
-  margin-top: 20px;         /* 顶部外边距 Top margin */
-  padding: 10px;            /* 内边距 Padding */
+  margin-top: 20px; /* 顶部外边距 Top margin */
+  padding: 10px; /* 内边距 Padding */
   background-color: #f0f0f0; /* 背景色 Background color */
-  border-radius: 4px;        /* 圆角 Border radius */
+  border-radius: 4px; /* 圆角 Border radius */
 }
 
 /* 网格部分样式 Grid section styles */
 .grid-section {
-  margin-bottom: 20px;      /* 底部外边距 Bottom margin */
+  margin-bottom: 20px; /* 底部外边距 Bottom margin */
 }
 
 /* 部分标题样式 Section title styles */
 .section-title {
-  font-size: 18px;          /* 字体大小 Font size */
-  color: #333;              /* 文字颜色 Text color */
-  margin: 10px 0;           /* 外边距 Margin */
-  padding-left: 10px;       /* 左侧内边距 Left padding */
+  font-size: 18px; /* 字体大小 Font size */
+  color: #333; /* 文字颜色 Text color */
+  margin: 10px 0; /* 外边距 Margin */
+  padding-left: 10px; /* 左侧内边距 Left padding */
   border-left: 3px solid #42b983; /* 左边框 Left border */
 }
 
 /* 精选照片区域样式 Featured photos area styles */
 .featured-photos {
-  margin: 20px;             /* 外边距 Margin */
+  margin: 20px; /* 外边距 Margin */
 }
 
 /* 精选网格样式 Featured grid styles */
 .featured-grid {
-  display: flex;            /* 弹性布局 Flex layout */
-  justify-content: center;  /* 居中对齐 Center alignment */
-  gap: 20px;               /* 间距 Gap */
-  margin-top: 20px;        /* 顶部外边距 Top margin */
+  display: flex; /* 弹性布局 Flex layout */
+  justify-content: center; /* 居中对齐 Center alignment */
+  gap: 20px; /* 间距 Gap */
+  margin-top: 20px; /* 顶部外边距 Top margin */
 }
 
 /* 精选项目样式 Featured item styles */
 .featured-item {
-  width: 640px;             /* 宽度 Width */
-  height: 480px;            /* 高度 Height */
-  overflow: hidden;         /* 溢出隐藏 Hide overflow */
-  border-radius: 8px;       /* 圆角 Border radius */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 阴影效果 Shadow effect */
+  width: 640px; /* 宽度 Width */
+  height: 480px; /* 高度 Height */
+  overflow: hidden; /* 溢出隐藏 Hide overflow */
+  border-radius: 8px; /* 圆角 Border radius */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 Shadow effect */
 }
 
 /* 精选图片样式 Featured image styles */
 .featured-image {
-  width: 100%;              /* 宽度 Width */
-  height: 100%;             /* 高度 Height */
-  object-fit: cover;        /* 填充方式 Object fit */
+  width: 100%; /* 宽度 Width */
+  height: 100%; /* 高度 Height */
+  object-fit: cover; /* 填充方式 Object fit */
 }

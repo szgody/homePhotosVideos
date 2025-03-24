@@ -6,7 +6,10 @@
 /* 照片网格样式 Photo grid styles */
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 100px)); /* 固定网格列宽 Fixed grid column width */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(100px, 100px)
+  ); /* 固定网格列宽 Fixed grid column width */
   gap: 10px; /* 网格间距 Grid gap */
   padding: 20px;
   justify-content: center; /* 网格居中 Center grid */
@@ -14,11 +17,11 @@
 
 /* 照片项目样式 Photo item styles */
 .photo-item {
-  width: 100%;          /* 固定宽度 Fixed width */
-  height: 100px;        /* 固定高度 Fixed height */
-  cursor: pointer;      /* 鼠标指针 Mouse cursor */
+  width: 100%; /* 固定宽度 Fixed width */
+  height: 100px; /* 固定高度 Fixed height */
+  cursor: pointer; /* 鼠标指针 Mouse cursor */
   transition: transform 0.2s; /* 变换过渡效果 Transform transition */
-  position: relative;   /* 相对定位 Relative positioning */
+  position: relative; /* 相对定位 Relative positioning */
 }
 
 /* 照片项目悬停效果 Photo item hover effect */
@@ -30,14 +33,14 @@
 .thumbnail {
   width: 100%;
   height: 100%;
-  object-fit: cover;    /* 图片填充方式 Image fill mode */
-  border-radius: 8px;   /* 圆角边框 Rounded corners */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 阴影效果 Shadow effect */
+  object-fit: cover; /* 图片填充方式 Image fill mode */
+  border-radius: 8px; /* 圆角边框 Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 Shadow effect */
 }
 
 /* 预览遮罩层样式 Preview overlay styles */
 .preview-overlay {
-  position: fixed;      /* 固定定位 Fixed positioning */
+  position: fixed; /* 固定定位 Fixed positioning */
   top: 0;
   left: 0;
   right: 0;
@@ -46,33 +49,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;       /* 层级 Z-index */
+  z-index: 1000; /* 层级 Z-index */
 }
 
 /* 预览容器样式 Preview container styles */
 .preview-container {
-  position: relative;   /* 相对定位 Relative positioning */
+  position: relative; /* 相对定位 Relative positioning */
   padding: 20px;
-  background: #fff;    /* 白色背景 White background */
-  border-radius: 8px;  /* 圆角边框 Rounded corners */
+  background: #fff; /* 白色背景 White background */
+  border-radius: 8px; /* 圆角边框 Rounded corners */
 }
 
 /* 大图样式 Large photo styles */
 .large-photo {
-  max-width: 800px;    /* 最大宽度 Maximum width */
-  max-height: 90vh;    /* 最大高度 Maximum height */
+  max-width: 800px; /* 最大宽度 Maximum width */
+  max-height: 90vh; /* 最大高度 Maximum height */
   object-fit: contain; /* 图片适应容器 Image fit container */
   display: block;
 }
 
 /* 关闭按钮样式 Close button styles */
 .close-button {
-  position: absolute;   /* 绝对定位 Absolute positioning */
+  position: absolute; /* 绝对定位 Absolute positioning */
   top: -15px;
   right: -15px;
   width: 30px;
   height: 30px;
-  border-radius: 50%;  /* 圆形按钮 Circular button */
+  border-radius: 50%; /* 圆形按钮 Circular button */
   border: none;
   background: #fff;
   color: #333;
@@ -81,7 +84,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 按钮阴影 Button shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 按钮阴影 Button shadow */
 }
 
 /* 关闭按钮悬停效果 Close button hover effect */

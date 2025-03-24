@@ -52,6 +52,6 @@
 /* 响应式设计 Responsive design */
 @media (max-width: 768px) {
   .container {
-    padding: 0 10px;                /* 移动设备内边距 Mobile padding */
+    padding: 0 10px; /* 移动设备内边距 Mobile padding */
   }
 }

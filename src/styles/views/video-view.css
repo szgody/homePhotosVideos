@@ -1,36 +1,39 @@
 /* 视频视图容器样式 Video view container styles */
 .video-view {
-  padding: 20px;          /* 内边距 Padding */
+  padding: 20px; /* 内边距 Padding */
 }
 
 /* 视频网格样式 Video grid styles */
 .video-grid {
-  display: grid;          /* 网格布局 Grid layout */
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));  /* 自适应列宽 Responsive columns */
-  gap: 20px;             /* 网格间距 Grid gap */
-  padding: 20px;         /* 内边距 Padding */
+  display: grid; /* 网格布局 Grid layout */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /* 自适应列宽 Responsive columns */
+  gap: 20px; /* 网格间距 Grid gap */
+  padding: 20px; /* 内边距 Padding */
 }
 
 /* 视频项目样式 Video item styles */
 .video-item {
-  aspect-ratio: 16/9;    /* 宽高比 Aspect ratio */
-  cursor: pointer;       /* 鼠标指针 Mouse cursor */
-  transition: transform 0.2s;  /* 变换过渡 Transform transition */
-  position: relative;    /* 相对定位 Relative positioning */
+  aspect-ratio: 16/9; /* 宽高比 Aspect ratio */
+  cursor: pointer; /* 鼠标指针 Mouse cursor */
+  transition: transform 0.2s; /* 变换过渡 Transform transition */
+  position: relative; /* 相对定位 Relative positioning */
 }
 
 /* 视频项目悬停效果 Video item hover effect */
 .video-item:hover {
-  transform: scale(1.05);  /* 放大效果 Scale up effect */
+  transform: scale(1.05); /* 放大效果 Scale up effect */
 }
 
 /* 缩略图样式 Thumbnail styles */
 .thumbnail {
-  width: 100%;            /* 宽度 Width */
-  height: 100%;           /* 高度 Height */
-  object-fit: cover;      /* 填充方式 Object fit */
-  border-radius: 8px;     /* 圆角边框 Rounded corners */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* 阴影效果 Shadow effect */
+  width: 100%; /* 宽度 Width */
+  height: 100%; /* 高度 Height */
+  object-fit: cover; /* 填充方式 Object fit */
+  border-radius: 8px; /* 圆角边框 Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 Shadow effect */
 }
 
 /* 播放图标样式 Play icon styles */
@@ -41,7 +44,7 @@
   transform: translate(-50%, -50%);
   font-size: 32px;
   color: white;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -49,79 +52,86 @@
   align-items: center;
   justify-content: center;
   opacity: 0.8;
-  transition: opacity 0.2s, background-color 0.2s;
+  transition:
+    opacity 0.2s,
+    background-color 0.2s;
 }
 
 .video-item:hover .play-icon {
   opacity: 1;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* 视频名称样式 Video name styles */
 .video-name {
-  margin-top: 8px;        /* 上边距 Margin top */
-  font-size: 14px;        /* 字体大小 Font size */
-  text-align: center;     /* 文字居中 Text alignment */
-  color: #333;            /* 文字颜色 Text color */
+  margin-top: 8px; /* 上边距 Margin top */
+  font-size: 14px; /* 字体大小 Font size */
+  text-align: center; /* 文字居中 Text alignment */
+  color: #333; /* 文字颜色 Text color */
 }
 
 /* 视频遮罩层样式 Video overlay styles */
 .video-overlay {
-  position: fixed;        /* 固定定位 Fixed positioning */
+  position: fixed; /* 固定定位 Fixed positioning */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.9);  /* 半透明背景 Semi-transparent background */
-  display: flex;          /* 弹性布局 Flex layout */
-  justify-content: center;  /* 水平居中 Horizontal center */
-  align-items: center;     /* 垂直居中 Vertical center */
-  z-index: 1000;          /* 层级 Z-index */
+  background: rgba(0, 0, 0, 0.9); /* 半透明背景 Semi-transparent background */
+  display: flex; /* 弹性布局 Flex layout */
+  justify-content: center; /* 水平居中 Horizontal center */
+  align-items: center; /* 垂直居中 Vertical center */
+  z-index: 1000; /* 层级 Z-index */
 }
 
 /* 视频容器样式 Video container styles */
 .video-container {
-  position: relative;     /* 相对定位 Relative positioning */
-  width: 80%;            /* 宽度 Width */
-  max-width: 1000px;     /* 最大宽度 Maximum width */
-  background: #000;      /* 背景颜色 Background color */
-  border-radius: 8px;    /* 圆角边框 Rounded corners */
-  overflow: hidden;      /* 溢出隐藏 Hide overflow */
-  margin: 0 auto;        /* 居中显示 Center alignment */
+  position: relative; /* 相对定位 Relative positioning */
+  width: 80%; /* 宽度 Width */
+  max-width: 1000px; /* 最大宽度 Maximum width */
+  background: #000; /* 背景颜色 Background color */
+  border-radius: 8px; /* 圆角边框 Rounded corners */
+  overflow: hidden; /* 溢出隐藏 Hide overflow */
+  margin: 0 auto; /* 居中显示 Center alignment */
 }
 
 /* 视频播放器样式 Video player styles */
 .video-player {
-  width: 100%;           /* 宽度 Width */
-  height: auto;          /* 高度 Height */
-  display: block;        /* 块级显示 Block display */
-  aspect-ratio: 16/9;    /* 视频比例 Video aspect ratio */
-  max-height: 70vh;      /* 最大高度为视窗高度的70% Max height 70% of viewport */
+  width: 100%; /* 宽度 Width */
+  height: auto; /* 高度 Height */
+  display: block; /* 块级显示 Block display */
+  aspect-ratio: 16/9; /* 视频比例 Video aspect ratio */
+  max-height: 70vh; /* 最大高度为视窗高度的70% Max height 70% of viewport */
 }
 
 /* 关闭按钮样式 Close button styles */
 .close-button {
-  position: absolute;    /* 绝对定位 Absolute positioning */
+  position: absolute; /* 绝对定位 Absolute positioning */
   top: 10px;
   right: 10px;
   width: 30px;
   height: 30px;
-  border-radius: 50%;   /* 圆形按钮 Circular button */
-  border: none;         /* 无边框 No border */
-  background: rgba(255, 255, 255, 0.3);  /* 半透明背景 Semi-transparent background */
-  color: white;         /* 文字颜色 Text color */
-  font-size: 20px;     /* 字体大小 Font size */
-  cursor: pointer;     /* 鼠标指针 Mouse cursor */
-  display: flex;       /* 弹性布局 Flex layout */
+  border-radius: 50%; /* 圆形按钮 Circular button */
+  border: none; /* 无边框 No border */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* 半透明背景 Semi-transparent background */
+  color: white; /* 文字颜色 Text color */
+  font-size: 20px; /* 字体大小 Font size */
+  cursor: pointer; /* 鼠标指针 Mouse cursor */
+  display: flex; /* 弹性布局 Flex layout */
   align-items: center; /* 垂直居中 Vertical center */
-  justify-content: center;  /* 水平居中 Horizontal center */
-  transition: background-color 0.2s;  /* 背景色过渡 Background transition */
-  z-index: 1001;      /* 层级 Z-index */
+  justify-content: center; /* 水平居中 Horizontal center */
+  transition: background-color 0.2s; /* 背景色过渡 Background transition */
+  z-index: 1001; /* 层级 Z-index */
 }
 
 /* 关闭按钮悬停效果 Close button hover effect */
 .close-button:hover {
-  background: rgba(255, 255, 255, 0.5);  /* 悬停背景色 Hover background color */
+  background: rgba(255, 255, 255, 0.5); /* 悬停背景色 Hover background color */
 }
 
 /* 响应式设计 */
@@ -129,11 +139,11 @@
   .video-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
-  
+
   .video-container {
     width: 95%;
   }
-  
+
   .play-icon {
     font-size: 24px;
     width: 40px;

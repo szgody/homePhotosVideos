@@ -2,100 +2,100 @@
 
 /* 全局样式 */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
 /* 导航栏样式 */
 nav {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
 }
 
 nav h1 {
-    margin: 0;
+  margin: 0;
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 15px;
+  display: inline;
+  margin-right: 15px;
 }
 
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
 
 /* 内容区域样式 */
 .content {
-    padding: 20px;
+  padding: 20px;
 }
 
 /* 照片网格样式 */
 .photo-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .photo-item {
-    flex: 1 1 calc(25% - 10px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(25% - 10px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .photo-item img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 /* 视频预览样式 */
 .video-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .video-item {
-    position: relative;
-    flex: 1 1 calc(25% - 10px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  flex: 1 1 calc(25% - 10px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .video-item img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .play-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 30px;
-    color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: white;
 }
 
 /* 查看更多按钮样式 */
 .view-more {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .view-more .button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
 .view-more .button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }

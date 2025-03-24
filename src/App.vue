@@ -10,18 +10,17 @@
 
 <script>
 // 导入页头组件 Import header component
-import AppHeader from './components/AppHeader.vue'
-
+import AppHeader from "./components/AppHeader.vue";
 
 // 导出应用程序配置 Export application configuration
 export default {
-  name: 'App', // 组件名称 Component name
-  
+  name: "App", // 组件名称 Component name
+
   // 注册子组件 Register child components
   components: {
-    AppHeader // 页头组件 Header component
-  }
-}
+    AppHeader, // 页头组件 Header component
+  },
+};
 </script>
 
 <style>
@@ -32,7 +31,7 @@ export default {
 }
 
 .app-header {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 1rem;
   text-align: center;

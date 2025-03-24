@@ -1,8 +1,8 @@
 /* 导入通用组件样式 */
-@import '../components/buttons.css';
-@import '../components/modals.css';
-@import '../components/alerts.css';
-@import '../components/progress.css';
+@import "../components/buttons.css";
+@import "../components/modals.css";
+@import "../components/alerts.css";
+@import "../components/progress.css";
 
 /* 处理背景视图样式 */
 .processing-background {
@@ -11,7 +11,9 @@
   margin: 0 auto;
 }
 
-h2, h3, h4 {
+h2,
+h3,
+h4 {
   color: #333;
 }
 
@@ -27,12 +29,14 @@ button {
   padding: 8px 16px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 4px;
   transition: background-color 0.3s;
   margin-right: 10px;
+  margin-bottom: 10px; /* 确保所有按钮都有相同的底部边距 */
+  min-width: 180px; /* 统一最小宽度 */
 }
 
 button:hover {
@@ -45,7 +49,7 @@ button:disabled {
 }
 
 .status-button {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 .status-button:hover {
@@ -81,7 +85,7 @@ button:disabled {
   padding: 15px;
   background-color: #f9f9f9;
   border-radius: 5px;
-  border-left: 5px solid #2196F3;
+  border-left: 5px solid #2196f3;
 }
 
 /* 进度条样式 Progress bar styles */
@@ -96,7 +100,7 @@ button:disabled {
 
 .progress {
   height: 100%;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   text-align: center;
   line-height: 20px;
   color: white;
@@ -104,7 +108,7 @@ button:disabled {
 }
 
 .progress.ffmpeg {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 .video-progress {
@@ -114,7 +118,8 @@ button:disabled {
   gap: 15px;
 }
 
-.ffmpeg-progress, .overall-progress {
+.ffmpeg-progress,
+.overall-progress {
   padding: 10px;
   background-color: #f5f5f5;
   border-radius: 5px;
@@ -200,7 +205,7 @@ button:disabled {
   padding: 10px;
   border-radius: 4px;
   margin-top: 10px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .current-task ul {
@@ -313,12 +318,146 @@ button:disabled {
   color: white;
   border: none;
   border-radius: 4px;
-  padding: 8px 16px;
-  margin-left: 8px;
+  padding: 12px 20px; /* 增加内边距使按钮更大 */
   cursor: pointer;
   font-weight: bold;
+  font-size: 18px; /* 增大字体 */
+  min-width: 220px; /* 增加最小宽度 */
+  margin-bottom: 15px;
+  margin-top: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 添加阴影增强视觉效果 */
+  transition: all 0.3s ease;
+  display: block; /* 确保按钮独占一行 */
 }
 
 .stop-btn:hover {
   background-color: #d32f2f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px); /* 悬停时轻微上浮效果 */
+}
+
+.switching-notice {
+  margin-bottom: 10px;
+  color: #3498db;
+  font-style: italic;
+}
+
+.spinner {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.stop-requested-notice {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #ffecb3;
+  border-left: 5px solid #ff9800;
+  color: #663c00;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.warning-icon {
+  font-size: 24px;
+  margin-right: 12px;
+}
+
+.warning-message {
+  flex: 1;
+}
+
+/* 添加复选框样式 */
+.auto-delete-option {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: #fff3cd;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.auto-delete-option input {
+  margin-right: 8px;
+}
+
+.auto-delete-option label {
+  font-size: 14px;
+  color: #856404;
+}
+/* 添加这些新样式 */
+.image-control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.image-control-group button {
+  margin-bottom: 10px;
+}
+
+.auto-delete-option {
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.auto-delete-option input {
+  margin-right: 8px;
+}
+
+/* 图片进度样式 */
+.image-progress .progress-bar {
+  height: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.image-progress .progress {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s ease;
+}
+
+/* 视频控制组样式 - 与图片控制组保持一致 */
+.video-control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.video-control-group button {
+  margin-bottom: 10px;
+}
+
+/* 修改强制完成按钮样式，也保持一致 */
+.reset-btn {
+  background-color: #ff9800; /* 使用橙色表示警告，但不如红色那么强烈 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  min-width: 180px;
+  margin-bottom: 10px;
+}
+
+.reset-btn:hover {
+  background-color: #e68a00;
 }

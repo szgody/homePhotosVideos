@@ -1,6 +1,47 @@
 # 家庭照片与视频网站
 
 基于Vue.js构建的家庭媒体管理系统，便于整理、浏览和共享个人照片与视频。
+网站展示: http://home.szgody.site/
+
+## 系统预览
+
+<div align="center">
+  <h3>首页界面</h3>
+  <img src="https://github.com/user-attachments/assets/08e36418-dc53-4f44-8655-80b2ad129641" width="800" alt="系统首页">
+</div>
+
+<div align="center">
+  <h3>照片管理</h3>
+  <img src="https://github.com/user-attachments/assets/d98f297f-a6cc-44ab-8a07-fc90f58699f1" width="800" alt="照片管理界面">
+</div>
+
+<div align="center">
+  <h3>视频管理</h3>
+  <img src="https://github.com/user-attachments/assets/c8d291a0-13c7-4a95-97e4-66a3c75a7d6a" width="800" alt="视频管理界面">
+</div>
+
+### 媒体处理流程
+
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="https://github.com/user-attachments/assets/1034f67c-54c2-44ec-a2ff-c496f2d54b26" width="400" alt="处理步骤1"></td>
+      <td><img src="https://github.com/user-attachments/assets/363ba2d3-30b1-4c2b-a50e-0cd8c4057f8b" width="400" alt="处理步骤2"></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/user-attachments/assets/5738169b-3bd9-433d-aead-e4da56206c59" width="400" alt="处理步骤3"></td>
+      <td><img src="https://github.com/user-attachments/assets/ef592392-74fe-42be-a6a6-5a7351e6c8a1" width="400" alt="处理步骤4"></td>
+    </tr>
+    <tr>
+      <td align="center">步骤1：选择媒体文件</td>
+      <td align="center">步骤2：配置处理参数</td>
+    </tr>
+    <tr>
+      <td align="center">步骤3：处理进度监控</td>
+      <td align="center">步骤4：处理完成预览</td>
+    </tr>
+  </table>
+</div>
 
 ## 功能特点
 

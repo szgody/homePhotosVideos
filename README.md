@@ -1,7 +1,9 @@
 🏠 家庭照片与视频管站
 📸 基于Vue.js构建的家庭媒体管理系统，便于整理、浏览和共享个人照片与视频。
-🌐 网站展示: http://home.szgody.site/
 
+## 🌐 网站展示: http://home.szgody.site/
+
+ 
 ✨ 系统预览
 <div align="center"> <h3>🖼️ 首页界面</h3> <img src="https://github.com/user-attachments/assets/08e36418-dc53-4f44-8655-80b2ad129641" width="800" alt="系统首页"> </div> <div align="center"> <h3>📸 照片管理</h3> <img src="https://github.com/user-attachments/assets/d98f297f-a6cc-44ab-8a07-fc90f58699f1" width="800" alt="照片管理界面"> </div> <div align="center"> <h3>🎬 视频管理</h3> <img src="https://github.com/user-attachments/assets/c8d291a0-13c7-4a95-97e4-66a3c75a7d6a" width="800" alt="视频管理界面"> </div>
 
@@ -116,4 +118,4 @@ ALLOWED_ORIGINS=http://localhost:5173
 ```
 
 > 📝 注: 部署时请替换所有<PROJECT_ROOT>为实际安装路径。
-> <div align="center"> <p>👨‍👩‍👧‍👦 为您的珍贵家庭回忆提供安全便捷的管理方式 👨‍👩‍👧‍👦</p> </div>
+<div align="center"> <p>👨‍👩‍👧‍👦 为您的珍贵家庭回忆提供安全便捷的管理方式 👨‍👩‍👧‍👦</p> </div>

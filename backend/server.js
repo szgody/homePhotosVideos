@@ -1350,7 +1350,8 @@ app.post("/api/delete-all-original-videos", async (req, res) => {
     // 逐个删除文件
     for (const file of processedFiles) {
       try {
-        const filePath = path.join(VIDEOS_DIR, file);
+        // 修复这行 - 将 VIDEOS_DIR 改为 PATHS.ORIGINAL_VIDEOS
+        const filePath = path.join(PATHS.ORIGINAL_VIDEOS, file);
         if (await fs.pathExists(filePath)) {
           await fs.remove(filePath);
           deletedCount++;

@@ -31,7 +31,7 @@ git clone https://github.com/szgody/homePhotosVideos.git
 cd homePhotosVideos/docker-compose
 
 # 或者直接下载配置文件
-wget https://raw.githubusercontent.com/szgody/homePhotosVideos/main/docker-compose/docker-compose.yml
+wget https://raw.githubusercontent.com/szgody/homePhotosVideos/main/docker-compose.yml
 ```
 
 ### 2. 创建必要的目录结构

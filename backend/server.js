@@ -137,7 +137,7 @@ app.use(
 app.use(process.env.PHOTOS_PATH || "/photos", express.static(PATHS.PHOTOS)); // 照片 Photos
 app.use(process.env.VIDEOS_PATH || "/videos", express.static(PATHS.VIDEOS)); // 视频 Videos
 app.use(
-  process.env.VIDEO_THUMBNAILS_PATH || "/video-thumbnails",
+  process.env.VIDEO_THUMBNAILS_PATH || "/video_thumbnails",
   express.static(PATHS.VIDEO_THUMBNAILS),
 ); // 视频缩略图 Video thumbnails
 
@@ -290,7 +290,7 @@ app.post("/api/process-single-video", async (req, res) => {
       newName: result.newName,
       sn: newName,
       video: `${baseUrl}${process.env.VIDEOS_PATH || "/videos"}/${result.newName}`,
-      thumbnail: `${baseUrl}${process.env.VIDEO_THUMBNAILS_PATH || "/video-thumbnails"}/${newName}.jpg`,
+      thumbnail: `${baseUrl}${process.env.VIDEO_THUMBNAILS_PATH || "/video_thumbnails"}/${newName}.jpg`,
     });
   } catch (error) {
     console.error("处理视频失败:", error);
@@ -481,7 +481,7 @@ app.get("/api/videos", async (req, res) => {
         return {
           filename: basename, // 移除扩展名，只保留基本文件名
           name: basename, // 用于显示的名称
-          thumbnailPath: `${baseUrl}${process.env.VIDEO_THUMBNAILS_PATH || "/video-thumbnails"}/${basename}.jpg`, // 添加缩略图路径
+          thumbnailPath: `${baseUrl}${process.env.VIDEO_THUMBNAILS_PATH || "/video_thumbnails"}/${basename}.jpg`, // 添加缩略图路径
           videoPath: `${baseUrl}${process.env.VIDEOS_PATH || "/videos"}/${file}`, // 添加视频路径
         };
       });

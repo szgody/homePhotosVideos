@@ -15,19 +15,25 @@ module.exports = {
       autorestart: true
     },
     {
-      name: "home-photo-backend",
-      script: "server.js",
-      cwd: "<PROJECT_ROOT>/backend",  // 使用相对路径占位符
+      name: "home-photos-videos-backend",
+      script: "./backend/server.js",
+      watch: ["backend"],
+      ignore_watch: ["node_modules", "data", "public"],
       env: {
-        NODE_ENV: "production",
-        PORT: 3000  // 改回 3000
+        NODE_ENV: "development",
+        PORT: 3000,
+        DATA_DIR: "data",
+        PUBLIC_DIR: "public",
+        BASE_URL: "http://localhost:3000",
+        PHOTOS_PATH: "/photos",
+        THUMBNAILS_PATH: "/photo_thumbnails",
+        VIDEOS_PATH: "/videos",
+        VIDEO_THUMBNAILS_PATH: "/video_thumbnails"
       },
-      watch: false,
-      max_memory_restart: "200M",
-      log_date_format: "YYYY-MM-DD HH:mm:ss",
-      out_file: "./logs/out.log",
-      error_file: "./logs/error.log",
-      autorestart: true
+      env_production: {
+        NODE_ENV: "production",
+        PORT: 3000
+      }
     }
   ]
 }

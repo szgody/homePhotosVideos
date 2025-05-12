@@ -146,11 +146,19 @@ const getBaseUrl = () => {
 // 修改buildUrl函数
 const buildUrl = (path) => {
   const baseUrl = getBaseUrl();
-
-  // 确保路径有/api/前缀
+  
+  // 检查baseUrl是否已经包含/api
+  const hasApiInBase = baseUrl.endsWith('/api') || baseUrl.includes('/api/');
+  
+  // 确保路径有/api/前缀，但避免重复
   let apiPath = path;
-  if (!apiPath.startsWith('/api/')) {
+  if (!hasApiInBase && !apiPath.startsWith('/api/')) {
     apiPath = `/api/${apiPath.startsWith('/') ? apiPath.substring(1) : apiPath}`;
+  }
+  
+  // 如果baseUrl已包含/api，确保路径不再以/api开头
+  if (hasApiInBase && apiPath.startsWith('/api/')) {
+    apiPath = apiPath.substring(4); // 移除/api前缀
   }
   
   if (baseUrl) {

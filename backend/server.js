@@ -8,7 +8,7 @@ const path = require("path");
 const fs = require("fs-extra");
 const sharp = require("sharp");
 const ffmpeg = require("fluent-ffmpeg");
-const ffmpegInstaller = require("@ffmpeg-installer/ffmpeg");
+const ffmpegInstaller = require("./ffmpeg-installer");
 const Jimp = require("jimp");
 const http = require("http");
 const { Server } = require("socket.io");
@@ -33,22 +33,26 @@ const port = process.env.PORT || 3000;
 // CORS 配置
 const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(",")
-  : ["http://localhost:5173"];
+  : ["http://localhost:5173", "http://192.168.23.56", "http://localhost:3000"];
 
-// 使用配置的源
+// 使用一个统一的CORS配置
 app.use(
   cors({
     origin: function (origin, callback) {
-      // 允许没有源的请求（比如移动应用）
+      // 允许没有源的请求或在白名单内的请求
       if (!origin || allowedOrigins.indexOf(origin) !== -1) {
         callback(null, true);
       } else {
-        callback(new Error("不允许的来源"));
+        console.log("CORS拒绝源:", origin);  // 记录被拒绝的源
+        callback(null, true);  // 暂时允许所有源，便于调试
+        // 如果需要恢复严格的CORS策略，请改回:
+        // callback(new Error("不允许的来源"));
       }
     },
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type", "Authorization"],
-  }),
+    credentials: true
+  })
 );
 
 // Socket.io 配置
@@ -59,17 +63,9 @@ const io = socketIO(server, {
   },
 });
 
-// 添加在服务器设置部分
-app.use(
-  cors({
-    origin: "*", // 或指定允许的域名
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  }),
-);
-
 // 设置 ffmpeg 路径 Set ffmpeg path
 ffmpeg.setFfmpegPath(ffmpegInstaller.path);
+ffmpeg.setFfprobePath('/usr/bin/ffprobe');
 
 // 路径配置
 const PATHS = {

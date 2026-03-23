@@ -9,7 +9,7 @@ const fs = require("fs-extra");
 const sharp = require("sharp");
 const ffmpeg = require("fluent-ffmpeg");
 const ffmpegInstaller = require("./ffmpeg-installer");
-const Jimp = require("jimp");
+
 const http = require("http");
 const { Server } = require("socket.io");
 
@@ -184,22 +184,20 @@ app.post("/api/process-images", async (req, res) => {
         const newName = `${currentSN}${ext}`;
         const originalPath = path.join(PATHS.ORIGINAL_IMAGES, file);
 
-        // 使用 Jimp 处理图片 Use Jimp to process images
-        const image = await Jimp.read(originalPath);
+        // 使用 Sharp 处理图片 Use Sharp to process images
+        const isJpeg = /\.(jpg|jpeg)$/i.test(newName);
 
         // 处理原图 Process original image
-        await image
-          .clone()
-          .scaleToFit(800, 600)
-          .quality(80)
-          .writeAsync(path.join(PATHS.PHOTOS, newName));
+        let resizeChain = sharp(originalPath)
+          .resize(800, 600, { fit: "inside", withoutEnlargement: true });
+        if (isJpeg) resizeChain = resizeChain.jpeg({ quality: 80 });
+        await resizeChain.toFile(path.join(PATHS.PHOTOS, newName));
 
         // 生成缩略图 Generate thumbnail
-        await image
-          .clone()
-          .cover(100, 100)
-          .quality(60)
-          .writeAsync(path.join(PATHS.PHOTO_THUMBNAILS, newName));
+        let thumbChain = sharp(originalPath)
+          .resize(100, 100, { fit: "cover" });
+        if (isJpeg) thumbChain = thumbChain.jpeg({ quality: 60 });
+        await thumbChain.toFile(path.join(PATHS.PHOTO_THUMBNAILS, newName));
 
         // 删除原始文件 Delete original file
         await fs.remove(originalPath);

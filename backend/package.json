@@ -17,7 +17,6 @@
     "express-sse": "^0.5.3",
     "fluent-ffmpeg": "^2.1.3",
     "fs-extra": "^10.1.0",
-    "jimp": "^0.22.12",
     "sharp": "^0.34.1",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1"

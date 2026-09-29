@@ -8,13 +8,6 @@ const path = require("path");
 const fs = require("fs-extra");
 const sharp = require("sharp");
 const ffmpeg = require("fluent-ffmpeg");
-const ffmpegInstaller = require("./ffmpeg-installer");
-
-const http = require("http");
-const { Server } = require("socket.io");
-
-// 确保正确设置了 Socket.IO
-const socketIO = require("socket.io");
 
 // 在 server.js 或其他后端文件中
 const dataDir = process.env.DATA_DIR || "data";
@@ -23,9 +16,8 @@ const publicDir = process.env.PUBLIC_DIR || "public";
 // 使用 path.join 构建路径
 const photosPath = path.join(__dirname, "..", dataDir, "photos");
 
-// 创建Express应用和HTTP服务器 Create Express app and HTTP server
+// 创建Express应用 Create Express app
 const app = express();
-const server = http.createServer(app);
 
 // 端口配置
 const port = process.env.PORT || 3000;
@@ -55,17 +47,7 @@ app.use(
   })
 );
 
-// Socket.io 配置
-const io = socketIO(server, {
-  cors: {
-    origin: "*",
-    methods: ["GET", "POST"],
-  },
-});
-
-// 设置 ffmpeg 路径 Set ffmpeg path
-ffmpeg.setFfmpegPath(ffmpegInstaller.path);
-ffmpeg.setFfprobePath('/usr/bin/ffprobe');
+// Socket.IO 已移除:前端通过 /api/video-progress 轮询获取进度
 
 // 路径配置
 const PATHS = {
@@ -606,22 +588,9 @@ const processVideo = async (filename, newName) => {
       thumbnailPath,
     });
 
-    // 先发送开始事件
-    io.emit("videoProgress", {
-      type: "start",
-      filename,
-      originalPath,
-      outputPath,
-    });
-
     // 检查源文件是否存在
     if (!fs.existsSync(originalPath)) {
       const error = `源文件不存在: ${originalPath}`;
-      io.emit("videoProgress", {
-        type: "error",
-        filename,
-        error,
-      });
       throw new Error(error);
     }
 
@@ -639,11 +608,6 @@ const processVideo = async (filename, newName) => {
       };
     } catch (validationError) {
       console.error(`视频文件验证失败: ${filename}`, validationError);
-      io.emit("videoProgress", {
-        type: "error",
-        filename,
-        error: `视频文件验证失败: ${validationError.message}`,
-      });
 
       // 更新全局进度数据
       global.videoProgressData[filename] = {
@@ -672,7 +636,6 @@ const processVideo = async (filename, newName) => {
     // 处理视频
     await new Promise((resolve, reject) => {
       let lastProgress = 0;
-      let progressInterval;
 
       // 创建 ffmpeg 命令
       const ffmpegCommand = ffmpeg(originalPath)
@@ -685,32 +648,11 @@ const processVideo = async (filename, newName) => {
         ])
         .on("start", (commandLine) => {
           console.log("FFmpeg 命令:", commandLine);
-          io.emit("videoProgress", {
-            type: "start",
-            filename,
-            command: commandLine,
-          });
-
-          // 定期发送进度更新，即使 FFmpeg 没有报告进度
-          progressInterval = setInterval(() => {
-            io.emit("videoProgress", {
-              type: "progress",
-              filename,
-              percent: lastProgress,
-              timemarks: "处理中...",
-            });
-          }, 2000); // 每2秒发送一次
         })
         .on("progress", (progress) => {
           if (progress.percent && Math.floor(progress.percent) > lastProgress) {
             lastProgress = Math.floor(progress.percent);
             console.log(`视频 ${filename} 处理进度: ${lastProgress}%`);
-            io.emit("videoProgress", {
-              type: "progress",
-              filename,
-              percent: lastProgress,
-              timemarks: progress.timemark || "处理中...",
-            });
 
             // 更新全局进度数据
             if (!global.videoProgressData) global.videoProgressData = {};
@@ -724,14 +666,7 @@ const processVideo = async (filename, newName) => {
           }
         })
         .on("end", () => {
-          if (progressInterval) clearInterval(progressInterval);
-
           console.log(`视频 ${filename} 转换完成`);
-          io.emit("videoProgress", {
-            type: "end",
-            filename,
-            percent: 100,
-          });
 
           // 更新全局进度数据
           global.videoProgressData[filename] = {
@@ -741,8 +676,6 @@ const processVideo = async (filename, newName) => {
           resolve();
         })
         .on("error", (err) => {
-          if (progressInterval) clearInterval(progressInterval);
-
           // 检查是否是因为用户取消导致的错误
           const isCancelError =
             err.message.includes("signal 15") ||
@@ -751,11 +684,6 @@ const processVideo = async (filename, newName) => {
 
           if (isCancelError) {
             console.log(`视频 ${filename} 处理被用户取消`);
-            io.emit("videoProgress", {
-              type: "cancelled",
-              filename,
-              message: "处理已被用户取消",
-            });
 
             // 更新全局进度数据
             global.videoProgressData[filename] = {
@@ -767,11 +695,6 @@ const processVideo = async (filename, newName) => {
             resolve({ cancelled: true });
           } else {
             console.error(`视频 ${filename} 处理失败:`, err);
-            io.emit("videoProgress", {
-              type: "error",
-              filename,
-              error: err.message,
-            });
 
             // 更新全局进度数据
             global.videoProgressData[filename] = {
@@ -817,11 +740,6 @@ const processVideo = async (filename, newName) => {
     };
   } catch (error) {
     console.error(`处理视频失败: ${filename}`, error);
-    io.emit("videoProgress", {
-      type: "error",
-      filename,
-      error: error.message,
-    });
 
     // 更新全局进度数据
     global.videoProgressData[filename] = {
@@ -1374,7 +1292,7 @@ app.post("/api/delete-all-original-videos", async (req, res) => {
 });
 
 // 修改服务器启动代码 Modify server startup code
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`后端服务器运行在 端口: ${port}`);
   console.log("目录配置:");
   console.log("- 原始图片:", PATHS.ORIGINAL_IMAGES);

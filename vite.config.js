@@ -18,8 +18,4 @@ export default defineConfig({
     open: true         // 自动打开浏览器 Auto open browser
   },
   
-  // 依赖优化选项 Dependency optimization options
-  optimizeDeps: {
-    include: ['sharp']  // 预构建包含的依赖 Dependencies to pre-bundle
-  }
 })

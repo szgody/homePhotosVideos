@@ -8,6 +8,8 @@ const path = require("path");
 const fs = require("fs-extra");
 const sharp = require("sharp");
 const ffmpeg = require("fluent-ffmpeg");
+const { processVideo } = require("./src/services/videoProcessor");
+const { state } = require("./src/state");
 
 // 在 server.js 或其他后端文件中
 const dataDir = process.env.DATA_DIR || "data";
@@ -531,231 +533,12 @@ app.get("/api/list-videos", async (req, res) => {
   }
 });
 
-// 在文件顶部添加缺失的函数定义
-const processImage = async (filename, newName) => {
-  try {
-    // 使用 ORIGINAL_IMAGES 替代 UNPROCESSED_PHOTOS
-    const sourcePath = path.join(PATHS.ORIGINAL_IMAGES, filename);
-    // 使用 PHOTOS 替代 PROCESSED_PHOTOS
-    const targetPath = path.join(
-      PATHS.PHOTOS,
-      `${newName}${path.extname(filename)}`,
-    );
-    const thumbnailPath = path.join(
-      PATHS.PHOTO_THUMBNAILS,
-      `${newName}${path.extname(filename)}`,
-    );
-
-    // 检查源文件是否存在
-    if (!fs.existsSync(sourcePath)) {
-      throw new Error(`源文件不存在: ${sourcePath}`);
-    }
-
-    // 复制文件到目标位置
-    await fs.copy(sourcePath, targetPath);
-
-    // 创建缩略图
-    await sharp(sourcePath)
-      .resize(240, 240, { fit: "cover" })
-      .toFile(thumbnailPath);
-
-    return {
-      newName: `${newName}${path.extname(filename)}`,
-      originalPath: sourcePath,
-      targetPath: targetPath,
-      thumbnailPath: thumbnailPath,
-    };
-  } catch (error) {
-    console.error(`处理图片失败: ${filename}`, error);
-    throw error;
-  }
-};
-
-// 在 server.js 中添加 processVideo 函数定义
-const processVideo = async (filename, newName) => {
-  try {
-    const ext = ".mp4";
-    const finalNewName = `${newName}${ext}`;
-    const originalPath = path.join(PATHS.ORIGINAL_VIDEOS, filename);
-    const outputPath = path.join(PATHS.VIDEOS, finalNewName);
-    const thumbnailPath = path.join(PATHS.VIDEO_THUMBNAILS, `${newName}.jpg`);
-
-    console.log("开始处理视频:", {
-      filename,
-      newName: finalNewName,
-      originalPath,
-      outputPath,
-      thumbnailPath,
-    });
-
-    // 检查源文件是否存在
-    if (!fs.existsSync(originalPath)) {
-      const error = `源文件不存在: ${originalPath}`;
-      throw new Error(error);
-    }
-
-    // 验证视频文件格式
-    try {
-      const videoInfo = await validateVideoFile(originalPath);
-      console.log(`视频文件验证通过: ${filename}`, videoInfo);
-
-      // 更新进度数据，包含视频信息
-      global.videoProgressData[filename] = {
-        percent: 0,
-        timemarks: "",
-        status: "validated",
-        videoInfo,
-      };
-    } catch (validationError) {
-      console.error(`视频文件验证失败: ${filename}`, validationError);
-
-      // 更新全局进度数据
-      global.videoProgressData[filename] = {
-        status: "error",
-        error: `视频文件验证失败: ${validationError.message}`,
-      };
-
-      throw new Error(`视频文件验证失败: ${validationError.message}`);
-    }
-
-    // 初始化全局进程跟踪对象
-    if (!global.activeFFmpegProcesses) {
-      global.activeFFmpegProcesses = {};
-    }
-
-    // 存储视频处理进度的全局变量
-    global.videoProgressData = {};
-
-    // 初始化进度数据
-    global.videoProgressData[filename] = {
-      percent: 0,
-      timemarks: "",
-      status: "processing",
-    };
-
-    // 处理视频
-    await new Promise((resolve, reject) => {
-      let lastProgress = 0;
-
-      // 创建 ffmpeg 命令
-      const ffmpegCommand = ffmpeg(originalPath)
-        .outputOptions([
-          "-c:v libx264",
-          "-crf 23",
-          "-preset medium",
-          "-c:a aac",
-          "-b:a 128k",
-        ])
-        .on("start", (commandLine) => {
-          console.log("FFmpeg 命令:", commandLine);
-        })
-        .on("progress", (progress) => {
-          if (progress.percent && Math.floor(progress.percent) > lastProgress) {
-            lastProgress = Math.floor(progress.percent);
-            console.log(`视频 ${filename} 处理进度: ${lastProgress}%`);
-
-            // 更新全局进度数据
-            if (!global.videoProgressData) global.videoProgressData = {};
-            if (!global.videoProgressData[filename])
-              global.videoProgressData[filename] = {};
-
-            global.videoProgressData[filename].percent = lastProgress;
-            global.videoProgressData[filename].timemarks =
-              progress.timemark || "";
-            global.videoProgressData[filename].status = "processing";
-          }
-        })
-        .on("end", () => {
-          console.log(`视频 ${filename} 转换完成`);
-
-          // 更新全局进度数据
-          global.videoProgressData[filename] = {
-            percent: 100,
-            status: "completed",
-          };
-          resolve();
-        })
-        .on("error", (err) => {
-          // 检查是否是因为用户取消导致的错误
-          const isCancelError =
-            err.message.includes("signal 15") ||
-            err.message.includes("code 255") ||
-            err.message.includes("SIGTERM");
-
-          if (isCancelError) {
-            console.log(`视频 ${filename} 处理被用户取消`);
-
-            // 更新全局进度数据
-            global.videoProgressData[filename] = {
-              status: "cancelled",
-              message: "处理已被用户取消",
-            };
-
-            // 不将取消视为错误
-            resolve({ cancelled: true });
-          } else {
-            console.error(`视频 ${filename} 处理失败:`, err);
-
-            // 更新全局进度数据
-            global.videoProgressData[filename] = {
-              status: "error",
-              error: err.message,
-            };
-
-            reject(err);
-          }
-        })
-        .save(outputPath);
-
-      // 存储 ffmpeg 命令实例，以便稍后可以终止它
-      if (!global.activeFFmpegProcesses) global.activeFFmpegProcesses = {};
-      global.activeFFmpegProcesses[filename] = ffmpegCommand;
-    });
-
-    // 生成缩略图
-    console.log(`生成视频 ${filename} 的缩略图`);
-    await new Promise((resolve, reject) => {
-      ffmpeg(originalPath)
-        .screenshots({
-          count: 1,
-          filename: `${newName}.jpg`,
-          folder: PATHS.VIDEO_THUMBNAILS,
-          size: "100x100",
-        })
-        .on("end", () => {
-          console.log(`视频 ${filename} 缩略图生成完成`);
-          resolve();
-        })
-        .on("error", (err) => {
-          console.error(`视频 ${filename} 缩略图生成失败:`, err);
-          reject(err);
-        });
-    });
-
-    return {
-      newName: finalNewName,
-      originalPath,
-      outputPath,
-      thumbnailPath: `${newName}.jpg`,
-    };
-  } catch (error) {
-    console.error(`处理视频失败: ${filename}`, error);
-
-    // 更新全局进度数据
-    global.videoProgressData[filename] = {
-      status: "error",
-      error: error.message,
-    };
-    throw error;
-  }
-};
-
 // 添加获取视频进度的 API 接口
 app.get("/api/video-progress/:filename", (req, res) => {
   const filename = req.params.filename;
 
-  if (global.videoProgressData && global.videoProgressData[filename]) {
-    res.json(global.videoProgressData[filename]);
+  if (state.videoProgressData && state.videoProgressData[filename]) {
+    res.json(state.videoProgressData[filename]);
   } else {
     res.json({ status: "not_found", percent: 0 });
   }
@@ -1021,12 +804,12 @@ app.post("/api/cancel-processing", async (req, res) => {
     // 如果是视频处理，需要终止 ffmpeg 进程
     if (type === "video") {
       // 标记为已取消
-      global.processingCancelled = global.processingCancelled || {};
-      global.processingCancelled[file] = true;
+      state.processingCancelled = state.processingCancelled || {};
+      state.processingCancelled[file] = true;
 
       // 更新进度数据
-      if (global.videoProgressData && global.videoProgressData[file]) {
-        global.videoProgressData[file] = {
+      if (state.videoProgressData && state.videoProgressData[file]) {
+        state.videoProgressData[file] = {
           status: "cancelled",
           message: "处理已被用户取消",
           percent: 0,
@@ -1034,14 +817,14 @@ app.post("/api/cancel-processing", async (req, res) => {
       }
 
       // 终止 ffmpeg 进程
-      if (global.activeFFmpegProcesses && global.activeFFmpegProcesses[file]) {
-        const process = global.activeFFmpegProcesses[file];
+      if (state.activeFFmpegProcesses && state.activeFFmpegProcesses[file]) {
+        const process = state.activeFFmpegProcesses[file];
 
         try {
           process.kill("SIGTERM");
           console.log(`已终止处理视频的 FFmpeg 进程: ${file}`);
 
-          delete global.activeFFmpegProcesses[file];
+          delete state.activeFFmpegProcesses[file];
 
           return res.json({
             success: true,
@@ -1088,47 +871,12 @@ app.get("/api/video-progress", (req, res) => {
 
   // 返回指定文件的进度，如果没有则返回空状态
   const progressData =
-    global.videoProgressData && global.videoProgressData[filename]
-      ? global.videoProgressData[filename]
+    state.videoProgressData && state.videoProgressData[filename]
+      ? state.videoProgressData[filename]
       : { percent: 0, status: "unknown" };
 
   res.json(progressData);
 });
-
-// 添加视频文件验证函数
-const validateVideoFile = async (filePath) => {
-  return new Promise((resolve, reject) => {
-    ffmpeg.ffprobe(filePath, (err, metadata) => {
-      if (err) {
-        console.error(`视频文件验证失败: ${filePath}`, err);
-        reject(new Error(`视频文件验证失败: ${err.message}`));
-        return;
-      }
-
-      // 检查是否包含视频流
-      const videoStreams = metadata.streams.filter(
-        (stream) => stream.codec_type === "video",
-      );
-      if (videoStreams.length === 0) {
-        reject(new Error("此文件不包含视频流"));
-        return;
-      }
-
-      // 提取视频信息
-      const videoInfo = {
-        duration: metadata.format.duration || 0,
-        size: metadata.format.size || 0,
-        bitrate: metadata.format.bit_rate || 0,
-        format: metadata.format.format_name || "",
-        codec: videoStreams[0].codec_name || "",
-        width: videoStreams[0].width || 0,
-        height: videoStreams[0].height || 0,
-      };
-
-      resolve(videoInfo);
-    });
-  });
-};
 
 // 添加删除原始视频接口
 app.post("/api/delete-original-video", async (req, res) => {

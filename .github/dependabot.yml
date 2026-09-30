@@ -1,0 +1,33 @@
+# Dependabot 依赖更新配置 Dependabot version updates config
+# 允许 Dependabot 自动打开拉取请求,保持依赖最新
+version: 2
+updates:
+  # 前端依赖(仓库根目录) Frontend dependencies (repo root)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "02:00"
+      timezone: "Asia/Shanghai"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "build(deps)"
+      prefix-development: "build(deps-dev)"
+
+  # 后端依赖(backend/) Backend dependencies (backend/)
+  - package-ecosystem: "npm"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "02:00"
+      timezone: "Asia/Shanghai"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "build(deps)"
+      prefix-development: "build(deps-dev)"

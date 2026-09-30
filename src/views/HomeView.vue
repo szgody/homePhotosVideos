@@ -51,10 +51,7 @@
     <div v-if="previewVisible" class="preview-overlay" @click="closePreview">
       <div class="preview-container">
         <img
-          :src="
-            previewPhoto?.photo ||
-            `${apiUrl.value}${photosPath.value}/${previewPhoto?.filename}`
-          "
+          :src="previewPhoto?.photo"
           :alt="previewPhoto?.filename"
           class="preview-image"
           @error="handlePreviewError"
@@ -71,6 +68,8 @@ import { ref, computed, onMounted } from "vue";
 import AppHeader from "../components/AppHeader.vue";
 import PhotoGrid from "../components/PhotoGrid.vue";
 import VideoGrid from "../components/VideoGrid.vue";
+// 导入统一 API 客户端 Import unified API client
+import { apiGet } from "../api/client";
 // 导入外部样式文件
 import "../styles/views/home-view.css";
 
@@ -86,16 +85,6 @@ export default {
 
   // 组件设置 Component setup
   setup() {
-    // 环境变量设置 Environment variable settings
-    const apiUrl = ref(import.meta.env.VITE_API_URL || "");
-    const photosPath = ref(import.meta.env.VITE_PHOTOS_PATH || "/photos");
-    const videosPath = ref(import.meta.env.VITE_VIDEOS_PATH || "/videos");
-    const videoThumbnailsPath = ref(
-      import.meta.env.VITE_VIDEO_THUMBNAILS_PATH || "/video_thumbnails",
-    );
-    const photoThumbnailsPath = ref(
-      import.meta.env.VITE_PHOTO_THUMBNAILS_PATH || "/photo_thumbnails",
-    );
     // 状态定义 State definitions
     const photos = ref([]); // 照片列表 Photo list
     const loadedImages = ref(0); // 已加载图片数 Loaded images count
@@ -117,13 +106,7 @@ export default {
     // 组件挂载时获取照片 Fetch photos when component is mounted
     onMounted(async () => {
       try {
-        const response = await fetch(`${apiUrl.value}/photos`);
-
-        if (!response.ok) {
-          throw new Error("获取照片列表失败 Failed to get photo list");
-        }
-
-        const data = await response.json();
+        const data = await apiGet("/photos");
 
         if (data && Array.isArray(data.photos)) {
           photos.value = data.photos;
@@ -159,30 +142,9 @@ export default {
     // 获取最新视频的方法 Fetch latest videos method
     const fetchLatestVideos = async () => {
       try {
-        // 使用相对路径或完整路径 Use relative or complete path
-        const response = await fetch(`${apiUrl.value}/videos?limit=4`);
-        if (!response.ok) {
-          throw new Error(
-            `获取视频失败 Failed to get videos: ${response.status}`,
-          );
-        }
-
-        const data = await response.json();
+        // 后端返回完整缩略图路径,直接使用 Backend returns full thumbnail paths
+        const data = await apiGet("/videos", { limit: 4 });
         latestVideos.value = data.videos || [];
-
-        // 检查并修复缩略图路径 Check and fix thumbnail paths
-        latestVideos.value.forEach((video) => {
-          if (
-            video.thumbnailPath &&
-            video.thumbnailPath.startsWith(apiUrl.value)
-          ) {
-            // 替换为相对路径 Replace with relative path
-            video.thumbnailPath = video.thumbnailPath.replace(
-              new RegExp(`^${apiUrl.value}`),
-              "",
-            );
-          }
-        });
       } catch (error) {
         console.error(
           "获取最新视频失败 Failed to fetch latest videos:",
@@ -192,29 +154,10 @@ export default {
       }
     };
 
-    // 格式化缩略图路径 Format thumbnail path
-    const formatThumbnailPath = (path) => {
-      // 首先，移除可能的 API 基础 URL 前缀 First, remove possible API base URL prefix
-      let newPath = path.replace(new RegExp(`^${apiUrl.value}`), "");
-
-      // 然后，修复文件名，将 .mp4.jpg 替换为 .jpg Then, fix filename, replace .mp4.jpg with .jpg
-      return newPath.replace(/\.(mp4|webm|avi|mov)\.jpg$/i, ".jpg");
-    };
-
     // 处理缩略图加载错误 Handle thumbnail load error
-    const handleThumbnailError = (event, video) => {
-      if (video && video.thumbnailPath) {
-        const fixedPath = formatThumbnailPath(video.thumbnailPath);
-        if (event.target.src !== `${apiUrl.value}${fixedPath}`) {
-          event.target.src = `${apiUrl.value}${fixedPath}`;
-        } else {
-          // 如果修复后仍然失败，使用默认图片 If still fails after fixing, use default image
-          event.target.src = `${apiUrl.value}/assets/default-video-thumbnail.jpg`;
-        }
-      } else {
-        // 没有视频对象时使用默认图片 Use default image when no video object
-        event.target.src = `${apiUrl.value}/assets/default-video-thumbnail.jpg`;
-      }
+    const handleThumbnailError = (event) => {
+      // 加载失败时使用默认占位图 Use default placeholder when load fails
+      event.target.src = "/assets/default-video-thumbnail.jpg";
     };
 
     // 显示照片预览 Show photo preview
@@ -256,13 +199,7 @@ export default {
       handleImageLoad,
       handleImageError,
       fetchLatestVideos,
-      formatThumbnailPath,
       handleThumbnailError,
-      apiUrl,
-      photosPath,
-      videosPath,
-      videoThumbnailsPath,
-      photoThumbnailsPath,
       // 添加预览相关状态和方法
       previewVisible,
       previewPhoto,

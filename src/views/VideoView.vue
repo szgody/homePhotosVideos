@@ -68,6 +68,8 @@ import {
   isVideoProcessing,
   isVideoSession,
 } from "../components/SessionStorage.vue";
+// 导入统一 API 客户端 Import unified API client
+import { apiGet } from "../api/client";
 import { computed } from "vue";
 
 export default {
@@ -92,8 +94,6 @@ export default {
       videos: [], // 视频列表 Video list
       showPlayer: false, // 显示播放器标志 Show player flag
       selectedVideo: null, // 选中的视频 Selected video
-      apiUrl: import.meta.env.VITE_API_URL || "", // API URL
-      baseUrl: import.meta.env.VITE_BASE_URL || "", // 基础 URL
       previousProcessingState: false, // 跟踪之前的处理状态
     };
   },
@@ -163,19 +163,7 @@ export default {
     // 获取视频列表 Fetch video list
     async fetchVideos() {
       try {
-        // 构建API URL
-        const apiEndpoint = this.apiUrl
-          ? `${this.apiUrl}/videos`
-          : "/api/videos";
-
-        const response = await fetch(apiEndpoint);
-        if (!response.ok) {
-          throw new Error(
-            `获取视频列表失败 Failed to get video list: ${response.status} ${response.statusText}`,
-          );
-        }
-
-        const data = await response.json();
+        const data = await apiGet("/videos");
 
         // 验证和处理数据
         if (data && Array.isArray(data.videos)) {
@@ -216,7 +204,7 @@ export default {
     // 处理缩略图加载错误 Handle thumbnail loading error
     handleThumbnailError(event, video) {
       // 设置为默认缩略图 Set default thumbnail
-      event.target.src = `${this.baseUrl}/assets/default-video-thumbnail.jpg`;
+      event.target.src = "/assets/default-video-thumbnail.jpg";
     },
 
     // 处理视频加载错误 Handle video loading error

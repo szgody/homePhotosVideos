@@ -42,6 +42,8 @@
 <script>
 // 导入外部样式
 import "../styles/views/photo-view.css";
+// 导入统一 API 客户端 Import unified API client
+import { apiGet } from "../api/client";
 
 export default {
   name: "PhotoView",
@@ -50,12 +52,6 @@ export default {
       photos: [],
       showPreview: false,
       currentPhoto: null,
-      baseUrl:
-        import.meta.env.VITE_BASE_URL ||
-        import.meta.env.VITE_API_BASE_URL ||
-        import.meta.env.VITE_API_URL ||
-        "",
-      apiUrl: import.meta.env.VITE_API_URL || "",
     };
   },
   created() {
@@ -64,15 +60,7 @@ export default {
   methods: {
     async fetchPhotos() {
       try {
-        const apiUrl = this.apiUrl ? `${this.apiUrl}/photos` : "/api/photos";
-
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-          throw new Error(
-            `获取照片列表失败 Failed to fetch photos: ${response.status}`,
-          );
-        }
-        const data = await response.json();
+        const data = await apiGet("/photos");
 
         if (data && Array.isArray(data.photos)) {
           this.photos = data.photos;
@@ -98,14 +86,14 @@ export default {
     },
     handleThumbnailError(e) {
       console.error("缩略图加载失败 Thumbnail load failed:", e.target.src);
-      e.target.src = `${this.baseUrl}/assets/default-thumbnail.jpg`;
+      e.target.src = "/assets/default-thumbnail.jpg";
     },
     handleImageError(e) {
       console.error("图片加载失败 Image load failed:", e.target.src);
       if (this.currentPhoto && this.currentPhoto.thumbnail) {
         e.target.src = this.currentPhoto.thumbnail;
       } else {
-        e.target.src = `${this.baseUrl}/assets/default-photo.jpg`;
+        e.target.src = "/assets/default-photo.jpg";
       }
     },
   },

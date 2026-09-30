@@ -53,9 +53,8 @@
 <script>
 // 导入样式
 import "../styles/components/video-grid.css";
-// 组件配置 Component configuration
-const apiUrl = import.meta.env.VITE_API_URL;
-const baseUrl = import.meta.env.VITE_BASE_URL || "";
+// 导入统一 API 客户端 Import unified API client
+import { apiGet } from "../api/client";
 
 export default {
   // 组件属性 Component props
@@ -75,7 +74,6 @@ export default {
     return {
       videos: [], // 视频数组 Array of videos
       totalVideos: 0, // 视频总数 Total number of videos
-      apiBaseUrl: import.meta.env.VITE_BASE_URL || "", // 基础URL
       showVideoPlayer: false, // 是否显示视频播放器
       currentVideo: null, // 当前选中的视频
     };
@@ -122,13 +120,7 @@ export default {
     async fetchVideos() {
       try {
         // 发送API请求 Send API request
-        const response = await fetch(`${apiUrl}/videos`);
-        if (!response.ok) {
-          throw new Error("获取视频列表失败 Failed to get video list");
-        }
-
-        // 解析响应数据 Parse response data
-        const data = await response.json();
+        const data = await apiGet("/videos");
 
         // 处理返回的数据 Process returned data
         if (data && Array.isArray(data.videos)) {
@@ -181,7 +173,7 @@ export default {
     // 处理视频缩略图加载错误 Handle thumbnail load error
     handleThumbnailError(e) {
       console.error("视频缩略图加载失败 Thumbnail load failed:", e.target.src);
-      e.target.src = `${this.apiBaseUrl}/assets/video-placeholder.svg`;
+      e.target.src = "/assets/video-placeholder.svg";
     },
 
     // 处理视频加载错误 Handle video load error

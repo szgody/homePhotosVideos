@@ -1,25 +1,29 @@
-const { exec } = require('child_process');
-const path = require('path');
+// 检查 ffmpeg / ffprobe 是否可用 Check ffmpeg availability
+const { execFile } = require("child_process");
+const { FFMPEG_PATH, FFPROBE_PATH } = require("../backend/src/config");
 
-// 检查 FFmpeg 安装
-function checkFFmpeg() {
-    console.log('检查 FFmpeg 安装状态...');
-    
-    exec('ffmpeg -version', (error, stdout, stderr) => {
-        if (error) {
-            console.error('FFmpeg 未安装或未添加到 PATH:', error);
-            return;
-        }
-        console.log('FFmpeg 已安装:', stdout.split('\n')[0]);
+function probe(bin, args) {
+  return new Promise((resolve) => {
+    execFile(bin, args, (err, stdout) => {
+      if (err) return resolve(null);
+      resolve((stdout || "").split("\n")[0] || bin);
     });
-
-    exec('ffprobe -version', (error, stdout, stderr) => {
-        if (error) {
-            console.error('FFprobe 未安装或未添加到 PATH:', error);
-            return;
-        }
-        console.log('FFprobe 已安装:', stdout.split('\n')[0]);
-    });
+  });
 }
 
-checkFFmpeg();
+(async () => {
+  const ffmpegBin = FFMPEG_PATH || "ffmpeg";
+  const ffprobeBin = FFPROBE_PATH || "ffprobe";
+  const [ffmpegVersion, ffprobeVersion] = await Promise.all([
+    probe(ffmpegBin, ["-version"]),
+    probe(ffprobeBin, ["-version"]),
+  ]);
+
+  console.log(`${ffmpegVersion ? "PASS" : "FAIL"} ffmpeg: ${ffmpegVersion || "不可用"}`);
+  console.log(`${ffprobeVersion ? "PASS" : "FAIL"} ffprobe: ${ffprobeVersion || "不可用"}`);
+
+  if (!ffmpegVersion || !ffprobeVersion) {
+    console.error("请安装 ffmpeg: sudo apt install -y ffmpeg");
+    process.exit(1);
+  }
+})();

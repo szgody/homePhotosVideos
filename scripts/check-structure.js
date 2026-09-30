@@ -20,7 +20,7 @@ const REQUIRED = [
   "src/api/client.js",
   "src/composables/useProcessing.js",
   "src/views/ProcessingView.vue",
-  "vite.config.js",
+  "vite.config.mjs",
 ];
 
 const FORBIDDEN = [

@@ -1,3 +1,7 @@
+<p align="left">
+  中文 | <a href="README_EN.md">English</a>
+</p>
+
 # 🏠 家庭照片与视频管理站
 
 📸 基于 **Vue 3 + Vite + Express** 构建的家庭媒体管理系统，便于整理、浏览和共享个人照片与视频。

@@ -1,9 +1,7 @@
-<template>
-  <!-- 隐藏组件，无UI元素 -->
-</template>
-
-<script>
+// 处理状态组合式函数:替代原 SessionStorage.vue 隐藏组件
+// Processing state composable: replaces the hidden SessionStorage.vue component
 import { onMounted, onUnmounted, ref, reactive } from "vue";
+import { apiGet } from "../api/client";
 
 // 导出所有共享状态
 export const processingState = reactive({
@@ -42,40 +40,6 @@ export const processingStatus = ref({
 // 轮询间隔
 let progressPollingInterval = null;
 let statusSavingInterval = null;
-
-// 获取API基础路径
-const getBaseUrl = () => {
-  return (
-    import.meta.env.VITE_BASE_URL ||
-    import.meta.env.VITE_API_BASE_URL ||
-    import.meta.env.VITE_API_URL ||
-    process.env.VUE_APP_BASE_URL ||
-    process.env.VUE_APP_API_BASE_URL ||
-    ""
-  );
-};
-
-// 构建完整API路径
-const buildUrl = (path) => {
-  const baseUrl = getBaseUrl();
-
-  // 移除 path 开头的 /api，避免重复
-  let cleanPath = path;
-  if (cleanPath.startsWith("/api/")) {
-    cleanPath = cleanPath.substring(4);
-  }
-
-  if (baseUrl) {
-    if (baseUrl.endsWith("/") && cleanPath.startsWith("/")) {
-      return baseUrl + cleanPath.substring(1);
-    } else if (!baseUrl.endsWith("/") && !cleanPath.startsWith("/")) {
-      return baseUrl + "/" + cleanPath;
-    }
-    return baseUrl + cleanPath;
-  }
-
-  return cleanPath.startsWith("/") ? cleanPath : "/" + cleanPath;
-};
 
 // 添加日志函数 - 由SessionStorage负责生成
 export const addLog = (type, message) => {
@@ -126,87 +90,85 @@ const startProgressPolling = () => {
 };
 
 // 改进 fetchVideoProgress 函数，确保总是能获取最新进度
-const fetchVideoProgress = () => {
+const fetchVideoProgress = async () => {
   // 如果当前文件为空或不是处理中状态，则不轮询
   if (!processingState.currentFile || !processingState.processing) {
     return;
   }
 
-  const progressUrl = buildUrl(
-    `/video-progress?filename=${encodeURIComponent(processingState.currentFile)}&force=1&t=${Date.now()}`,
-  );
-
   console.log("获取视频进度:", processingState.currentFile);
 
-  fetch(progressUrl, {
-    headers: { "Cache-Control": "no-cache" },
-  })
-    .then((response) => (response.ok ? response.json() : null))
-    .then((data) => {
-      if (data && data.percent !== undefined) {
-        // 更新本地存储的上一次进度
-        const prevProgress = processingState.ffmpegProgress;
-
-        // 更新进度
-        processingState.ffmpegProgress = data.percent;
-        if (data.timemarks) {
-          processingState.timemarks = data.timemarks;
-        }
-
-        if (data.memory) {
-          processingState.memoryUsage = data.memory;
-        }
-
-        const currentProgress = Math.round(processingState.ffmpegProgress);
-
-        // 确保第一个视频也有进度日志
-        if (processingState.isFirstProgressCheck && currentProgress > 0) {
-          // 首次进度检查且有进度时，记录一次日志
-          addLog(
-            "info",
-            `视频处理开始: ${currentProgress}% (${processingState.currentFile})`,
-          );
-          processingState.isFirstProgressCheck = false;
-          processingState.lastLoggedProgress = currentProgress;
-        }
-        // 当进度发生明显变化时记录日志 (≥5%)
-        else if (
-          Math.abs(processingState.lastLoggedProgress - currentProgress) >= 5
-        ) {
-          // 添加日志条目
-          addLog(
-            "info",
-            `视频处理进度: ${currentProgress}% (${processingState.currentFile})`,
-          );
-          processingState.lastLoggedProgress = currentProgress;
-        }
-
-        // 更新阶段描述
-        processingState.currentStage = `处理视频: ${processingState.currentFile} (${processingState.ffmpegProgress.toFixed(1)}%)`;
-
-        // 更新总进度
-        if (processingState.totalCount > 0) {
-          const singleVideoContribution = 100 / processingState.totalCount;
-          const completedContribution =
-            processingState.processedCount * singleVideoContribution;
-          const currentContribution =
-            (processingState.ffmpegProgress / 100) * singleVideoContribution;
-          processingState.progress = Math.min(
-            99.9,
-            completedContribution + currentContribution,
-          );
-        }
-
-        // 更新视频处理状态
-        updateVideoProcessingStatus();
-
-        // 保存状态
-        saveProcessingStatus();
-      }
-    })
-    .catch((error) => {
-      console.error("获取视频进度失败:", error);
+  try {
+    // 使用统一 API 客户端获取视频处理进度
+    const data = await apiGet("/video-progress", {
+      filename: processingState.currentFile,
+      force: 1,
+      t: Date.now(),
     });
+
+    if (data && data.percent !== undefined) {
+      // 更新本地存储的上一次进度
+      const prevProgress = processingState.ffmpegProgress;
+
+      // 更新进度
+      processingState.ffmpegProgress = data.percent;
+      if (data.timemarks) {
+        processingState.timemarks = data.timemarks;
+      }
+
+      if (data.memory) {
+        processingState.memoryUsage = data.memory;
+      }
+
+      const currentProgress = Math.round(processingState.ffmpegProgress);
+
+      // 确保第一个视频也有进度日志
+      if (processingState.isFirstProgressCheck && currentProgress > 0) {
+        // 首次进度检查且有进度时，记录一次日志
+        addLog(
+          "info",
+          `视频处理开始: ${currentProgress}% (${processingState.currentFile})`,
+        );
+        processingState.isFirstProgressCheck = false;
+        processingState.lastLoggedProgress = currentProgress;
+      }
+      // 当进度发生明显变化时记录日志 (≥5%)
+      else if (
+        Math.abs(processingState.lastLoggedProgress - currentProgress) >= 5
+      ) {
+        // 添加日志条目
+        addLog(
+          "info",
+          `视频处理进度: ${currentProgress}% (${processingState.currentFile})`,
+        );
+        processingState.lastLoggedProgress = currentProgress;
+      }
+
+      // 更新阶段描述
+      processingState.currentStage = `处理视频: ${processingState.currentFile} (${processingState.ffmpegProgress.toFixed(1)}%)`;
+
+      // 更新总进度
+      if (processingState.totalCount > 0) {
+        const singleVideoContribution = 100 / processingState.totalCount;
+        const completedContribution =
+          processingState.processedCount * singleVideoContribution;
+        const currentContribution =
+          (processingState.ffmpegProgress / 100) * singleVideoContribution;
+        processingState.progress = Math.min(
+          99.9,
+          completedContribution + currentContribution,
+        );
+      }
+
+      // 更新视频处理状态
+      updateVideoProcessingStatus();
+
+      // 保存状态
+      saveProcessingStatus();
+    }
+  } catch (error) {
+    console.error("获取视频进度失败:", error);
+  }
 };
 
 // 停止轮询
@@ -422,57 +384,50 @@ export const switchToNextVideo = (nextVideoFile) => {
   }, 1000);
 };
 
-export default {
-  name: "SessionStorage",
+// 全局监控初始化:替代原隐藏组件，由 App.vue 根组件调用
+export function initProcessingMonitor() {
+  // 组件挂载时开始监控
+  onMounted(() => {
+    console.log("useProcessing: 会话存储管理已激活");
 
-  setup() {
-    // 组件挂载时开始监控
-    onMounted(() => {
-      console.log("SessionStorage: 会话存储管理组件已激活");
+    // 尝试恢复状态
+    loadProcessingStatus();
 
-      // 尝试恢复状态
-      loadProcessingStatus();
+    // 添加页面可见性变化事件监听
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") {
+        console.log("useProcessing: 页面可见，检查处理状态");
 
-      // 添加页面可见性变化事件监听
-      document.addEventListener("visibilitychange", () => {
-        if (document.visibilityState === "visible") {
-          console.log("SessionStorage: 页面可见，检查处理状态");
+        // 恢复状态但不添加额外日志
+        loadProcessingStatus();
 
-          // 恢复状态但不添加额外日志
-          loadProcessingStatus();
+        // 如果正在处理视频，确保轮询是活跃的
+        if (
+          processingState.processing &&
+          processingState.processingType === "video"
+        ) {
+          // 停止可能已存在的轮询
+          stopProgressPolling();
 
-          // 如果正在处理视频，确保轮询是活跃的
-          if (
-            processingState.processing &&
-            processingState.processingType === "video"
-          ) {
-            // 停止可能已存在的轮询
-            stopProgressPolling();
+          // 立即获取一次进度然后重启轮询
+          fetchVideoProgress();
 
-            // 立即获取一次进度然后重启轮询
-            fetchVideoProgress();
-
-            // 延迟启动轮询，确保刷新不会冲突
-            setTimeout(() => {
-              startProgressPolling();
-            }, 500);
-          }
+          // 延迟启动轮询，确保刷新不会冲突
+          setTimeout(() => {
+            startProgressPolling();
+          }, 500);
         }
-      });
+      }
     });
+  });
 
-    // 组件卸载时停止监控
-    onUnmounted(() => {
-      stopProgressPolling();
-      stopStatusSaving();
-      document.removeEventListener("visibilitychange");
-    });
-
-    return {
-      // 状态已经通过export导出
-    };
-  },
-};
+  // 组件卸载时停止监控
+  onUnmounted(() => {
+    stopProgressPolling();
+    stopStatusSaving();
+    document.removeEventListener("visibilitychange");
+  });
+}
 
 // 提供开始处理方法
 export const startProcessing = (type) => {
@@ -505,4 +460,3 @@ export const startProcessing = (type) => {
   // 更新视频处理状态
   updateVideoProcessingStatus();
 };
-</script>

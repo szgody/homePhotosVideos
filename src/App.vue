@@ -11,6 +11,8 @@
 <script>
 // 导入页头组件 Import header component
 import AppHeader from "./components/AppHeader.vue";
+// 导入处理监控初始化 Import processing monitor initialization
+import { initProcessingMonitor } from "./composables/useProcessing.js";
 
 // 导出应用程序配置 Export application configuration
 export default {
@@ -19,6 +21,12 @@ export default {
   // 注册子组件 Register child components
   components: {
     AppHeader, // 页头组件 Header component
+  },
+
+  // 使用组合式API Setup function
+  setup() {
+    // 初始化处理状态监控(原 SessionStorage 隐藏组件的职责)
+    initProcessingMonitor();
   },
 };
 </script>

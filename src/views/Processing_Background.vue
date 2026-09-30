@@ -136,7 +136,7 @@ import {
   startProcessing,
   loadProcessingStatus,
   switchToNextVideo,
-} from "../components/SessionStorage.vue";
+} from "../composables/useProcessing.js";
 
 // 简化为
 const getBaseUrl = () => {

@@ -67,7 +67,7 @@ import "../styles/views/video-view.css";
 import {
   isVideoProcessing,
   isVideoSession,
-} from "../components/SessionStorage.vue";
+} from "../composables/useProcessing.js";
 // 导入统一 API 客户端 Import unified API client
 import { apiGet } from "../api/client";
 import { computed } from "vue";

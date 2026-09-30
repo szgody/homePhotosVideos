@@ -9,7 +9,7 @@
     "test": "node --test \"test/**/*.test.js\""
   },
   "dependencies": {
-    "cors": "^2.8.5",
+    "cors": "^2.8.6",
     "dotenv": "^16.5.0",
     "express": "^5.2.1",
     "fluent-ffmpeg": "^2.1.3",

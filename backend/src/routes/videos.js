@@ -102,6 +102,13 @@ router.post("/process-single-video", async (req, res) => {
       return res.status(400).json({ success: false, error: "新文件名必须为 6 位序号" });
     }
 
+    // 防重复处理:同一文件已有任务在进行时拒绝,避免并发转码写同一输出与进度互相覆盖
+    const inFlight = state.videoProgressData[filename] &&
+      ["processing", "validating"].includes(state.videoProgressData[filename].status);
+    if (state.activeFFmpegProcesses[filename] || inFlight) {
+      return res.status(409).json({ success: false, error: "该文件正在处理中" });
+    }
+
     const result = await processVideo(filename, newName);
 
     if (deleteOriginal === true) {

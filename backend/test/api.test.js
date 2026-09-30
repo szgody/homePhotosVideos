@@ -72,3 +72,24 @@ test("非白名单来源被 CORS 拒绝并返回 JSON", async (t) => {
   const body = await response.json();
   assert.equal(body.error, "请求被拒绝");
 });
+
+test("POST /api/process-single-video 拒绝重复处理同一文件", async (t) => {
+  const { state } = require("../src/state");
+  // 预置一个“正在处理中”的文件,模拟并发重复提交
+  state.activeFFmpegProcesses["dup-test.mp4"] = {};
+  try {
+    const server = await listen(createApp());
+    t.after(() => new Promise((resolve) => server.close(resolve)));
+    const { port } = server.address();
+    const response = await fetch(`http://localhost:${port}/api/process-single-video`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ filename: "dup-test.mp4", newName: "000000" }),
+    });
+    assert.equal(response.status, 409);
+    const body = await response.json();
+    assert.equal(body.error, "该文件正在处理中");
+  } finally {
+    delete state.activeFFmpegProcesses["dup-test.mp4"];
+  }
+});

@@ -431,6 +431,10 @@ export function initProcessingMonitor() {
 
 // 提供开始处理方法
 export const startProcessing = (type) => {
+  // 防重入:已在处理中时忽略重复启动 Prevent duplicate start
+  if (processingState.processing) {
+    return;
+  }
   processingState.processing = true;
   processingState.processingType = type;
   processingState.processStatus = type === "video" ? 31 : 21;

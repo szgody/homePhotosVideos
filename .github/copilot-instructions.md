@@ -53,7 +53,7 @@ flowchart TD
 
 ## Testing
 
-- 后端测试:`cd backend && npm test`(node:test,22 个测试)
+- 后端测试:`cd backend && npm test`(node:test,23 个测试)
 - 修改 API 后使用 `npm run dev` + `cd backend && node server.js` 手动验证前后端联调
 
 ## Security

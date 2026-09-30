@@ -1,12 +1,49 @@
+/* 视频视图样式 Video view styles
+   说明:全部规则限定在 .video-view 作用域内,避免与 VideoGrid / HomeView 的同名类互相污染
+   Note: every rule is scoped under .video-view so shared class names never leak into other views */
+
 /* 视频视图容器样式 Video view container styles */
 .video-view {
-  padding: 16px; /* 内边距 Padding */
+  padding: 16px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* 处理中提示样式 Processing notice styles */
+.video-view .processing-notice {
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  color: #856404;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.video-view .notice-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.video-view .processing-icon {
+  font-size: 1.2em;
+  animation: video-view-spin 2s linear infinite;
+}
+
+@keyframes video-view-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* 视频网格样式 Video grid styles */
-.video-grid {
+.video-view .video-grid {
   display: grid; /* 网格布局 Grid layout */
   grid-template-columns: repeat(
     auto-fill,
@@ -17,29 +54,36 @@
 }
 
 /* 视频项目样式 Video item styles */
-.video-item {
+.video-view .video-item {
   aspect-ratio: 16/9; /* 宽高比 Aspect ratio */
   cursor: pointer; /* 鼠标指针 Mouse cursor */
-  transition: transform 0.2s; /* 变换过渡 Transform transition */
   position: relative; /* 相对定位 Relative positioning */
+  overflow: hidden; /* 裁剪圆角 Clip rounded corners */
+  border-radius: var(--radius, 8px); /* 圆角边框 Rounded corners */
+  /* 仅过渡需要变化的属性,避免 transition: all Only transition animated properties */
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-/* 视频项目悬停效果 Video item hover effect */
-.video-item:hover {
-  transform: scale(1.05); /* 放大效果 Scale up effect */
+/* 视频项目悬停提升 Video item hover uplift */
+.video-view .video-item:hover {
+  transform: translateY(-2px) scale(1.03); /* 轻微上浮放大 Slight lift + scale */
+  box-shadow: var(--shadow-lg, 0 6px 18px rgba(0, 0, 0, 0.12));
 }
 
 /* 缩略图样式 Thumbnail styles */
-.thumbnail {
+.video-view .thumbnail {
   width: 100%; /* 宽度 Width */
   height: 100%; /* 高度 Height */
+  display: block;
   object-fit: cover; /* 填充方式 Object fit */
-  border-radius: 8px; /* 圆角边框 Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 Shadow effect */
+  border-radius: var(--radius, 8px); /* 与容器圆角一致 Match container radius */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); /* 阴影效果 Shadow effect */
 }
 
 /* 播放图标样式 Play icon styles */
-.play-icon {
+.video-view .play-icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -55,107 +99,237 @@
   justify-content: center;
   opacity: 0.8;
   transition:
-    opacity 0.2s,
-    background-color 0.2s;
+    opacity 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.video-item:hover .play-icon {
+.video-view .video-item:hover .play-icon {
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* 视频名称样式 Video name styles */
-.video-name {
+.video-view .video-name {
   margin-top: 8px; /* 上边距 Margin top */
   font-size: 13px; /* 字体大小 Font size */
   text-align: center; /* 文字居中 Text alignment */
   color: var(--muted, #6b7280); /* 文字颜色 Text color */
 }
 
-/* 视频遮罩层样式 Video overlay styles */
-.video-overlay {
+/* ===== 视频播放弹窗 Video player modal ===== */
+
+/* 入场/退场动画:淡入 + 轻微缩放 Enter/leave animation: fade + slight scale */
+.video-modal-enter-active {
+  transition: opacity 0.24s ease;
+}
+
+.video-modal-leave-active {
+  transition: opacity 0.18s ease;
+}
+
+.video-modal-enter-from,
+.video-modal-leave-to {
+  opacity: 0;
+}
+
+.video-modal-enter-active .video-container {
+  animation: video-modal-pop 0.26s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@keyframes video-modal-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 视频遮罩层:深色半透明 + 毛玻璃 Overlay: dark translucent + backdrop blur */
+.video-view .video-overlay {
   position: fixed; /* 固定定位 Fixed positioning */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.9); /* 半透明背景 Semi-transparent background */
+  inset: 0;
   display: flex; /* 弹性布局 Flex layout */
   justify-content: center; /* 水平居中 Horizontal center */
   align-items: center; /* 垂直居中 Vertical center */
-  z-index: 1000; /* 层级 Z-index */
+  z-index: 1000; /* 与页头/确认弹窗同级,依靠后置 DOM 顺序覆盖页头 Same level as header */
+  /* 降级底色:不支持 backdrop-filter 时仍保证足够对比度 Fallback without blur support */
+  background: rgba(10, 14, 18, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: max(16px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+  overflow: auto; /* 极小视口下可滚动 Scrollable on tiny viewports */
+}
+
+/* 支持毛玻璃时降低底色不透明度 Less opaque when the blur is supported */
+@supports ((backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px))) {
+  .video-view .video-overlay {
+    background: rgba(10, 14, 18, 0.78);
+  }
 }
 
 /* 视频容器样式 Video container styles */
-.video-container {
+.video-view .video-container {
   position: relative; /* 相对定位 Relative positioning */
-  width: 80%; /* 宽度 Width */
-  max-width: 1000px; /* 最大宽度 Maximum width */
-  background: #000; /* 背景颜色 Background color */
-  border-radius: 8px; /* 圆角边框 Rounded corners */
-  overflow: hidden; /* 溢出隐藏 Hide overflow */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* 内边距计入宽度,避免超出视口 Include padding in width */
+  width: min(1100px, 92vw); /* 视口宽度上限 Max width of the viewport */
+  max-height: 100%; /* 不超出遮罩区域 Never exceed the overlay */
   margin: 0 auto; /* 居中显示 Center alignment */
+  background: #0b0e11; /* 深色背景 Dark background */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px; /* 圆角边框 Rounded corners */
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6); /* 阴影效果 Shadow effect */
+  overflow: hidden; /* 溢出隐藏 Hide overflow */
 }
 
-/* 视频播放器样式 Video player styles */
-.video-player {
-  width: 100%; /* 宽度 Width */
-  height: auto; /* 高度 Height */
-  display: block; /* 块级显示 Block display */
-  aspect-ratio: 16/9; /* 视频比例 Video aspect ratio */
-  max-height: 70vh; /* 最大高度为视窗高度的70% Max height 70% of viewport */
+/* 顶部信息栏:文件名 + 关闭按钮(不遮挡控制条)Header: filename + close button */
+.video-view .video-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px 10px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* 视频标题样式 Video title styles */
+.video-view .video-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis; /* 文件名过长省略 Ellipsis for long names */
+  white-space: nowrap;
+  font-size: 14px;
+  color: #e5e7eb;
 }
 
 /* 关闭按钮样式 Close button styles */
-.close-button {
-  position: absolute; /* 绝对定位 Absolute positioning */
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
+.video-view .video-close {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  /* 重置全局 button 规则(处理页 min-width:180px / margin)Reset the global button rule */
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
   border-radius: 50%; /* 圆形按钮 Circular button */
-  border: none; /* 无边框 No border */
-  background: rgba(
-    255,
-    255,
-    255,
-    0.3
-  ); /* 半透明背景 Semi-transparent background */
-  color: white; /* 文字颜色 Text color */
-  font-size: 20px; /* 字体大小 Font size */
-  cursor: pointer; /* 鼠标指针 Mouse cursor */
-  display: flex; /* 弹性布局 Flex layout */
-  align-items: center; /* 垂直居中 Vertical center */
-  justify-content: center; /* 水平居中 Horizontal center */
-  transition: background-color 0.2s; /* 背景色过渡 Background transition */
-  z-index: 1001; /* 层级 Z-index */
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    transform 0.18s ease;
 }
 
-/* 关闭按钮悬停效果 Close button hover effect */
-.close-button:hover {
-  background: rgba(255, 255, 255, 0.5); /* 悬停背景色 Hover background color */
+.video-view .video-close:hover {
+  background: rgba(239, 68, 68, 0.85); /* 悬停反馈 Hover feedback */
+  transform: scale(1.06);
 }
 
-/* 响应式设计 */
+.video-view .video-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* 播放器舞台:保持 16:9 且不超出视口高度 Stage: 16:9 without exceeding viewport height */
+.video-view .video-stage {
+  width: min(100%, calc(76vh * 16 / 9));
+  width: min(100%, calc(76dvh * 16 / 9));
+  margin: 0 auto; /* 被高度限制时仍居中 Centered when capped by the height */
+  aspect-ratio: 16 / 9;
+  background: #000; /* 视频背景色 Video background */
+}
+
+/* 视频播放器样式 Video player styles */
+.video-view .video-player {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 保持比例不拉伸 Keep ratio, no stretching */
+  background: #000;
+}
+
+/* 底部提示样式 Footer hint styles */
+.video-view .video-footer {
+  padding: 8px 16px;
+  text-align: center;
+}
+
+.video-view .video-hint {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* 响应式设计 Responsive design */
 @media (max-width: 768px) {
-  .video-grid {
+  .video-view .video-grid {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 12px;
   }
 
-  .video-container {
-    width: 96%;
-  }
-
-  .play-icon {
+  .video-view .play-icon {
     font-size: 26px;
     width: 44px;
     height: 44px;
   }
 
-  .close-button {
-    width: 40px;
-    height: 40px;
+  .video-view .video-overlay {
+    /* 结合安全区域,避免被刘海/手势条遮挡 Respect safe areas */
+    padding: max(10px, env(safe-area-inset-top))
+      max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom))
+      max(10px, env(safe-area-inset-left));
+  }
+
+  .video-view .video-container {
+    width: 95vw; /* 移动端更宽 Wider on mobile */
+    border-radius: 12px;
+  }
+
+  .video-view .video-stage {
+    width: min(100%, calc(68dvh * 16 / 9)); /* 使用 dvh 避开系统 UI 遮挡 Use dvh units */
+  }
+
+  .video-view .video-close {
+    width: 44px; /* 触控目标 ≥ 44px Tap target ≥ 44px */
+    height: 44px;
     font-size: 24px;
   }
+
+  .video-view .video-hint {
+    display: none; /* 移动端无键盘,隐藏快捷键提示 No keyboard on mobile */
+  }
 }
+
+/* 尊重系统的“减少动态效果”偏好 Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .video-modal-enter-active,
+  .video-modal-leave-active {
+    transition-duration: 0.01ms;
+  }
+
+  .video-modal-enter-active .video-container,
+  .video-view .processing-icon {
+    animation: none;
+  }
+
+  .video-view .video-item,
+  .video-view .play-icon,
+  .video-view .video-close {
+    transition: none;
+  }
+}
+

@@ -111,3 +111,123 @@ test("POST /api/cancel-processing 支持图片中断(无需文件名)", async (t
   // 清理,避免影响其他用例
   delete state.processingCancelled.images;
 });
+
+test("POST /api/process-images 拒绝 files 中的非法文件名", async (t) => {
+  const server = await listen(createApp());
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+  const { port } = server.address();
+  const response = await fetch(`http://localhost:${port}/api/process-images`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ files: ["ok.jpg", "../../etc/passwd"] }),
+  });
+  assert.equal(response.status, 400);
+  const body = await response.json();
+  assert.equal(body.success, false);
+});
+
+test("POST /api/process-images 拒绝非数组 files", async (t) => {
+  const server = await listen(createApp());
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+  const { port } = server.address();
+  const response = await fetch(`http://localhost:${port}/api/process-images`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ files: "a.jpg" }),
+  });
+  assert.equal(response.status, 400);
+});
+
+test("POST /api/process-images 空清单直接返回且不触碰磁盘", async (t) => {
+  const server = await listen(createApp());
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+  const { port } = server.address();
+  const response = await fetch(`http://localhost:${port}/api/process-images`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ files: [] }),
+  });
+  assert.equal(response.status, 200);
+  const body = await response.json();
+  assert.deepEqual(body.results, []);
+  assert.equal(body.cancelled, false);
+});
+
+test("POST /api/process-images-batch 拒绝路径遍历文件名", async (t) => {
+  const server = await listen(createApp());
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+  const { port } = server.address();
+  const response = await fetch(`http://localhost:${port}/api/process-images-batch`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ files: ["../evil.jpg"] }),
+  });
+  assert.equal(response.status, 400);
+  const body = await response.json();
+  assert.equal(body.success, false);
+});
+
+test("POST /api/process-images-batch 拒绝非图片扩展名", async (t) => {
+  const server = await listen(createApp());
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+  const { port } = server.address();
+  const response = await fetch(`http://localhost:${port}/api/process-images-batch`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ files: ["evil.exe"] }),
+  });
+  assert.equal(response.status, 400);
+});
+
+test("POST /api/process-images-batch 空清单直接返回且不触碰磁盘", async (t) => {
+  const server = await listen(createApp());
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+  const { port } = server.address();
+  const response = await fetch(`http://localhost:${port}/api/process-images-batch`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ files: [] }),
+  });
+  assert.equal(response.status, 200);
+  const body = await response.json();
+  assert.deepEqual(body.results, []);
+  assert.equal(body.cancelled, false);
+});
+
+test("POST /api/process-images-batch 任务进行中重复提交返回 409", async (t) => {
+  const { state } = require("../src/state");
+  state.imageProcessingActive = true;
+  try {
+    const server = await listen(createApp());
+    t.after(() => new Promise((resolve) => server.close(resolve)));
+    const { port } = server.address();
+    const response = await fetch(`http://localhost:${port}/api/process-images-batch`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ files: ["a.jpg"] }),
+    });
+    assert.equal(response.status, 409);
+  } finally {
+    delete state.imageProcessingActive;
+  }
+});
+
+test("POST /api/process-images 任务进行中重复提交返回 409", async (t) => {
+  const { state } = require("../src/state");
+  state.imageProcessingActive = true;
+  try {
+    const server = await listen(createApp());
+    t.after(() => new Promise((resolve) => server.close(resolve)));
+    const { port } = server.address();
+    const response = await fetch(`http://localhost:${port}/api/process-images`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ files: ["a.jpg"] }),
+    });
+    assert.equal(response.status, 409);
+    const body = await response.json();
+    assert.equal(body.success, false);
+  } finally {
+    delete state.imageProcessingActive;
+  }
+});

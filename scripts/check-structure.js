@@ -18,6 +18,7 @@ const REQUIRED = [
   "backend/src/utils/validate.js",
   "backend/src/utils/sn.js",
   "backend/src/utils/sniff.js",
+  "backend/src/utils/concurrency.js",
   "backend/test/api.test.js",
   "src/api/client.js",
   "src/composables/useProcessing.js",

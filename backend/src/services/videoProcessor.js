@@ -2,8 +2,19 @@
 const path = require("path");
 const fs = require("fs-extra");
 const ffmpeg = require("fluent-ffmpeg");
-const { PATHS, FFMPEG_PATH, FFPROBE_PATH } = require("../config");
+const { PATHS, FFMPEG_PATH, FFPROBE_PATH, VIDEO_THREADS, VIDEO_PRESET } = require("../config");
 const { state, resetFileState } = require("../state");
+
+// 转码参数:preset 默认 medium(与历史一致),线程数按硬件推导并限制(见 config.js)
+// 说明:x264 帧级并行收益在 8~12 线程后递减,固定线程数还能抑制内存随线程数上涨
+const VIDEO_OUTPUT_OPTIONS = [
+  "-c:v libx264",
+  `-preset ${VIDEO_PRESET}`,
+  `-threads ${VIDEO_THREADS}`,
+  "-crf 23",
+  "-c:a aac",
+  "-b:a 128k",
+];
 
 // 应用环境变量中的 ffmpeg 路径(缺省走系统 PATH)
 if (FFMPEG_PATH) ffmpeg.setFfmpegPath(FFMPEG_PATH);
@@ -82,7 +93,7 @@ async function processVideo(filename, newName, paths = PATHS) {
   try {
     await new Promise((resolve, reject) => {
       const ffmpegCommand = ffmpeg(originalPath)
-        .outputOptions(["-c:v libx264", "-crf 23", "-preset medium", "-c:a aac", "-b:a 128k"])
+        .outputOptions(VIDEO_OUTPUT_OPTIONS)
         .on("start", (commandLine) => {
           console.log("FFmpeg 命令:", commandLine);
         })

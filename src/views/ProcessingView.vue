@@ -151,6 +151,11 @@ const TIMEOUT = {
   FORCE_CLEANUP: 1000       // 强制清理时间
 };
 
+// 图片批处理分块大小:与后端 IMAGE_CONCURRENCY 默认值一致,
+// 块内由后端并发处理,块间串行以刷新进度并及时响应停止请求
+// Image batch chunk size: parallel inside a chunk (server side), sequential between chunks
+const IMAGE_BATCH_SIZE = 8;
+
 // 统一的清理调度函数
 const scheduleCleanup = (type, keepLogs = true) => {
   let timeout;
@@ -335,40 +340,42 @@ export default {
           return;
         }
 
-        const snData = await apiGet("/read-sn");
-        let currentNumber = parseInt(snData.sn, 10);
-
-        for (const file of data.images) {
+        // 分块调用后端有界并发批处理接口:块内并发、块间串行,便于刷新进度并及时响应停止
+        // Chunked calls: parallel inside a chunk (server side), sequential between chunks
+        // 序号(sn)由后端在批处理内统一分配与落盘,前端不再自行读写序号
+        for (let i = 0; i < data.images.length; i += IMAGE_BATCH_SIZE) {
           if (state.stopRequested) {
             addLog("warning", "处理已被用户中断");
             break;
           }
 
-          state.currentFile = file;
-          state.currentOriginalName = file;
-          state.currentNewName = String(currentNumber + 1).padStart(6, "0");
-          state.currentSN = String(currentNumber).padStart(6, "0");
+          const chunk = data.images.slice(i, i + IMAGE_BATCH_SIZE);
+          state.currentFile = chunk[0];
+          state.currentOriginalName = chunk[0];
 
-          const result = await apiPost("/process-single-image", {
-            filename: file,
-            newName: state.currentNewName,
-          });
+          const result = await apiPost("/process-images-batch", { files: chunk });
 
-          if (result.success) {
-            addLog("success", `处理完成: ${file} -> ${state.currentNewName}`);
-            currentNumber++;
+          for (const item of result.results || []) {
+            if (item.error) {
+              addLog("error", `处理失败: ${item.originalName} (${item.error})`);
+              continue;
+            }
+            addLog("success", `处理完成: ${item.originalName} -> ${item.newName}`);
+            state.currentNewName = item.newName;
+            if (item.sn) {
+              state.currentSN = item.sn;
+            }
             state.processedCount++;
-            state.progress = Math.round(
-              (state.processedCount / state.totalCount) * 100,
-            );
           }
-        }
 
-        if (state.processedCount > 0) {
-          // 确保序号为 6 位补齐字符串 Ensure sn is 6-digit padded string
-          await apiPost("/write-sn", {
-            sn: String(currentNumber).padStart(6, "0"),
-          });
+          state.progress = Math.round(
+            (state.processedCount / state.totalCount) * 100,
+          );
+
+          if (result.cancelled) {
+            addLog("warning", "后端已中止图片处理");
+            break;
+          }
         }
       } catch (error) {
         addLog("error", `处理过程出错: ${error.message}`);

@@ -1,7 +1,7 @@
 // Express 装配:中间件、静态资源、路由挂载 App assembly
 const express = require("express");
 const cors = require("cors");
-const { PATHS, URL_PATHS, ALLOWED_ORIGINS } = require("./config");
+const { PATHS, URL_PATHS, ALLOWED_ORIGINS, LOGICAL_CORES, IMAGE_CONCURRENCY, VIDEO_THREADS, VIDEO_PRESET } = require("./config");
 const photosRoutes = require("./routes/photos");
 const videosRoutes = require("./routes/videos");
 const uploadRoutes = require("./routes/upload");
@@ -46,6 +46,13 @@ function createApp() {
       uptime: process.uptime(),
       nodeVersion: process.version,
       memoryUsage: process.memoryUsage(),
+      // 实际生效的性能配置(便于线上核对并发/线程数)
+      performance: {
+        logicalCores: LOGICAL_CORES,
+        imageConcurrency: IMAGE_CONCURRENCY,
+        videoThreads: VIDEO_THREADS,
+        videoPreset: VIDEO_PRESET,
+      },
     });
   });
 

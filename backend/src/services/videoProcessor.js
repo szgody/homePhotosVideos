@@ -78,6 +78,7 @@ async function processVideo(filename, newName, paths = PATHS) {
     videoInfo,
   };
 
+  let cancelled = false;
   try {
     await new Promise((resolve, reject) => {
       const ffmpegCommand = ffmpeg(originalPath)
@@ -102,7 +103,11 @@ async function processVideo(filename, newName, paths = PATHS) {
           if (isCancelError(err)) {
             console.log(`视频 ${filename} 处理被用户取消`);
             state.videoProgressData[filename] = { status: "cancelled", message: "处理已被用户取消" };
-            resolve({ cancelled: true });
+            cancelled = true;
+            // 清理被取消转码的部分输出,避免残留损坏文件 Clean up partial output on cancel
+            fs.remove(outputPath)
+              .catch(() => {})
+              .then(() => resolve({ cancelled: true }));
           } else {
             console.error(`视频 ${filename} 处理失败:`, err);
             state.videoProgressData[filename] = { status: "error", error: err.message };
@@ -116,6 +121,11 @@ async function processVideo(filename, newName, paths = PATHS) {
   } finally {
     // 所有路径(end/error/cancel)都清理进程条目
     resetFileState(filename);
+  }
+
+  // 取消后不再生成缩略图,避免产生孤儿缩略图 Skip thumbnail generation when cancelled
+  if (cancelled) {
+    return { newName: finalNewName, originalPath, outputPath, thumbnailPath, cancelled: true };
   }
 
   // 生成缩略图 Generate thumbnail

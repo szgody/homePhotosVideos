@@ -111,6 +111,10 @@ router.post("/process-single-video", async (req, res) => {
 
     const result = await processVideo(filename, newName);
 
+    if (result.cancelled) {
+      return res.json({ success: false, cancelled: true, message: "处理已被用户取消" });
+    }
+
     if (deleteOriginal === true) {
       await fs.remove(result.originalPath);
       console.log(`已删除原始视频: ${result.originalPath}`);

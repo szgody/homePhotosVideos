@@ -225,7 +225,7 @@ router.post("/delete-all-original-videos", async (req, res) => {
     });
   } catch (error) {
     console.error("删除视频出错:", error);
-    res.json({ success: false, message: error.message, deletedCount: 0 });
+    res.status(500).json({ success: false, message: error.message });
   }
 });
 

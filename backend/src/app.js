@@ -23,6 +23,12 @@ function createApp() {
     }),
   );
 
+  // CORS 拒绝返回结构化 JSON(而非默认 500 HTML) Rejected CORS requests return JSON
+  app.use((err, req, res, next) => {
+    console.error("请求被拒绝:", err.message);
+    res.status(403).json({ error: "请求被拒绝", message: err.message });
+  });
+
   app.use(express.json());
 
   // 静态资源

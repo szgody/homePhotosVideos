@@ -6,11 +6,10 @@ module.exports = {
     {
       name: "home-photo-frontend",
       script: "npm",
-      args: "run preview",
+      args: "run preview -- --port 5173",
       cwd: ROOT,
       env: {
         NODE_ENV: "production",
-        PORT: 5173,
       },
       watch: false,
       max_memory_restart: "200M",

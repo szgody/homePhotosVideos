@@ -24,7 +24,7 @@ user-invocable: true
 
 - 遵循 OWASP 准则与最小权限原则
 - 遵循项目规范:后端 CommonJS、2 空格缩进、路径一律 `path.join()` 构建、双语注释
-- 保持最小改动,不破坏现有处理流程与 `global.*` 进度状态
+- 保持最小改动,不破坏现有处理流程与 `backend/src/state.js` 中的处理进度状态
 
 ## 工作方式
 

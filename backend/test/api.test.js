@@ -60,3 +60,15 @@ test("未知 API 返回 404", async (t) => {
   const response = await fetch(`http://localhost:${port}/api/not-exist`);
   assert.equal(response.status, 404);
 });
+
+test("非白名单来源被 CORS 拒绝并返回 JSON", async (t) => {
+  const server = await listen(createApp());
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+  const { port } = server.address();
+  const response = await fetch(`http://localhost:${port}/api/photos`, {
+    headers: { Origin: "http://evil.example" },
+  });
+  assert.equal(response.status, 403);
+  const body = await response.json();
+  assert.equal(body.error, "请求被拒绝");
+});

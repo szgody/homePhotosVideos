@@ -1,8 +1,6 @@
 🏠 家庭照片与视频管站
 📸 基于Vue.js构建的家庭媒体管理系统，便于整理、浏览和共享个人照片与视频。
 
-## 🌐 网站展示: http://home.szgody.site/
-
 ## 系统预览
 
 <div align="center">

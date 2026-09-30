@@ -117,7 +117,7 @@ export default {
         e.target.src = this.currentPhoto.thumbnail;
       } else {
         // 无缩略图时使用默认占位图 Use default placeholder when no thumbnail
-        e.target.src = "/assets/default-photo.jpg";
+        e.target.src = "/assets/placeholder.svg";
       }
     },
   },

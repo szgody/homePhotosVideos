@@ -44,69 +44,7 @@
       </button>
     </div>
 
-    <div class="processing-status">
-      <div v-if="state.processingType === 'video'" class="video-progress">
-        <div class="progress-details">
-          <div v-if="state.currentFile" class="current-file">
-            <p>当前处理: {{ state.currentFile }}</p>
-            <div
-              v-if="state.ffmpegProgress === 0 && state.processedCount > 0"
-              class="switching-notice"
-            >
-              <span class="spinner">⟳</span> 正在切换到下一个视频...
-            </div>
-
-            <div class="progress-bar">
-              <div
-                :style="{ width: `${state.ffmpegProgress}%` }"
-                class="progress ffmpeg"
-              ></div>
-            </div>
-            <p>视频转码进度: {{ state.ffmpegProgress }}%</p>
-            <p>
-              已完成: {{ state.processedCount }}/{{ state.totalCount }} 个视频
-            </p>
-            <p>处理时间: {{ state.timemarks }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div v-if="state.processingType === 'image'" class="image-progress">
-        <div class="progress-details">
-          <div v-if="state.currentFile" class="current-file">
-            <p>当前处理: {{ state.currentFile }}</p>
-
-            <div class="progress-bar">
-              <div
-                :style="{ width: `${state.progress}%` }"
-                class="progress"
-              ></div>
-            </div>
-            <p>处理进度: {{ state.progress }}%</p>
-            <p>
-              已完成: {{ state.processedCount }}/{{ state.totalCount }} 张图片
-            </p>
-            <p v-if="state.currentNewName">
-              新文件名: {{ state.currentNewName }}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div v-if="state.stopRequested" class="stop-requested-notice">
-        <div class="warning-icon">⚠️</div>
-        <div class="warning-message">
-          <template v-if="state.processingType === 'video'">
-            <strong>正在等待当前视频处理完成后停止！</strong>
-            <p>请不要关闭页面，等待当前视频处理完成</p>
-          </template>
-          <template v-else>
-            <strong>正在停止处理图片！</strong>
-            <p>请等待当前操作完成</p>
-          </template>
-        </div>
-      </div>
-    </div>
+    <ProcessingStatus :state="state" />
 
     <div class="logs">
       <h3>处理日志</h3>
@@ -137,41 +75,10 @@ import {
   loadProcessingStatus,
   switchToNextVideo,
 } from "../composables/useProcessing.js";
-
-// 简化为
-const getBaseUrl = () => {
-  return import.meta.env.VITE_API_BASE_URL || '';
-};
-
-// 修改buildUrl函数
-const buildUrl = (path) => {
-  const baseUrl = getBaseUrl();
-  
-  // 检查baseUrl是否已经包含/api
-  const hasApiInBase = baseUrl.endsWith('/api') || baseUrl.includes('/api/');
-  
-  // 确保路径有/api/前缀，但避免重复
-  let apiPath = path;
-  if (!hasApiInBase && !apiPath.startsWith('/api/')) {
-    apiPath = `/api/${apiPath.startsWith('/') ? apiPath.substring(1) : apiPath}`;
-  }
-  
-  // 如果baseUrl已包含/api，确保路径不再以/api开头
-  if (hasApiInBase && apiPath.startsWith('/api/')) {
-    apiPath = apiPath.substring(4); // 移除/api前缀
-  }
-  
-  if (baseUrl) {
-    if (baseUrl.endsWith("/") && apiPath.startsWith("/")) {
-      return baseUrl + apiPath.substring(1);
-    } else if (!baseUrl.endsWith("/") && !apiPath.startsWith("/")) {
-      return baseUrl + "/" + apiPath;
-    }
-    return baseUrl + apiPath;
-  }
-
-  return apiPath;
-};
+// 导入统一 API 客户端 Import unified API client
+import { apiGet, apiPost } from "../api/client";
+// 导入进度面板子组件 Import progress panel sub-component
+import ProcessingStatus from "../components/processing/ProcessingStatus.vue";
 
 // 统一的超时时间常量
 const TIMEOUT = {
@@ -204,13 +111,23 @@ const scheduleCleanup = (type, keepLogs = true) => {
   return setTimeout(() => clearProcessingState(keepLogs), timeout);
 };
 
-// API请求超时控制函数
-const createRequestTimeout = (controller) => {
-  return setTimeout(() => controller.abort(), TIMEOUT.API_REQUEST);
+// API请求超时控制函数:返回超时拒绝的 Promise,与 apiPost 竞争
+const createRequestTimeout = (message) => {
+  return new Promise((_, reject) => {
+    setTimeout(() => {
+      const error = new Error(message);
+      error.name = "AbortError";
+      reject(error);
+    }, TIMEOUT.API_REQUEST);
+  });
 };
 
 export default {
-  name: "ProcessingBackground",
+  name: "ProcessingView",
+
+  components: {
+    ProcessingStatus,
+  },
 
   setup() {
     // 添加删除原始图片和视频选项的状态变量 - 可简化
@@ -222,20 +139,15 @@ export default {
       startProcessing("image");
 
       try {
-        const listImagesUrl = buildUrl("/list-images");
-        addLog("info", `获取图片列表: ${listImagesUrl}`);
+        addLog("info", "获取图片列表: /list-images");
 
-        const response = await fetch(listImagesUrl);
-        if (!response.ok)
-          throw new Error(`获取图片列表失败: ${response.status}`);
+        const data = await apiGet("/list-images");
 
-        const data = await response.json();
-
-        if (!data.files || !Array.isArray(data.files)) {
+        if (!data.images || !Array.isArray(data.images)) {
           throw new Error("服务器返回的图片列表格式不正确");
         }
 
-        state.totalCount = data.files.length;
+        state.totalCount = data.images.length;
 
         if (state.totalCount === 0) {
           addLog("info", "没有需要处理的图片");
@@ -244,15 +156,10 @@ export default {
           return;
         }
 
-        const readSnUrl = buildUrl("/read-sn");
-        const snResponse = await fetch(readSnUrl);
-        if (!snResponse.ok)
-          throw new Error(`读取序号失败: ${snResponse.status}`);
-
-        const snData = await snResponse.json();
+        const snData = await apiGet("/read-sn");
         let currentNumber = parseInt(snData.sn, 10);
 
-        for (const file of data.files) {
+        for (const file of data.images) {
           if (state.stopRequested) {
             addLog("warning", "处理已被用户中断");
             break;
@@ -263,22 +170,11 @@ export default {
           state.currentNewName = String(currentNumber + 1).padStart(6, "0");
           state.currentSN = String(currentNumber).padStart(6, "0");
 
-          const processResponse = await fetch(
-            buildUrl("/process-single-image"),
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                filename: file,
-                newName: state.currentNewName,
-              }),
-            },
-          );
+          const result = await apiPost("/process-single-image", {
+            filename: file,
+            newName: state.currentNewName,
+          });
 
-          if (!processResponse.ok)
-            throw new Error(`处理失败: ${processResponse.status}`);
-
-          const result = await processResponse.json();
           if (result.success) {
             addLog("success", `处理完成: ${file} -> ${state.currentNewName}`);
             currentNumber++;
@@ -290,12 +186,9 @@ export default {
         }
 
         if (state.processedCount > 0) {
-          await fetch(buildUrl("/write-sn"), {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              sn: String(currentNumber).padStart(6, "0"),
-            }),
+          // 确保序号为 6 位补齐字符串 Ensure sn is 6-digit padded string
+          await apiPost("/write-sn", {
+            sn: String(currentNumber).padStart(6, "0"),
           });
         }
       } catch (error) {
@@ -314,38 +207,27 @@ export default {
               // 直接删除原始图片，不再弹窗确认
               addLog("warning", "根据设置，正在删除原始图片...");
 
-              // 使用 async/await 确保日志按顺序显示
-              fetch(buildUrl("/delete-all-original-images"), {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-              })
-                .then((response) => response.json())
-                .then((data) => {
-                  if (data.success) {
-                    addLog(
-                      "success",
-                      `已删除 ${data.deletedCount || "0"} 张原始图片`,
-                    );
-                    addLog("info", "删除原始图片操作已完成");
+              try {
+                const data = await apiPost("/delete-all-original-images");
 
-                    // 延迟清理状态，但保留日志
-                    scheduleCleanup('delete');
-                  } else {
-                    addLog(
-                      "error",
-                      `删除原始图片失败: ${data.message || "未知错误"}`,
-                    );
+                if (data.success) {
+                  addLog(
+                    "success",
+                    `已删除 ${data.deletedCount || "0"} 张原始图片`,
+                  );
+                  addLog("info", "删除原始图片操作已完成");
+                } else {
+                  addLog(
+                    "error",
+                    `删除原始图片失败: ${data.message || "未知错误"}`,
+                  );
+                }
+              } catch (error) {
+                addLog("error", `删除原始图片出错: ${error.message}`);
+              }
 
-                    // 延迟清理状态，但保留日志
-                    scheduleCleanup('delete');
-                  }
-                })
-                .catch((error) => {
-                  addLog("error", `删除原始图片出错: ${error.message}`);
-
-                  // 延迟清理状态，但保留日志
-                  scheduleCleanup('delete');
-                });
+              // 延迟清理状态，但保留日志
+              scheduleCleanup('delete');
 
               return; // 提前返回，让清理状态只在删除完成后执行
             } else {
@@ -370,13 +252,10 @@ export default {
       }
     };
 
-    // 修改 processVideos 函数，保存处理过的文件列表
+    // 处理视频函数(逐文件处理)
     const processVideos = async () => {
       // 保存当前的删除选择状态，避免中途修改引起问题
       const shouldDeleteOriginals = deleteOriginalVideos.value;
-      
-      // 添加一个数组来记录已处理的文件
-      const processedFiles = [];
       
       // 重置一些关键状态
       state.processedCount = 0;
@@ -388,20 +267,15 @@ export default {
       startProcessing("video");
     
       try {
-        const listVideosUrl = buildUrl("/list-videos");
-        addLog("info", `获取视频列表: ${listVideosUrl}`);
+        addLog("info", "获取视频列表: /list-videos");
     
-        const response = await fetch(listVideosUrl);
-        if (!response.ok)
-          throw new Error(`获取视频列表失败: ${response.status}`);
+        const data = await apiGet("/list-videos");
     
-        const data = await response.json();
-    
-        if (!data.files || !Array.isArray(data.files)) {
+        if (!data.videos || !Array.isArray(data.videos)) {
           throw new Error("服务器返回的视频列表格式不正确");
         }
     
-        state.totalCount = data.files.length;
+        state.totalCount = data.videos.length;
     
         if (state.totalCount === 0) {
           addLog("info", "没有需要处理的视频");
@@ -410,21 +284,17 @@ export default {
           return;
         }
     
-        const readSnUrl = buildUrl("/read-video-sn");
-        const snResponse = await fetch(readSnUrl);
-        if (!snResponse.ok)
-          throw new Error(`读取视频序号失败: ${snResponse.status}`);
+        // 后端现在返回 JSON:{ sn }
+        const snData = await apiGet("/read-video-sn");
+        let currentNumber = snData.sn;
     
-        let currentNumber = await snResponse.text();
-        currentNumber = currentNumber.trim();
-    
-        for (let i = 0; i < data.files.length; i++) {
+        for (let i = 0; i < data.videos.length; i++) {
           if (state.stopRequested) {
             addLog("warning", "处理已被用户中断");
             break;
           }
     
-          const file = data.files[i];
+          const file = data.videos[i];
     
           state.currentFile = file;
           state.currentOriginalName = file;
@@ -434,28 +304,13 @@ export default {
           );
           state.currentSN = currentNumber;
     
-          const processResponse = await fetch(
-            buildUrl("/process-single-video"),
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                filename: file,
-                newName: state.currentNewName,
-                deleteOriginal: false // 修改为false，留到最后统一删除
-              }),
-            },
-          );
-    
-          if (!processResponse.ok)
-            throw new Error(`处理视频失败: ${processResponse.status}`);
-    
-          const result = await processResponse.json();
+          const result = await apiPost("/process-single-video", {
+            filename: file,
+            newName: state.currentNewName,
+            deleteOriginal: false, // 修改为false，留到最后统一删除
+          });
     
           if (result.success) {
-            // 记录成功处理的文件
-            processedFiles.push(file);
-            
             state.currentNewName = result.newName;
             addLog("success", `处理完成: ${file} -> ${result.newName}`);
             if (result.thumbnail) {
@@ -473,18 +328,17 @@ export default {
               break;
             }
     
-            if (i < data.files.length - 1 && !state.stopRequested) {
-              const nextFile = data.files[i + 1];
+            if (i < data.videos.length - 1 && !state.stopRequested) {
+              const nextFile = data.videos[i + 1];
               switchToNextVideo(nextFile);
             }
           }
         }
     
         if (state.processedCount > 0) {
-          await fetch(buildUrl("/write-video-sn"), {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ sn: currentNumber }),
+          // 确保序号为 6 位补齐字符串 Ensure sn is 6-digit padded string
+          await apiPost("/write-video-sn", {
+            sn: String(currentNumber).padStart(6, "0"),
           });
         }
       } catch (error) {
@@ -499,35 +353,23 @@ export default {
               // 先显示开始删除的消息
               addLog("warning", "根据设置，正在删除原始视频...");
               
-              // 使用Promise链确保日志顺序正确
-              fetch(buildUrl("/delete-all-original-videos"), {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ 
-                  processedFiles: processedFiles
-                }),
-              })
-              .then(response => response.json())
-              .then(result => {
-                // 使用处理的视频数量作为删除数量
-                const expectedCount = processedFiles.length;
+              try {
+                const result = await apiPost("/delete-all-original-videos");
                 
                 if (result.success) {
-                  // 确保删除数量与处理数量一致
-                  addLog("success", `已删除 ${expectedCount} 个原始视频`);
+                  addLog("success", `已删除 ${result.deletedCount || "0"} 个原始视频`);
                   addLog("info", "删除原始视频操作已完成");
                 } else {
                   addLog("error", `删除原始视频失败: ${result.message || "未知错误"}`);
                 }
-              })
-              .catch(error => {
+              } catch (error) {
                 addLog("error", `删除原始视频出错: ${error.message}`);
-              })
-              .finally(() => {
-                scheduleCleanup('delete');
-              });
+              }
               
-              return; // 提前返回，后面的清理代码在Promise链中处理
+              // 延迟清理状态，但保留日志
+              scheduleCleanup('delete');
+              
+              return; // 提前返回，后面的清理代码在删除完成后处理
             } else {
               // 用户未选择删除
               addLog("info", "已保留原始视频，所有处理后的视频可在网站上查看");
@@ -603,38 +445,29 @@ export default {
       }
 
       try {
-        // 设置请求超时
-        const controller = new AbortController();
-        const timeoutId = createRequestTimeout(controller);
+        // 设置请求超时:与 apiPost 竞争,超时按 AbortError 处理
+        const timeoutPromise = createRequestTimeout("停止处理请求超时");
 
-        // 构建停止请求URL
-        const stopUrl = buildUrl(`/stop-${state.processingType}-processing`);
+        await Promise.race([
+          apiPost("/cancel-processing", {
+            type: state.processingType,
+            file: state.currentFile,
+          }),
+          timeoutPromise,
+        ]);
 
-        const response = await fetch(stopUrl, {
-          method: "POST",
-          signal: controller.signal,
-        });
-
-        clearTimeout(timeoutId);
-
-        if (!response.ok) {
-          if (state.processingType === "video") {
-            addLog("warning", "停止处理视频需要等待当前视频完成后才会生效！");
-          } else {
-            addLog("warning", `停止处理${processTypeName}请求失败！`);
-          }
-        } else {
-          addLog(
-            "info",
-            `已发送停止处理${processTypeName}请求，等待当前处理结束...`,
-          );
-        }
+        addLog(
+          "info",
+          `已发送停止处理${processTypeName}请求，等待当前处理结束...`,
+        );
       } catch (error) {
         if (error.name === "AbortError") {
           addLog("error", "停止处理请求超时，系统将尝试强制停止");
           scheduleCleanup('force');
+        } else if (state.processingType === "video") {
+          addLog("warning", "停止处理视频需要等待当前视频完成后才会生效！");
         } else {
-          addLog("warning", `停止处理API出错: ${error.message}`);
+          addLog("warning", `停止处理${processTypeName}请求失败！`);
         }
       }
     };

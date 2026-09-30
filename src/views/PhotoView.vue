@@ -86,14 +86,14 @@ export default {
     },
     handleThumbnailError(e) {
       console.error("缩略图加载失败 Thumbnail load failed:", e.target.src);
-      e.target.src = "/assets/default-thumbnail.jpg";
+      e.target.src = "/assets/placeholder.svg";
     },
     handleImageError(e) {
       console.error("图片加载失败 Image load failed:", e.target.src);
       if (this.currentPhoto && this.currentPhoto.thumbnail) {
         e.target.src = this.currentPhoto.thumbnail;
       } else {
-        e.target.src = "/assets/default-photo.jpg";
+        e.target.src = "/assets/placeholder.svg";
       }
     },
   },

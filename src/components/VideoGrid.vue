@@ -173,7 +173,7 @@ export default {
     // 处理视频缩略图加载错误 Handle thumbnail load error
     handleThumbnailError(e) {
       console.error("视频缩略图加载失败 Thumbnail load failed:", e.target.src);
-      e.target.src = "/assets/video-placeholder.svg";
+      e.target.src = "/assets/placeholder.svg";
     },
 
     // 处理视频加载错误 Handle video load error

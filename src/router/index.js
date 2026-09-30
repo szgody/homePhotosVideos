@@ -5,7 +5,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue"; // 首页视图 Home view
 import PhotoView from "../views/PhotoView.vue"; // 照片视图 Photo view
 import VideoView from "../views/VideoView.vue"; // 视频视图 Video view
-import ProcessingView from "../views/Processing_Background.vue"; // 处理视图 Processing view
+import ProcessingView from "../views/ProcessingView.vue"; // 处理视图 Processing view
 
 // 创建路由实例 Create router instance
 const routes = [

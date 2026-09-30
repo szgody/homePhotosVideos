@@ -41,7 +41,7 @@ export const processingStatus = ref({
 let progressPollingInterval = null;
 let statusSavingInterval = null;
 
-// 添加日志函数 - 由SessionStorage负责生成
+// 添加日志函数 - 由useProcessing负责生成
 export const addLog = (type, message) => {
   const logEntry = {
     type,
@@ -60,12 +60,12 @@ export const addLog = (type, message) => {
   saveProcessingStatus();
 };
 
-// 启动视频进度轮询 - 移至SessionStorage
+// 启动视频进度轮询 - 移至useProcessing
 const startProgressPolling = () => {
   // 先停止已有的轮询
   stopProgressPolling();
 
-  console.log("SessionStorage: 启动视频进度轮询");
+  console.log("useProcessing: 启动视频进度轮询");
 
   // 首先立即获取一次进度
   if (processingState.currentFile) {
@@ -107,9 +107,6 @@ const fetchVideoProgress = async () => {
     });
 
     if (data && data.percent !== undefined) {
-      // 更新本地存储的上一次进度
-      const prevProgress = processingState.ffmpegProgress;
-
       // 更新进度
       processingState.ffmpegProgress = data.percent;
       if (data.timemarks) {
@@ -386,6 +383,33 @@ export const switchToNextVideo = (nextVideoFile) => {
 
 // 全局监控初始化:替代原隐藏组件，由 App.vue 根组件调用
 export function initProcessingMonitor() {
+  // 页面可见性变化处理函数(命名引用,便于注册与移除监听)
+  const handleVisibilityChange = () => {
+    if (document.visibilityState === "visible") {
+      console.log("useProcessing: 页面可见，检查处理状态");
+
+      // 恢复状态但不添加额外日志
+      loadProcessingStatus();
+
+      // 如果正在处理视频，确保轮询是活跃的
+      if (
+        processingState.processing &&
+        processingState.processingType === "video"
+      ) {
+        // 停止可能已存在的轮询
+        stopProgressPolling();
+
+        // 立即获取一次进度然后重启轮询
+        fetchVideoProgress();
+
+        // 延迟启动轮询，确保刷新不会冲突
+        setTimeout(() => {
+          startProgressPolling();
+        }, 500);
+      }
+    }
+  };
+
   // 组件挂载时开始监控
   onMounted(() => {
     console.log("useProcessing: 会话存储管理已激活");
@@ -394,38 +418,14 @@ export function initProcessingMonitor() {
     loadProcessingStatus();
 
     // 添加页面可见性变化事件监听
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "visible") {
-        console.log("useProcessing: 页面可见，检查处理状态");
-
-        // 恢复状态但不添加额外日志
-        loadProcessingStatus();
-
-        // 如果正在处理视频，确保轮询是活跃的
-        if (
-          processingState.processing &&
-          processingState.processingType === "video"
-        ) {
-          // 停止可能已存在的轮询
-          stopProgressPolling();
-
-          // 立即获取一次进度然后重启轮询
-          fetchVideoProgress();
-
-          // 延迟启动轮询，确保刷新不会冲突
-          setTimeout(() => {
-            startProgressPolling();
-          }, 500);
-        }
-      }
-    });
+    document.addEventListener("visibilitychange", handleVisibilityChange);
   });
 
   // 组件卸载时停止监控
   onUnmounted(() => {
     stopProgressPolling();
     stopStatusSaving();
-    document.removeEventListener("visibilitychange");
+    document.removeEventListener("visibilitychange", handleVisibilityChange);
   });
 }
 

@@ -91,7 +91,6 @@ export default {
     const errorImages = ref(0); // 加载失败图片数 Failed images count
     const debug = ref(false); // 调试模式关闭 Debug mode off
     const displayCount = ref(8); // 显示照片数量 Number of photos to display
-    const latestVideos = ref([]); // 最新视频 Latest videos
     // 添加预览相关状态
     const previewVisible = ref(false); // 预览是否可见
     const previewPhoto = ref(null); // 当前预览的照片
@@ -117,9 +116,6 @@ export default {
         console.error("加载照片失败 Failed to load photos:", error.message);
         photos.value = [];
       }
-
-      // 获取最新视频 Fetch latest videos
-      fetchLatestVideos();
     });
 
     // 图片加载成功处理 Handle successful image load
@@ -137,27 +133,6 @@ export default {
     const handleImageError = (e) => {
       errorImages.value++;
       console.error("图片加载失败 Image load failed:", e.target.src);
-    };
-
-    // 获取最新视频的方法 Fetch latest videos method
-    const fetchLatestVideos = async () => {
-      try {
-        // 后端返回完整缩略图路径,直接使用 Backend returns full thumbnail paths
-        const data = await apiGet("/videos", { limit: 4 });
-        latestVideos.value = data.videos || [];
-      } catch (error) {
-        console.error(
-          "获取最新视频失败 Failed to fetch latest videos:",
-          error.message,
-        );
-        latestVideos.value = [];
-      }
-    };
-
-    // 处理缩略图加载错误 Handle thumbnail load error
-    const handleThumbnailError = (event) => {
-      // 加载失败时使用默认占位图 Use default placeholder when load fails
-      event.target.src = "/assets/default-video-thumbnail.jpg";
     };
 
     // 显示照片预览 Show photo preview
@@ -195,11 +170,8 @@ export default {
       loadedImages,
       errorImages,
       debug,
-      latestVideos,
       handleImageLoad,
       handleImageError,
-      fetchLatestVideos,
-      handleThumbnailError,
       // 添加预览相关状态和方法
       previewVisible,
       previewPhoto,

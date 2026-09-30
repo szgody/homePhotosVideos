@@ -204,7 +204,7 @@ export default {
     // 处理缩略图加载错误 Handle thumbnail loading error
     handleThumbnailError(event, video) {
       // 设置为默认缩略图 Set default thumbnail
-      event.target.src = "/assets/default-video-thumbnail.jpg";
+      event.target.src = "/assets/placeholder.svg";
     },
 
     // 处理视频加载错误 Handle video loading error

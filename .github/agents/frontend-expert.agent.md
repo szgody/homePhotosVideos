@@ -8,8 +8,8 @@ user-invocable: true
 ## 项目背景
 
 - 前端:Vue 3 单文件组件,原生 CSS(未使用 UI 框架)
-- 样式分层:`src/assets/styles/main.css`、`src/styles/components/`(按钮、弹窗、进度条、网格等)、`src/styles/layouts/`、`src/styles/views/`
-- 核心界面:首页 `HomeView.vue`、照片网格 `PhotoGrid.vue`、视频网格 `VideoGrid.vue`、后台处理 `Processing_Background.vue`(进度条/状态面板)
+- 样式分层:`src/styles/components/`(按钮、弹窗、进度条、网格等)、`src/styles/layouts/`、`src/styles/views/`
+- 核心界面:首页 `HomeView.vue`、照片网格 `PhotoGrid.vue`、视频网格 `VideoGrid.vue`、后台处理 `ProcessingView.vue`(进度条/状态面板)
 - 系统要求:响应式 UI,适配桌面与移动设备
 
 ## 职责

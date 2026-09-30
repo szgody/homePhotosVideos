@@ -38,30 +38,12 @@
 ## Project Structure
 
 ```plaintext
-home-photo-vue/
-├── backend/              # Backend code
-│   ├── app.js           # Express application entry
-│   ├── server.js        # Core server code
-│   ├── config/          # Configuration files
-│   └── controllers/     # Controllers
-├── data/                 # Media storage
-│   ├── photos/          # Processed photos
-│   ├── videos/          # Processed videos
-│   ├── photo_thumbnails/ # Photo thumbnails
-│   └── video_thumbnails/ # Video thumbnails
-├── public/               # Static files
-│   └── original/        # Original media files
-│       ├── images/      # Raw images
-│       └── videos/      # Raw videos
-├── src/                  # Frontend source code
-│   ├── assets/          # Asset files
-│   ├── components/      # Vue components
-│   ├── router/          # Routing configuration
-│   ├── utils/           # Utility functions
-│   ├── views/           # Page views
-│   ├── App.vue          # Root component
-│   └── main.js          # Application entry point
-└── scripts/             # Utility scripts
+├── 📱 src/            # Frontend (api/, composables/, components/, views/, styles/)
+├── ⚙️ backend/        # Backend API (server.js entry + src/ layered + test/)
+├── 📁 data/           # Media storage (runtime)
+├── 🖼️ public/         # Original media & static assets
+├── 🐳 docker-compose.yml  # Container orchestration (single)
+└── 📄 nginx.conf.template # Nginx template (single)
 ```
 
 ## Key Components
@@ -73,12 +55,12 @@ home-photo-vue/
 - **HomeView**: Homepage showing latest photos/videos
 - **PhotoView**: Full photo gallery view
 - **VideoView**: Full video library view
-- **Processing_Background**: Background processing interface for raw files
+- **ProcessingView**: Background processing interface for raw files
 
 ## Installation Guide
 
 ### Prerequisites
-- Node.js 14.x or higher
+- Node.js 22.x or higher
 - FFmpeg installed system-wide (for video processing)
 
 ## Installation Steps
@@ -144,7 +126,7 @@ pm2 start ecosystem.config.js
 ## Environment Configuration
 Configure via .env.local or .env.production files:
 
-- `VITE_API_URL`: API server URL (e.g., http://localhost:3000)
+- `VITE_API_URL`: API prefix (default /api; in dev Vite proxies to http://localhost:3000)
 
 ## Technology Stack
 

@@ -7,12 +7,12 @@ user-invocable: true
 
 ## 项目背景
 
-- 编排文件:`docker-compose.yml`(根目录)与 `docker-compose/docker-compose.yml`(另一配置)
+- 编排文件:`docker-compose.yml`(根目录,唯一编排配置)
 - 服务划分:
   - `backend`:镜像 `godys/home-photos:backend-latest`,端口 3001:3000,挂载 `./data:/app/data`、`./public:/app/public`
-  - `nginx`:镜像 `godys/home-photos:frontend-latest`,端口 8080:80,挂载缩略图目录
-- Nginx 配置:`nginx.conf.template`、`home-photo_nginx.conf`
-- 关键环境变量:`DATA_DIR`、`PUBLIC_DIR`、`BASE_URL`、`PHOTOS_PATH`、`THUMBNAILS_PATH`、`VIDEOS_PATH`、`VIDEO_THUMBNAILS_PATH`、`ALLOWED_ORIGINS`
+  - `nginx`:镜像 `godys/home-photos:frontend-latest`,端口 8080:80,仅提供前端静态文件(媒体与缩略图经后端代理)
+- Nginx 配置:`nginx.conf.template`(唯一模板)
+- 关键环境变量:`DATA_DIR`、`PUBLIC_DIR`、`BASE_URL`、`PHOTOS_PATH`、`PHOTO_THUMBNAILS_PATH`、`VIDEOS_PATH`、`VIDEO_THUMBNAILS_PATH`、`ALLOWED_ORIGINS`
 - 系统依赖:ffmpeg、Sharp/libvips(需在镜像中安装);本地开发也可用 PM2(`ecosystem.config.js`)
 - 当前工作区无 Dockerfile,镜像为预构建镜像(可协助编写 Dockerfile 以自行构建)
 

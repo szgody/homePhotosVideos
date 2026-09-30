@@ -30,6 +30,7 @@ const FORBIDDEN = [
   "backend/controllers/videoController.js",
   "backend/ffmpeg-installer.js",
   "src/views/Home.vue",
+  "src/views/Processing_Background.vue",
   "src/components/SessionStorage.vue",
   "src/assets",
   "home-photo_nginx.conf",

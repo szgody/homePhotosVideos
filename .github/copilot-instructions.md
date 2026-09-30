@@ -8,7 +8,7 @@ flowchart TD
     B --> C["HomeView.vue<br>首页"]
     B --> D["PhotoView.vue<br>/photo 照片浏览"]
     B --> E["VideoView.vue<br>/video 视频浏览"]
-    B --> F["Processing_Background.vue<br>/admin/processing 后台处理"]
+    B --> F["ProcessingView.vue<br>/admin/processing 后台处理"]
 
     D --> G["GET /api/photos<br>获取照片列表"]
     E --> H["GET /api/videos<br>获取视频列表"]
@@ -21,7 +21,7 @@ flowchart TD
     L -->|视频| N["POST /api/process-videos<br>ffmpeg 转码 + 生成缩略图"]
     M --> O["写入唯一序号 data/photos/sn.txt<br>data/videos/sn.txt"]
     N --> O
-    O --> P["Socket.IO / /api/video-progress<br>推送处理进度"]
+    O --> P["GET /api/video-progress<br>轮询处理进度"]
     P --> Q{处理完成?}
     Q -->|是| R["文件落盘至 data/photos、data/videos<br>可选: 删除 public/original 原始文件"]
     Q -->|否/中止| S["POST /api/cancel-processing<br>停止任务"]
@@ -31,7 +31,7 @@ flowchart TD
 ## Technology Stack
 
 - **前端**: Vue.js 3 + Vite + Vue Router(`src/`)
-- **后端**: Node.js + Express + Socket.IO(`backend/`)
+- **后端**: Node.js + Express(`backend/`,分层结构)
 - **媒体处理**: Sharp(图片)、fluent-ffmpeg + ffmpeg/ffprobe(视频)
 - **存储**: 文件系统,无数据库;唯一序号记录在 `data/photos/sn.txt`、`data/videos/sn.txt`
 - **部署**: PM2(`ecosystem.config.js`)+ Nginx(`nginx.conf.template`)
@@ -46,15 +46,14 @@ flowchart TD
 
 ## Architecture
 
-- 所有 API 路由集中在 `backend/server.js`,媒体处理逻辑实现在同一文件的 `processImage` / `processVideo` 函数中
-- 全局状态使用 `global.videoProgressData`、`global.activeFFmpegProcesses`、`global.processingCancelled` 跟踪处理进度与取消操作
+- 后端分层:`backend/src/{config,utils,services,routes}`,入口 `backend/server.js` 薄封装;处理状态集中 `backend/src/state.js`
 - 数据目录结构:原始文件 `public/original/{images,videos}`,处理后文件 `data/{photos,videos}`,缩略图 `data/{photo_thumbnails,video_thumbnails}`
 - API 前缀统一为 `/api`,静态资源挂载于 `/photos`、`/videos`、`/photo_thumbnails`、`/video_thumbnails`
 - 前端页面组件位于 `src/views/`,复用组件位于 `src/components/`,路由定义在 `src/router/index.js`
 
 ## Testing
 
-- 项目暂无自动化测试框架,修改处理逻辑前先运行 `node scripts/check-structure.js` 和 `node scripts/check-ffmpeg.js` 验证环境
+- 后端测试:`cd backend && npm test`(node:test,21 个测试)
 - 修改 API 后使用 `npm run dev` + `cd backend && node server.js` 手动验证前后端联调
 
 ## Security

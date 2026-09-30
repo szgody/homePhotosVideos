@@ -15,12 +15,12 @@ services:
       - PORT=3000
       - DATA_DIR=/app/data
       - PUBLIC_DIR=/app/public
-      - BASE_URL=http://your-server-ip:8080
+      - BASE_URL=
       - PHOTOS_PATH=/photos
       - PHOTO_THUMBNAILS_PATH=/photo_thumbnails
       - VIDEOS_PATH=/videos
       - VIDEO_THUMBNAILS_PATH=/video_thumbnails
-      - ALLOWED_ORIGINS=http://localhost:8080,http://nginx,http://localhost
+      - ALLOWED_ORIGINS=http://your-server-ip:8080,http://localhost:8080
     networks:
       - app-network
     restart: unless-stopped
@@ -30,9 +30,6 @@ services:
     image: godys/home-photos:frontend-latest
     ports:
       - "8080:80"
-    volumes:
-      - ./data/photo_thumbnails:/app/data/photo_thumbnails
-      - ./data/video_thumbnails:/app/data/video_thumbnails
     networks:
       - app-network
     depends_on:

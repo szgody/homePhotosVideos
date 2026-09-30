@@ -3,10 +3,6 @@
 
 ## 🌐 网站展示: http://home.szgody.site/
 
- 
-✨ 系统预览
-<div align="center"> <h3>🖼️ 首页界面</h3> <img src="https://github.com/user-attachments/assets/08e36418-dc53-4f44-8655-80b2ad129641" width="800" alt="系统首页"> </div> <div align="center"> <h3>📸 照片管理</h3> <img src="https://github.com/user-attachments/assets/d98f297f-a6cc-44ab-8a07-fc90f58699f1" width="800" alt="照片管理界面"> </div> <div align="center"> <h3>🎬 视频管理</h3> <img src="https://github.com/user-attachments/assets/c8d291a0-13c7-4a95-97e4-66a3c75a7d6a" width="800" alt="视频管理界面"> </div>
-
 ## 系统预览
 
 <div align="center">
@@ -72,6 +68,8 @@ sudo ln -s /etc/nginx/sites-available/home-photo /etc/nginx/sites-enabled/
 sudo systemctl reload nginx
 ```
 
+> 💡 注意:PM2 前端 (npm run preview) 不包含开发代理,生产环境请通过 Nginx 反向代理 /api 与媒体路径(见 nginx.conf.template)。
+
 ## ⚙️ 配置说明
 
 ### 📝 环境变量
@@ -79,20 +77,26 @@ sudo systemctl reload nginx
 **🖥️前端 (.env)**
 ```
 VITE_API_URL=/api
-VITE_PHOTOS_PATH=/photos
-VITE_VIDEOS_PATH=/videos
 ```
 
 **⚙️后端 (backend/.env)**
 ```
 PORT=3000
 DATA_DIR=data
-ALLOWED_ORIGINS=http://localhost:5173
+PUBLIC_DIR=public
+BASE_URL=
+PHOTOS_PATH=/photos
+PHOTO_THUMBNAILS_PATH=/photo_thumbnails
+VIDEOS_PATH=/videos
+VIDEO_THUMBNAILS_PATH=/video_thumbnails
+ALLOWED_ORIGINS=http://localhost:5173,http://localhost:3000
 ```
+
+> ⚠️ 生产部署时必须将 ALLOWED_ORIGINS 设置为你的实际访问域名/IP(如 http://your-server-ip:8080),否则浏览器请求会被 CORS 白名单拒绝。
 
 ## 💻 系统要求
 
-- Node.js 14+, npm 7+
+- Node.js 22+, npm 7+
 - Nginx 1.18+, PM2 5+
 - 系统依赖:
     ```bash
@@ -109,12 +113,13 @@ ALLOWED_ORIGINS=http://localhost:5173
 
 ## 📂 项目结构
 
-```
-├── 📱 src/          # 前端代码
-├── ⚙️ backend/      # 后端API服务
-├── 📁 data/         # 媒体文件存储
-├── 🖼️ public/       # 静态资源
-└── 📦 dist/         # 构建输出目录
+```text
+├── 📱 src/            # 前端代码(api/、composables/、components/、views/、styles/)
+├── ⚙️ backend/        # 后端 API 服务(server.js 入口 + src/ 分层 + test/)
+├── 📁 data/           # 媒体文件存储(运行时生成)
+├── 🖼️ public/         # 原始媒体与静态资源
+├── 🐳 docker-compose.yml  # 容器编排(唯一)
+└── 📄 nginx.conf.template # Nginx 模板(唯一)
 ```
 
 > 📝 注: 部署时请替换所有<PROJECT_ROOT>为实际安装路径。

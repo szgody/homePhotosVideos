@@ -27,7 +27,7 @@ module.exports = {
         PORT: 3000,
         DATA_DIR: "data",
         PUBLIC_DIR: "public",
-        BASE_URL: "http://localhost:3000",
+        BASE_URL: "",
         PHOTOS_PATH: "/photos",
         PHOTO_THUMBNAILS_PATH: "/photo_thumbnails",
         VIDEOS_PATH: "/videos",

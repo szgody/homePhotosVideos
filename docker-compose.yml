@@ -2,13 +2,12 @@
 version: '3'
 
 services:
-  # 后端服务
+  # 后端服务 Backend service
   backend:
     image: godys/home-photos:backend-latest
     ports:
-      - "3001:3000"  # 可以根据需要更改外部端口
+      - "3001:3000"
     volumes:
-      # 数据路径，这里可以替换为您自己的路径
       - ./data:/app/data
       - ./public:/app/public
     environment:
@@ -16,10 +15,9 @@ services:
       - PORT=3000
       - DATA_DIR=/app/data
       - PUBLIC_DIR=/app/public
-      # 请修改为您的实际IP或域名
       - BASE_URL=http://your-server-ip:8080
       - PHOTOS_PATH=/photos
-      - THUMBNAILS_PATH=/photo_thumbnails
+      - PHOTO_THUMBNAILS_PATH=/photo_thumbnails
       - VIDEOS_PATH=/videos
       - VIDEO_THUMBNAILS_PATH=/video_thumbnails
       - ALLOWED_ORIGINS=http://localhost:8080,http://nginx,http://localhost
@@ -27,11 +25,11 @@ services:
       - app-network
     restart: unless-stopped
 
-  # 前端服务
+  # 前端服务(Nginx) Frontend service (Nginx)
   nginx:
     image: godys/home-photos:frontend-latest
     ports:
-      - "8080:80"  # 可以根据需要更改外部端口
+      - "8080:80"
     volumes:
       - ./data/photo_thumbnails:/app/data/photo_thumbnails
       - ./data/video_thumbnails:/app/data/video_thumbnails
@@ -41,7 +39,6 @@ services:
       - backend
     restart: unless-stopped
 
-# 网络配置
 networks:
   app-network:
     driver: bridge

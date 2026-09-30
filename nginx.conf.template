@@ -49,14 +49,14 @@ server {
 
     # 静态媒体文件代理
     location /photos/ {
-        proxy_pass http://127.0.0.1:3000/data/photos/;
+        proxy_pass http://127.0.0.1:3000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         client_max_body_size 100M;
     }
 
     location /photo_thumbnails/ {
-        proxy_pass http://127.0.0.1:3000/data/photo_thumbnails/;
+        proxy_pass http://127.0.0.1:3000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         expires 7d;
@@ -64,27 +64,18 @@ server {
     }
 
     location /videos/ {
-        proxy_pass http://127.0.0.1:3000/data/videos/;
+        proxy_pass http://127.0.0.1:3000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         client_max_body_size 500M;
     }
 
     location /video_thumbnails/ {
-        proxy_pass http://127.0.0.1:3000/data/video_thumbnails/;
+        proxy_pass http://127.0.0.1:3000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         expires 7d;
         add_header Cache-Control "public, no-transform";
-    }
-
-    # Socket.io 支持
-    location /socket.io/ {
-        proxy_pass http://127.0.0.1:3000/socket.io/;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
     }
 
     # 处理前端路由 - SPA 应用需要

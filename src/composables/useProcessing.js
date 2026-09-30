@@ -369,6 +369,25 @@ export const clearProcessingState = (keepLogs = false) => {
   };
 };
 
+// 接管一个已在服务端运行的任务(例如再次提交被 409 拒绝时),
+// 让进度重新可见、并且可以用「停止处理」中止这个孤儿任务。
+// 注意:不设置 localProcessLoopActive —— 任务在服务端结束时会由对账逻辑自动解除接管
+// Attach to a job already running on the server so progress and stop are available again
+export const attachToVideoProcessing = (filename) => {
+  processingState.processing = true;
+  processingState.processingType = "video";
+  processingState.processStatus = 31;
+  processingState.currentFile = filename;
+  processingState.currentOriginalName = filename;
+  processingState.stopRequested = false;
+  processingState.isFirstProgressCheck = true;
+  processingState.lastLoggedProgress = -1;
+
+  startStatusSaving();
+  startProgressPolling();
+  updateVideoProcessingStatus();
+};
+
 // 视频处理完成，切换到下一个视频
 export const switchToNextVideo = (nextVideoFile) => {
   if (

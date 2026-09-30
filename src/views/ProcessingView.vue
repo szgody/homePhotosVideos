@@ -136,6 +136,7 @@ import {
   startProcessing,
   loadProcessingStatus,
   switchToNextVideo,
+  attachToVideoProcessing,
 } from "../composables/useProcessing.js";
 // 导入统一 API 客户端 Import unified API client
 import { apiGet, apiPost, API_URL } from "../api/client";
@@ -442,6 +443,8 @@ export default {
     const processVideos = async () => {
       // 保存当前的删除选择状态，避免中途修改引起问题
       const shouldDeleteOriginals = deleteOriginalVideos.value;
+      // 是否已接管服务端正在运行的任务(此时不能清理状态)
+      let attachedToRunning = false;
       
       // 重置一些关键状态
       state.processedCount = 0;
@@ -490,11 +493,27 @@ export default {
           );
           state.currentSN = currentNumber;
     
-          const result = await apiPost("/process-single-video", {
-            filename: file,
-            newName: state.currentNewName,
-            deleteOriginal: false, // 修改为false，留到最后统一删除
-          });
+          let result;
+          try {
+            result = await apiPost("/process-single-video", {
+              filename: file,
+              newName: state.currentNewName,
+              deleteOriginal: false, // 修改为false，留到最后统一删除
+            });
+          } catch (error) {
+            // 409:该文件已在服务端处理中(多为上一次会话或其它标签页启动的同一任务)
+            // 此时接管任务:恢复进度显示,并让「停止处理」可以中止这个任务
+            if (error.status === 409) {
+              addLog(
+                "warning",
+                `该视频已在服务端处理中,已接管进度显示: ${file}`,
+              );
+              attachToVideoProcessing(file);
+              attachedToRunning = true;
+              break;
+            }
+            throw error;
+          }
     
           if (result.success) {
             state.currentNewName = result.newName;
@@ -569,9 +588,11 @@ export default {
         }
     
         // 延迟清理状态 - 仅对不需要删除原始视频的情况执行
+        // 已接管服务端运行中的任务时不清理,否则进度与「停止处理」会立即消失
         if (
-          !deleteOriginalVideos.value ||
-          state.processedCount < state.totalCount
+          !attachedToRunning &&
+          (!deleteOriginalVideos.value ||
+            state.processedCount < state.totalCount)
         ) {
           scheduleCleanup('normal');
         }

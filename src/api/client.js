@@ -8,7 +8,10 @@ export async function apiGet(path, params = {}) {
   const url = `${API_URL}${path}${query ? `?${query}` : ""}`;
   const response = await fetch(url);
   if (!response.ok) {
-    throw new Error(`API 请求失败: ${path} (${response.status})`);
+    const error = new Error(`API 请求失败: ${path} (${response.status})`);
+    // 附带状态码,便于调用方按状态码分支处理(如 409 重复处理)
+    error.status = response.status;
+    throw error;
   }
   return response.json();
 }
@@ -20,7 +23,10 @@ export async function apiPost(path, body = {}) {
     body: JSON.stringify(body),
   });
   if (!response.ok) {
-    throw new Error(`API 请求失败: ${path} (${response.status})`);
+    const error = new Error(`API 请求失败: ${path} (${response.status})`);
+    // 附带状态码,便于调用方按状态码分支处理(如 409 重复处理)
+    error.status = response.status;
+    throw error;
   }
   return response.json();
 }

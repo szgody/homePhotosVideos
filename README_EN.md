@@ -246,6 +246,7 @@ All endpoints are prefixed with `/api`.
 - **Upload rejected**: usually because the extension is not allow-listed, the content does not match the extension (e.g. a script renamed to an image), the size limit was exceeded (50MB for images, 3GB per video), or the video contains no video stream — the page lists the exact reason per file
 - **Processing is slow or memory-hungry**: tune `IMAGE_CONCURRENCY` (defaults to half the logical cores, capped at 8). Videos are transcoded one at a time because a single large file already saturates CPU and disk I/O
 - **How do I abort a job?**: the processing page shows an in-page confirmation dialog; images stop immediately, videos take effect once the current transcode finishes
+- **The log shows `409`**: the same file is already being processed on the server (usually the same job started by a previous session or another tab). The page automatically re-attaches to that job, shows its progress and lets you abort it with "Stop Processing" — no need to submit again
 - **Photos render but thumbnails 404**: the file was likely left behind by an aborted job — process it again
 
 ## Screenshots

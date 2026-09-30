@@ -4,6 +4,7 @@ const cors = require("cors");
 const { PATHS, URL_PATHS, ALLOWED_ORIGINS } = require("./config");
 const photosRoutes = require("./routes/photos");
 const videosRoutes = require("./routes/videos");
+const uploadRoutes = require("./routes/upload");
 
 function createApp() {
   const app = express();
@@ -25,8 +26,9 @@ function createApp() {
 
   // CORS 拒绝返回结构化 JSON(而非默认 500 HTML) Rejected CORS requests return JSON
   app.use((err, req, res, next) => {
+    const status = err && err.code === "LIMIT_FILE_SIZE" ? 413 : err && err.status ? err.status : 403;
     console.error("请求被拒绝:", err.message);
-    res.status(403).json({ error: "请求被拒绝", message: err.message });
+    res.status(status).json({ error: "请求被拒绝", message: err.message });
   });
 
   app.use(express.json());
@@ -50,6 +52,7 @@ function createApp() {
   // API 路由
   app.use("/api", photosRoutes);
   app.use("/api", videosRoutes);
+  app.use("/api", uploadRoutes);
 
   // 统一 404
   app.use((req, res) => {

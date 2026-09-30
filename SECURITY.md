@@ -35,7 +35,8 @@
 6. **依赖安全**:新增/升级依赖前必须分别运行根目录与 `backend/` 的 `npm audit`;禁止引入已知漏洞版本;依赖升级优先通过 Dependabot 自动 PR(见 `.github/dependabot.yml`)完成。
 7. **测试要求**:任何安全相关改动必须附带测试(位于 `backend/test/`),至少覆盖:路径遍历、非法序号、CORS 拒绝。
 8. **媒体处理防护**:ffmpeg / Sharp 只处理通过校验的文件名;处理结束或失败必须正确清理 `backend/src/state.js` 中的状态。
-9. **门禁**:改动不得使 `cd backend && npm test`(23 个测试)、`npm run build`、`node scripts/check-structure.js` 失败。
+9. **上传安全审查**:`/api/upload` 接收的文件必须先经扩展名白名单与魔数嗅探(`backend/src/utils/sniff.js`,图片 sharp 解码、视频 ffprobe 验证视频流)审查,审查通过才允许改名落盘到待处理目录;用户提供的原始文件名永不用于落盘命名;上传过程使用系统临时目录,成败均需清理临时文件。
+10. **门禁**:改动不得使 `cd backend && npm test`(27 个测试)、`npm run build`、`node scripts/check-structure.js` 失败。
 
 ## 依赖更新策略 (Dependency Update Policy)
 

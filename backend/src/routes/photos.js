@@ -6,6 +6,7 @@ const router = express.Router();
 const { PATHS, BASE_URL } = require("../config");
 const { readSn, writeSn } = require("../utils/sn");
 const { processImage, processImagesBatch } = require("../services/imageProcessor");
+const { state } = require("../state");
 const { isValidFilename, isAllowedImage } = require("../utils/validate");
 
 const IMAGE_REGEX = /\.(jpg|jpeg|png|gif|webp)$/i;
@@ -76,10 +77,12 @@ router.post("/process-images", async (req, res) => {
     }
 
     const currentSN = await readSn(PATHS.PHOTO_SN_FILE);
-    const { results, nextSN } = await processImagesBatch(imageFiles, currentSN);
+    // 新批次开始,清除上次的中断标志
+    state.processingCancelled.images = false;
+    const { results, nextSN, cancelled } = await processImagesBatch(imageFiles, currentSN);
     await writeSn(PATHS.PHOTO_SN_FILE, nextSN);
 
-    res.json({ message: "处理完成", results, nextSN });
+    res.json({ message: cancelled ? "处理已中止" : "处理完成", results, nextSN, cancelled: !!cancelled });
   } catch (error) {
     console.error("处理过程出错:", error);
     res.status(500).json({ error: error.message });

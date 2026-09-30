@@ -292,6 +292,99 @@ button:disabled {
   font-weight: bold;
 }
 
+.cancel-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+}
+
+.confirm-message {
+  white-space: pre-line;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* 上传面板 Upload panel */
+.upload-panel {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  border-left: 5px solid #2196f3;
+}
+
+.upload-panel h3 {
+  margin-top: 0;
+}
+
+.upload-hint {
+  color: #666;
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+
+.upload-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.upload-type-select label {
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.upload-file-input {
+  max-width: 300px;
+}
+
+.upload-button {
+  background-color: #2196f3;
+}
+
+.upload-button:hover {
+  background-color: #0b7dda;
+}
+
+.upload-selected {
+  margin-top: 8px;
+  color: #555;
+  font-size: 14px;
+}
+
+.upload-filename {
+  display: inline-block;
+  margin: 2px 6px 2px 0;
+  padding: 2px 8px;
+  background-color: #e3f2fd;
+  border-radius: 10px;
+  color: #1565c0;
+}
+
+.upload-error {
+  margin-top: 8px;
+  color: #c62828;
+  font-weight: bold;
+}
+
+.upload-results {
+  margin-top: 8px;
+}
+
+.upload-result {
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.upload-result.success {
+  color: #2e7d32;
+}
+
+.upload-result.rejected {
+  color: #c62828;
+}
+
 .delete-button {
   background-color: #dc3545;
   color: white;

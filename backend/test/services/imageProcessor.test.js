@@ -6,6 +6,7 @@ const os = require("os");
 const path = require("path");
 const sharp = require("sharp");
 const { processImage, processImagesBatch } = require("../../src/services/imageProcessor");
+const { state } = require("../../src/state");
 
 // 构造一套临时目录(替代真实 PATHS,不污染 data/)
 async function makePaths() {
@@ -87,5 +88,27 @@ test("processImagesBatch 单文件失败不中断且不产生序号空洞", asyn
 test("processImagesBatch 拒绝非法 startSN", async () => {
   const { root, paths } = await makePaths();
   await assert.rejects(() => processImagesBatch([], "abc", paths), /无效的序号/);
+  await fs.remove(root);
+});
+
+test("processImagesBatch 收到中断信号后停止且不删除剩余原图", async () => {
+  const { root, paths } = await makePaths();
+  for (const name of ["a.jpg", "b.jpg"]) {
+    await sharp({ create: { width: 100, height: 100, channels: 3, background: { r: 0, g: 0, b: 255 } } })
+      .jpeg()
+      .toFile(path.join(paths.ORIGINAL_IMAGES, name));
+  }
+
+  // 预置中断信号(模拟处理中调用取消接口;重置由路由层负责,本测试直调服务)
+  state.processingCancelled.images = true;
+  const { results, nextSN, cancelled } = await processImagesBatch(["a.jpg", "b.jpg"], "000000", paths);
+
+  assert.equal(cancelled, true);
+  assert.equal(results.length, 0); // 循环入口即检查标志,第一个文件也不处理
+  assert.equal(nextSN, "000000");
+  // 两张原图都保留
+  assert.ok(await fs.pathExists(path.join(paths.ORIGINAL_IMAGES, "a.jpg")));
+  assert.ok(await fs.pathExists(path.join(paths.ORIGINAL_IMAGES, "b.jpg")));
+  delete state.processingCancelled.images;
   await fs.remove(root);
 });

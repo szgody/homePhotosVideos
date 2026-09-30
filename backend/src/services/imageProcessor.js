@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs-extra");
 const sharp = require("sharp");
 const { PATHS } = require("../config");
+const { state } = require("../state");
 
 // 处理单张图片:复制原图 + 生成 240x240 缩略图(默认路径,测试可注入)
 async function processImage(filename, newName, paths = PATHS) {
@@ -31,6 +32,11 @@ async function processImagesBatch(imageFiles, startSN, paths = PATHS) {
   const results = [];
 
   for (const file of imageFiles) {
+    // 收到中断信号:当前文件处理完即停止,剩余文件保留原图
+    if (state.processingCancelled.images) {
+      return { results, nextSN: currentSN, cancelled: true };
+    }
+
     try {
       const ext = path.extname(file);
       const newName = `${currentSN}${ext}`;

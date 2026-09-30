@@ -160,6 +160,13 @@ router.get("/video-progress/:filename", (req, res) => {
 router.post("/cancel-processing", async (req, res) => {
   try {
     const { type, file } = req.body;
+
+    // 图片处理中断:无需指定文件名,设置全局中断标志(当前文件完成后生效)
+    if (type === "image") {
+      state.processingCancelled.images = true;
+      return res.json({ success: true, message: "已发送图片中断信号(当前文件完成后生效)" });
+    }
+
     if (!file || !isValidFilename(file)) {
       return res.status(400).json({ success: false, error: "缺少或非法文件名" });
     }

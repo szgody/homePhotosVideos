@@ -93,3 +93,21 @@ test("POST /api/process-single-video 拒绝重复处理同一文件", async (t) 
     delete state.activeFFmpegProcesses["dup-test.mp4"];
   }
 });
+
+test("POST /api/cancel-processing 支持图片中断(无需文件名)", async (t) => {
+  const { state } = require("../src/state");
+  const server = await listen(createApp());
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+  const { port } = server.address();
+  const response = await fetch(`http://localhost:${port}/api/cancel-processing`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ type: "image" }),
+  });
+  assert.equal(response.status, 200);
+  const body = await response.json();
+  assert.equal(body.success, true);
+  assert.equal(state.processingCancelled.images, true);
+  // 清理,避免影响其他用例
+  delete state.processingCancelled.images;
+});

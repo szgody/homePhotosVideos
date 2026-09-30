@@ -44,6 +44,52 @@
       </button>
     </div>
 
+    <!-- 上传面板:图片/视频先经安全审查再进入待处理目录 Upload panel with security screening -->
+    <div class="upload-panel">
+      <h3>上传图片与视频 Upload Media</h3>
+      <p class="upload-hint">
+        上传的文件会先经过扩展名白名单与文件内容(魔数)安全审查,通过后放入待处理目录,随后可用上方「处理图片 / 处理视频」进行转换。
+      </p>
+      <div class="upload-row">
+        <div class="upload-type-select">
+          <label>
+            <input type="radio" value="image" v-model="uploadType" />
+            图片 Image
+          </label>
+          <label>
+            <input type="radio" value="video" v-model="uploadType" />
+            视频 Video
+          </label>
+        </div>
+        <input
+          ref="fileInput"
+          type="file"
+          class="upload-file-input"
+          :accept="uploadType === 'image' ? '.jpg,.jpeg,.png,.gif,.webp' : '.mp4,.mov,.avi,.mkv,.m4v,.wmv'"
+          multiple
+          :disabled="uploading || state.processing"
+          @change="onFilesSelected"
+        />
+        <button
+          class="upload-button"
+          :disabled="uploading || state.processing || selectedFiles.length === 0"
+          @click="uploadFiles"
+        >
+          {{ uploading ? "上传中... Uploading" : "上传 Upload" }}
+        </button>
+      </div>
+      <div v-if="selectedFiles.length" class="upload-selected">
+        已选择 {{ selectedFiles.length }} 个文件:
+        <span v-for="(f, i) in selectedFiles" :key="i" class="upload-filename">{{ f.name }}</span>
+      </div>
+      <div v-if="uploadError" class="upload-error">⚠ {{ uploadError }}</div>
+      <div class="upload-results" v-if="uploadResults.length">
+        <div v-for="(r, i) in uploadResults" :key="i" :class="['upload-result', r.status]">
+          {{ r.originalName }}:{{ r.message }}
+        </div>
+      </div>
+    </div>
+
     <ProcessingStatus :state="state" />
 
     <div class="logs">
@@ -58,6 +104,22 @@
         </div>
       </div>
     </div>
+
+    <!-- 页面内确认弹窗:替代 window.confirm,避免被沙箱/内嵌浏览器拦截 In-app confirm dialog -->
+    <div class="confirm-dialog-overlay" v-if="confirmVisible" @click.self="onConfirm(false)">
+      <div class="confirm-dialog">
+        <h3>确认操作</h3>
+        <p class="confirm-message">{{ confirmMessage }}</p>
+        <div class="confirm-buttons">
+          <button class="confirm-button cancel-button" @click="onConfirm(false)">
+            取消
+          </button>
+          <button class="confirm-button delete-button" @click="onConfirm(true)">
+            确认停止
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -66,7 +128,7 @@
 </style>
 
 <script>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import {
   processingState as state,
   addLog,
@@ -76,7 +138,7 @@ import {
   switchToNextVideo,
 } from "../composables/useProcessing.js";
 // 导入统一 API 客户端 Import unified API client
-import { apiGet, apiPost } from "../api/client";
+import { apiGet, apiPost, API_URL } from "../api/client";
 // 导入进度面板子组件 Import progress panel sub-component
 import ProcessingStatus from "../components/processing/ProcessingStatus.vue";
 
@@ -132,7 +194,124 @@ export default {
   setup() {
     // 添加删除原始图片和视频选项的状态变量 - 可简化
     const deleteOriginalImages = ref(false);
-    const deleteOriginalVideos = ref(false); 
+    const deleteOriginalVideos = ref(false);
+
+    // ===== 页面内确认弹窗(替代 window.confirm,沙箱环境不拦截)=====
+    const confirmVisible = ref(false);
+    const confirmMessage = ref("");
+    let confirmResolve = null;
+
+    // 弹出确认框,返回 Promise<boolean>
+    const askConfirm = (message) => {
+      confirmMessage.value = message;
+      confirmVisible.value = true;
+      return new Promise((resolve) => {
+        confirmResolve = resolve;
+      });
+    };
+
+    // 用户点击弹窗按钮后结算 Promise
+    const onConfirm = (result) => {
+      confirmVisible.value = false;
+      if (confirmResolve) {
+        confirmResolve(result);
+        confirmResolve = null;
+      }
+    };
+
+    // ===== 上传状态(图片/视频,后端安全审查)=====
+    const uploadType = ref("image");
+    const selectedFiles = ref([]);
+    const uploading = ref(false);
+    const uploadResults = ref([]);
+    const uploadError = ref("");
+    const fileInput = ref(null);
+
+    // 切换上传类型时清空已选文件
+    watch(uploadType, () => {
+      selectedFiles.value = [];
+      uploadResults.value = [];
+      uploadError.value = "";
+      if (fileInput.value) {
+        fileInput.value.value = "";
+      }
+    });
+
+    // 选择文件后仅记录到状态,不立刻上传
+    const onFilesSelected = (event) => {
+      selectedFiles.value = Array.from(event.target.files || []);
+      uploadError.value = "";
+      uploadResults.value = [];
+    };
+
+    // 以 FormData 上传至 /api/upload,后端完成扩展名白名单 + 魔数嗅探审查
+    const uploadFiles = async () => {
+      if (uploading.value || selectedFiles.value.length === 0) {
+        return;
+      }
+
+      uploading.value = true;
+      uploadError.value = "";
+      uploadResults.value = [];
+
+      try {
+        const formData = new FormData();
+        formData.append("type", uploadType.value);
+        for (const file of selectedFiles.value) {
+          formData.append("files", file);
+        }
+
+        const response = await fetch(`${API_URL}/upload`, {
+          method: "POST",
+          body: formData,
+        });
+
+        let data = null;
+        try {
+          data = await response.json();
+        } catch {
+          // 非 JSON 响应(如网关错误),统一走下方错误提示
+        }
+
+        if (!response.ok) {
+          if (response.status === 413) {
+            throw new Error("文件过大:图片限 50MB,视频限 3GB");
+          }
+          throw new Error(
+            (data && data.error) || `上传失败 (HTTP ${response.status})`,
+          );
+        }
+
+        if (!data || !Array.isArray(data.results)) {
+          throw new Error("服务器返回格式不正确");
+        }
+
+        uploadResults.value = data.results.map((r) => ({
+          originalName: r.originalName,
+          status: r.success ? "success" : "rejected",
+          message: r.success
+            ? ` 已通过安全审查,保存为 ${r.savedAs}`
+            : ` 未通过审查,已拒绝:${r.rejected || "未知原因"}`,
+        }));
+
+        const okCount = data.results.filter((r) => r.success).length;
+        if (okCount > 0) {
+          addLog(
+            "success",
+            `上传完成:${okCount} 个文件已通过安全审查并放入待处理目录`,
+          );
+        }
+      } catch (error) {
+        uploadError.value = error.message || "上传失败";
+        addLog("error", `上传失败: ${error.message}`);
+      } finally {
+        uploading.value = false;
+        selectedFiles.value = [];
+        if (fileInput.value) {
+          fileInput.value.value = "";
+        }
+      }
+    };
 
     // 修改 processImages 函数中处理空列表的部分
     const processImages = async () => {
@@ -407,7 +586,7 @@ export default {
 
       // 如果没有活动任务，直接清理状态
       if (!hasActiveTask && state.totalCount === 0) {
-        const confirmStop = confirm(
+        const confirmStop = await askConfirm(
           `似乎没有${processTypeName}在处理。是否重置系统状态？`,
         );
         if (confirmStop) {
@@ -429,7 +608,7 @@ export default {
         confirmMessage = `确认停止处理${processTypeName}吗？`;
       }
 
-      const confirmStop = confirm(confirmMessage);
+      const confirmStop = await askConfirm(confirmMessage);
       if (!confirmStop) return;
 
       // 设置停止请求标志
@@ -492,6 +671,17 @@ export default {
       processVideos,
       stopProcessing,
       forceResetStatus,
+      confirmVisible,
+      confirmMessage,
+      onConfirm,
+      uploadType,
+      selectedFiles,
+      uploading,
+      uploadResults,
+      uploadError,
+      fileInput,
+      onFilesSelected,
+      uploadFiles,
     };
   },
 };

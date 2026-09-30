@@ -52,3 +52,5 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+# 浏览器自动化调试产物
+/.playwright-mcp/

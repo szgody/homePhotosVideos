@@ -16,7 +16,7 @@
     <div class="video-grid">
       <!-- 使用过滤后的视频列表 Use filtered videos -->
       <div
-        v-for="video in filteredVideos"
+        v-for="video in videos"
         :key="video.filename"
         class="video-item"
         @click="playVideo(video)"
@@ -85,27 +85,9 @@ export default {
   },
 
   // 计算属性
-  computed: {
-    // 过滤后的视频列表 - 处理中隐藏最新视频
-    filteredVideos() {
-      console.log(
-        "过滤视频，处理中状态:",
-        this.isVideoProcessing,
-        "会话状态:",
-        this.isVideoSession,
-      );
-      // 使用会话状态 OR 处理状态来决定是否过滤视频
-      if (
-        (this.isVideoProcessing || this.isVideoSession) &&
-        this.videos.length > 0
-      ) {
-        // 隐藏最新视频
-        console.log("隐藏最新视频，保留之前的视频");
-        return this.videos.slice(1);
-      }
-      return this.videos;
-    },
-  },
+  // 说明:处理中的半成品不会再进入 /api/videos(后端两阶段提交),
+  // 因此这里不再需要「处理中隐藏最新视频」的旧启发式 —— 那会把已完成的老视频一起隐藏
+  computed: {},
 
   // 组件创建时执行 Execute when component is created
   created() {

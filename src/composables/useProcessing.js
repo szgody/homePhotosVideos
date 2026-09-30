@@ -41,6 +41,13 @@ export const processingStatus = ref({
 let progressPollingInterval = null;
 let statusSavingInterval = null;
 
+// 本页面是否有处理循环在跑(页面刷新后重置为 false,用于与服务端对账残留会话)
+let localProcessLoopActive = false;
+
+// 服务端仍认为任务在进行的状态值
+const SERVER_ACTIVE_STATUS = ["processing", "validating"];
+const isServerJobActive = (status) => SERVER_ACTIVE_STATUS.includes(status);
+
 // 添加日志函数 - 由useProcessing负责生成
 export const addLog = (type, message) => {
   const logEntry = {
@@ -105,6 +112,14 @@ const fetchVideoProgress = async () => {
       force: 1,
       t: Date.now(),
     });
+
+    // 会话对账:页面刷新/后端重启后本地会话可能残留(服务端已无此任务),
+    // 此时本地没有处理循环,与服务端核对后自动清理,避免长期显示「正在处理」
+    if (!localProcessLoopActive && !isServerJobActive(data && data.status)) {
+      addLog("warning", "服务端已无该处理任务,已自动重置处理状态");
+      clearProcessingState(true);
+      return;
+    }
 
     if (data && data.percent !== undefined) {
       // 更新进度
@@ -317,6 +332,9 @@ export const clearProcessingState = (keepLogs = false) => {
   stopProgressPolling();
   stopStatusSaving();
 
+  // 本轮处理已结束(主动清理或对账结果)
+  localProcessLoopActive = false;
+
   // 保存原有日志（如果需要）
   const savedLogs = keepLogs ? [...processingState.logs] : [];
 
@@ -435,6 +453,8 @@ export const startProcessing = (type) => {
   if (processingState.processing) {
     return;
   }
+  // 标记本轮处理由本页面驱动(与服务端对账时以此区分「刚启动」与「残留会话」)
+  localProcessLoopActive = true;
   processingState.processing = true;
   processingState.processingType = type;
   processingState.processStatus = type === "video" ? 31 : 21;

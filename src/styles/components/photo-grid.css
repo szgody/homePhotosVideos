@@ -27,11 +27,14 @@
 /* 照片项目样式 Photo item styles */
 .photo-item {
   display: inline-block; /* 内联块级显示 Inline block display */
-  width: 60px; /* 照片宽度 Photo width */
-  height: 60px; /* 照片高度 Photo height */
+  width: 72px; /* 照片宽度 Photo width */
+  height: 72px; /* 照片高度 Photo height */
   margin: 0; /* 外边距为0 Zero margin */
   padding: 0; /* 内边距为0 Zero padding */
   border: none; /* 无边框 No border */
+  border-radius: 8px; /* 圆角 Rounded corners */
+  overflow: hidden; /* 裁剪圆角 Clip rounded corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* 阴影 Shadow */
   vertical-align: top; /* 顶部对齐 Top alignment */
   cursor: pointer; /* 鼠标指针样式 Cursor style */
   transition: transform 0.2s; /* 变换过渡效果 Transform transition */
@@ -128,6 +131,15 @@
 
 /* 添加响应式设计 Add responsive design */
 @media (max-width: 768px) {
+  .photo-item {
+    width: 84px; /* 移动端更大缩略图 Larger thumbnails on mobile */
+    height: 84px;
+  }
+
+  .thumbnail-photo {
+    margin-right: 8px;
+  }
+
   .preview-container {
     max-width: 95vw; /* 在移动设备上最大宽度为视窗的95% Wider on mobile */
     max-height: 95vh; /* 在移动设备上最大高度为视窗的95% Taller on mobile */

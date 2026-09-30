@@ -1,13 +1,13 @@
 /* 首页样式 Home styles */
 .home {
-  padding: 20px; /* 内边距 Padding */
+  padding: 16px; /* 内边距 Padding */
 }
 
 /* 内容区域样式 Content area styles */
 .content {
   max-width: 1200px; /* 最大宽度 Maximum width */
   margin: 0 auto; /* 居中对齐 Center alignment */
-  padding: 20px; /* 内边距 Padding */
+  padding: 12px; /* 内边距 Padding */
 }
 
 /* 查看更多区域样式 View more area styles */
@@ -20,17 +20,21 @@
 .button {
   margin-right: 10px; /* 右侧外边距 Right margin */
   display: inline-block; /* 内联块级显示 Inline block display */
-  padding: 8px 16px; /* 内边距 Padding */
+  padding: 10px 18px; /* 内边距 Padding */
   background-color: #42b983; /* 背景色 Background color */
   color: white; /* 文字颜色 Text color */
   text-decoration: none; /* 无下划线 No underline */
-  border-radius: 4px; /* 圆角 Border radius */
-  transition: background-color 0.2s; /* 背景色过渡 Background transition */
+  border-radius: 6px; /* 圆角 Border radius */
+  transition: background-color 0.2s, transform 0.15s; /* 过渡 Transition */
 }
 
 /* 按钮悬停效果 Button hover effect */
 .button:hover {
   background-color: #3aa876; /* 悬停背景色 Hover background color */
+}
+
+.button:active {
+  transform: translateY(1px); /* 按压反馈 Press feedback */
 }
 
 /* 照片网格样式 Photo grid styles */
@@ -84,6 +88,33 @@
   border-left: 3px solid #42b983; /* 左边框 Left border */
 }
 
+/* 移动端适配 Mobile adaptation */
+@media (max-width: 768px) {
+  .home {
+    padding: 12px;
+  }
+
+  .content {
+    padding: 8px;
+  }
+
+  .view-more {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .button {
+    margin-right: 0;
+    min-height: 44px;
+  }
+
+  .featured-grid {
+    gap: 12px;
+  }
+}
+
 /* 精选照片区域样式 Featured photos area styles */
 .featured-photos {
   margin: 20px; /* 外边距 Margin */
@@ -93,17 +124,18 @@
 .featured-grid {
   display: flex; /* 弹性布局 Flex layout */
   justify-content: center; /* 居中对齐 Center alignment */
+  flex-wrap: wrap; /* 允许换行 Allow wrapping */
   gap: 20px; /* 间距 Gap */
   margin-top: 20px; /* 顶部外边距 Top margin */
 }
 
 /* 精选项目样式 Featured item styles */
 .featured-item {
-  width: 640px; /* 宽度 Width */
-  height: 480px; /* 高度 Height */
+  width: min(640px, 100%); /* 宽度(移动端不溢出) Width (no overflow on mobile) */
+  aspect-ratio: 4 / 3; /* 宽高比 Aspect ratio */
   overflow: hidden; /* 溢出隐藏 Hide overflow */
-  border-radius: 8px; /* 圆角 Border radius */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 Shadow effect */
+  border-radius: 12px; /* 圆角 Border radius */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 Shadow effect */
 }
 
 /* 精选图片样式 Featured image styles */

@@ -6,7 +6,7 @@
 
 /* 处理背景视图样式 */
 .processing-background {
-  padding: 20px;
+  padding: 16px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -394,6 +394,43 @@ button:disabled {
 .auto-delete-option label {
   font-size: 14px;
   color: #856404;
+}
+
+/* 移动端适配 Mobile adaptation */
+@media (max-width: 768px) {
+  .processing-background {
+    padding: 12px;
+  }
+
+  .control-panel {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  button {
+    min-width: 0;
+    width: 100%;
+    margin-right: 0;
+    min-height: 44px; /* 触控目标高度 Tap target height */
+  }
+
+  .stop-btn {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .processing-status {
+    padding: 12px;
+  }
+
+  .log-container {
+    max-height: 240px;
+  }
+
+  .confirm-dialog {
+    min-width: 0;
+    width: 92vw;
+  }
 }
 /* 添加这些新样式 */
 .image-control-group {

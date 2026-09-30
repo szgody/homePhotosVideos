@@ -1,6 +1,8 @@
 /* 视频视图容器样式 Video view container styles */
 .video-view {
-  padding: 20px; /* 内边距 Padding */
+  padding: 16px; /* 内边距 Padding */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* 视频网格样式 Video grid styles */
@@ -10,8 +12,8 @@
     auto-fill,
     minmax(200px, 1fr)
   ); /* 自适应列宽 Responsive columns */
-  gap: 20px; /* 网格间距 Grid gap */
-  padding: 20px; /* 内边距 Padding */
+  gap: 16px; /* 网格间距 Grid gap */
+  padding: 10px 0; /* 内边距 Padding */
 }
 
 /* 视频项目样式 Video item styles */
@@ -65,9 +67,9 @@
 /* 视频名称样式 Video name styles */
 .video-name {
   margin-top: 8px; /* 上边距 Margin top */
-  font-size: 14px; /* 字体大小 Font size */
+  font-size: 13px; /* 字体大小 Font size */
   text-align: center; /* 文字居中 Text alignment */
-  color: #333; /* 文字颜色 Text color */
+  color: var(--muted, #6b7280); /* 文字颜色 Text color */
 }
 
 /* 视频遮罩层样式 Video overlay styles */
@@ -137,16 +139,23 @@
 /* 响应式设计 */
 @media (max-width: 768px) {
   .video-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
   }
 
   .video-container {
-    width: 95%;
+    width: 96%;
   }
 
   .play-icon {
-    font-size: 24px;
+    font-size: 26px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .close-button {
     width: 40px;
     height: 40px;
+    font-size: 24px;
   }
 }

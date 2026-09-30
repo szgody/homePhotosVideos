@@ -11,11 +11,11 @@
 
 /* 视频项目 */
 .video-item {
-  width: 100px; /* 调整宽度 */
-  height: 75px; /* 调整高度 */
+  width: 110px; /* 调整宽度 */
+  height: 82px; /* 调整高度 */
   margin-bottom: 5px; /* 减少底部间距 */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   overflow: hidden;
   background-color: white;
   transition:
@@ -243,14 +243,14 @@
   }
 
   .video-item {
-    width: 80px; /* 调整宽度 */
-    height: 60px; /* 调整高度 */
+    width: 96px; /* 调整宽度 */
+    height: 72px; /* 调整高度 */
   }
 
   .play-icon {
-    font-size: 16px; /* 调整图标大小 */
-    width: 24px; /* 调整图标容器大小 */
-    height: 24px;
+    font-size: 18px; /* 调整图标大小 */
+    width: 28px; /* 调整图标容器大小 */
+    height: 28px;
   }
 }
 

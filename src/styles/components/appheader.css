@@ -1,8 +1,8 @@
 /* 页头样式 Header styles */
 .header {
-  background-color: #f8f9fa; /* 背景颜色 Background color */
-  padding: 1rem; /* 内边距 Padding */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 Shadow effect */
+  background-color: var(--surface, #ffffff); /* 背景颜色 Background color */
+  padding: 0.75rem 1rem; /* 内边距 Padding */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08); /* 阴影效果 Shadow effect */
   text-align: center; /* 文本居中 Center text */
   position: sticky; /* 固定定位 Sticky positioning */
   top: 0; /* 顶部对齐 Top alignment */
@@ -11,10 +11,10 @@
 
 /* 标题样式 Title styles */
 .header h1 {
-  margin: 0 0 1rem 0; /* 外边距 Margin */
-  color: #333; /* 文字颜色 Text color */
+  margin: 0 0 0.6rem 0; /* 外边距 Margin */
+  color: var(--primary, #42b983); /* 文字颜色 Text color */
   font-size: 1.8rem; /* 字体大小 Font size */
-  font-weight: 500; /* 字体粗细 Font weight */
+  font-weight: 600; /* 字体粗细 Font weight */
   letter-spacing: 0.5px; /* 字间距 Letter spacing */
 }
 
@@ -30,8 +30,8 @@
 .nav-bar a {
   color: #2c3e50; /* 链接颜色 Link color */
   text-decoration: none; /* 移除下划线 Remove underline */
-  padding: 5px 15px; /* 内边距 Padding */
-  border-radius: 4px; /* 圆角边框 Rounded corners */
+  padding: 8px 16px; /* 内边距 Padding */
+  border-radius: 999px; /* 圆角边框 Pill-shaped radius */
   font-weight: 500; /* 字体粗细 Font weight */
   transition: all 0.3s ease; /* 过渡效果 Transition effect */
 }
@@ -53,10 +53,14 @@
 @media (max-width: 768px) {
   .nav-bar {
     flex-wrap: wrap; /* 允许换行 Allow wrapping */
-    gap: 10px; /* 减小间距 Reduce gap */
+    gap: 8px; /* 减小间距 Reduce gap */
+  }
+
+  .nav-bar a {
+    padding: 10px 14px; /* 加大触控目标 Enlarge tap target */
   }
 
   .header h1 {
-    font-size: 1.5rem; /* 减小标题字号 Reduce title size */
+    font-size: 1.4rem; /* 减小标题字号 Reduce title size */
   }
 }

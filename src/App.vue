@@ -32,6 +32,34 @@ export default {
 </script>
 
 <style>
+/* 全局设计变量与基础样式 Global design tokens & base styles */
+:root {
+  --primary: #42b983;
+  --primary-dark: #36a76f;
+  --bg: #f5f7f6;
+  --surface: #ffffff;
+  --text: #2c3e50;
+  --muted: #6b7280;
+  --radius: 8px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+}
+
 .app-container {
   display: flex;
   flex-direction: column;

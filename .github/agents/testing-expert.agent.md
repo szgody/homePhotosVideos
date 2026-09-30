@@ -7,7 +7,7 @@ user-invocable: true
 
 ## 项目背景
 
-- 测试基线:backend/test/ 下 node:test 测试 45 个,运行 `cd backend && npm test`
+- 测试基线:backend/test/ 下 node:test 测试 48 个,运行 `cd backend && npm test`
 - 环境验证脚本:`node scripts/check-structure.js`、`node scripts/check-ffmpeg.js`
 - 手动联调:`npm run dev`(前端 localhost:5173)+ `cd backend && node server.js`(后端 localhost:3000)
 

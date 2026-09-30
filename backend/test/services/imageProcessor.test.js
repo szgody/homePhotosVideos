@@ -46,6 +46,24 @@ test("源文件不存在时抛错", async () => {
   await fs.remove(root);
 });
 
+test("processImage 两阶段提交后不残留临时目录", async () => {
+  const { root, paths } = await makePaths();
+  const src = path.join(paths.ORIGINAL_IMAGES, "tmp.jpg");
+  await sharp({ create: { width: 600, height: 400, channels: 3, background: { r: 0, g: 128, b: 0 } } })
+    .jpeg()
+    .toFile(src);
+
+  const result = await processImage("tmp.jpg", "000002", paths);
+
+  assert.ok(await fs.pathExists(result.targetPath));
+  // 处理中的暂存目录不应留下(否则可能存在未命名的半成品)
+  assert.ok(!(await fs.pathExists(path.join(paths.PHOTOS, ".processing-tmp"))));
+  assert.ok(!(await fs.pathExists(path.join(paths.PHOTO_THUMBNAILS, ".processing-tmp"))));
+  // 最终目录里只有成品文件
+  assert.deepEqual((await fs.readdir(paths.PHOTOS)).sort(), ["000002.jpg"]);
+  await fs.remove(root);
+});
+
 test("processImagesBatch 批量处理并递增序号", async () => {
   const { root, paths } = await makePaths();
   // 生成两张测试图

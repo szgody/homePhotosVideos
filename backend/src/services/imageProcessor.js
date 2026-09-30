@@ -79,7 +79,26 @@ async function processImage(filename, newName, paths = PATHS) {
     throw new Error(`源文件不存在: ${sourcePath}`);
   }
 
-  await buildImageVariants(sourcePath, targetPath, thumbnailPath, OUTPUT_VARIANTS.ui);
+  // 两阶段提交:先写到临时目录,成功后原子改名到最终位置
+  // 目的:处理中的半成品不会被 /api/photos 列出(与视频处理同一约定)
+  const photosTmp = path.join(paths.PHOTOS, TEMP_DIR_NAME);
+  const thumbsTmp = path.join(paths.PHOTO_THUMBNAILS, TEMP_DIR_NAME);
+  const tempTargetPath = path.join(photosTmp, finalName);
+  const tempThumbnailPath = path.join(thumbsTmp, finalName);
+
+  try {
+    await fs.ensureDir(photosTmp);
+    await fs.ensureDir(thumbsTmp);
+    await buildImageVariants(sourcePath, tempTargetPath, tempThumbnailPath, OUTPUT_VARIANTS.ui);
+    await fs.move(tempTargetPath, targetPath, { overwrite: true });
+    await fs.move(tempThumbnailPath, thumbnailPath, { overwrite: true });
+  } finally {
+    // 只清自己的暂存文件,并在目录为空时删除(避免影响并发批处理的暂存)
+    await fs.remove(tempTargetPath).catch(() => {});
+    await fs.remove(tempThumbnailPath).catch(() => {});
+    await fs.rmdir(photosTmp).catch(() => {});
+    await fs.rmdir(thumbsTmp).catch(() => {});
+  }
 
   return { newName: finalName, originalPath: sourcePath, targetPath, thumbnailPath };
 }

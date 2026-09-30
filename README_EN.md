@@ -49,7 +49,7 @@
 | ⚙️ Backend | Node.js 22 + Express 5 (CommonJS, layered as `config/utils/services/routes`) |
 | 🎞️ Media processing | Sharp 0.35 (images), fluent-ffmpeg + ffmpeg/ffprobe (videos) |
 | 📤 Uploads | multer 2 (staged in the system temp directory, renamed into place after screening) |
-| 🧪 Testing | Built-in `node:test` (no extra dependency, 45 tests) |
+| 🧪 Testing | Built-in `node:test` (no extra dependency, 48 tests) |
 | 🔧 Deployment | PM2 + Nginx + Docker Compose |
 
 ## Project Structure
@@ -65,7 +65,7 @@
 ├── ⚙️ backend/
 │   ├── server.js       # Service entry (thin wrapper)
 │   ├── src/            # config, utils (sn/validate/sniff/concurrency), services, routes (incl. upload.js)
-│   └── test/           # node:test suite (45 tests)
+│   └── test/           # node:test suite (48 tests)
 ├── 📁 data/            # Processed media, thumbnails and sequence files (runtime, not committed)
 ├── 🖼️ public/original/ # Original media directory (pending)
 ├── 🧪 scripts/         # check-structure.js, check-ffmpeg.js
@@ -151,7 +151,7 @@ cd backend && node server.js
 ## Testing
 
 ```bash
-cd backend && npm test   # Backend unit/API tests (45 tests)
+cd backend && npm test   # Backend unit/API tests (48 tests)
 cd .. && npm run check   # Structure check + ffmpeg availability check
 ```
 

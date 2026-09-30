@@ -43,7 +43,7 @@
 | ⚙️ 后端 | Node.js 22 + Express 5(CommonJS，分层 `config/utils/services/routes`) |
 | 🎞️ 媒体处理 | Sharp 0.35(图片)、fluent-ffmpeg + ffmpeg/ffprobe(视频) |
 | 📤 上传 | multer 2(先落系统临时目录，安全审查通过后改名入库) |
-| 🧪 测试 | Node 内置 `node:test`(零额外依赖，45 个测试) |
+| 🧪 测试 | Node 内置 `node:test`(零额外依赖，48 个测试) |
 | 🔧 部署 | PM2 + Nginx + Docker Compose |
 
 ## 🏁 快速开始
@@ -60,7 +60,7 @@ npm run dev                   # 前端 (localhost:5173)
 cd backend && node server.js  # 后端 (localhost:3000)
 
 # 测试与检查
-cd backend && npm test        # 后端单元/接口测试(45 个)
+cd backend && npm test        # 后端单元/接口测试(48 个)
 cd .. && npm run check        # 项目结构检查 + ffmpeg 可用性检查
 ```
 
@@ -186,7 +186,7 @@ ALLOWED_ORIGINS=http://localhost:5173,http://localhost:3000
 ├── ⚙️ backend/
 │   ├── server.js       # 服务入口(薄封装)
 │   ├── src/            # config、utils(sn/validate/sniff/concurrency)、services、routes(含 upload.js)
-│   └── test/           # node:test 测试(45 个)
+│   └── test/           # node:test 测试(48 个)
 ├── 📁 data/            # 处理后媒体、缩略图与序号文件(运行时生成，不入库)
 ├── 🖼️ public/original/ # 原始媒体目录(待处理)
 ├── 🧪 scripts/         # check-structure.js、check-ffmpeg.js

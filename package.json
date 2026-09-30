@@ -9,11 +9,11 @@
     "check": "node scripts/check-structure.js && node scripts/check-ffmpeg.js"
   },
   "dependencies": {
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
+    "vue": "^3.5.43",
+    "vue-router": "^4.6.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.3.4",
-    "vite": "^4.4.9"
+    "@vitejs/plugin-vue": "^6.0.9",
+    "vite": "^7.3.6"
   }
 }

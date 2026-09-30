@@ -1,6 +1,7 @@
 <template>
-  <!-- 视频容器 Video container -->
-  <div class="video-container">
+  <!-- 首页最新视频容器 Home latest-videos container
+       独立根类名 .home-video-grid:避开处理页全局样式里的裸 .video-container 规则 -->
+  <div class="home-video-grid">
     <!-- 视频网格布局 Video grid layout -->
     <div class="video-grid">
       <!-- 遍历视频列表 Iterate through videos -->
@@ -23,40 +24,30 @@
     </div>
   </div>
 
-  <!-- 视频播放弹窗 Video player modal -->
-  <div v-if="showVideoPlayer" class="video-modal" @click="closeVideoPlayer">
-    <div class="video-player-container" @click.stop>
-      <!-- 视频标题 Video title -->
-      <h3 v-if="currentVideo">
-        {{ currentVideo.name || currentVideo.filename }}
-      </h3>
-
-      <!-- 视频播放器 Video player -->
-      <video
-        v-if="currentVideo"
-        ref="videoPlayer"
-        controls
-        autoplay
-        class="video-player"
-        @error="handleVideoError"
-      >
-        <source :src="currentVideo.videoPath" type="video/mp4" />
-        您的浏览器不支持 HTML5 视频。 Your browser does not support HTML5 video.
-      </video>
-
-      <!-- 关闭按钮 Close button -->
-      <button class="close-button" @click="closeVideoPlayer">&times;</button>
-    </div>
-  </div>
+  <!-- 视频播放弹窗:使用共享播放器组件(空格/←/→/Esc 快捷键)Shared video player modal -->
+  <VideoPlayerModal
+    v-if="showVideoPlayer"
+    :video="currentVideo"
+    @close="closeVideoPlayer"
+  />
 </template>
 
 <script>
 // 导入样式
 import "../styles/components/video-grid.css";
+// 导入共享视频播放器 Import the shared video player
+import VideoPlayerModal from "./media/VideoPlayerModal.vue";
 // 导入统一 API 客户端 Import unified API client
 import { apiGet } from "../api/client";
 
 export default {
+  name: "VideoGrid", // 组件名称 Component name
+
+  // 注册子组件 Register child components
+  components: {
+    VideoPlayerModal, // 共享播放器组件 Shared player component
+  },
+
   // 组件属性 Component props
   props: {
     displayCount: {
@@ -145,41 +136,27 @@ export default {
       }
     },
 
-    // 播放视频 Play video
+    // 播放视频(滚动锁与暂停由共享播放器负责)
+    // Play video (scroll lock and pause are owned by the shared player)
     playVideo(video) {
       this.currentVideo = video;
       this.showVideoPlayer = true;
-      // 禁用背景滚动
-      document.body.style.overflow = "hidden";
 
-      // 打印调试信息
+      // 打印调试信息 Print debug information
       console.log("正在播放视频:", video.filename);
       console.log("视频路径:", video.videoPath);
     },
 
     // 关闭视频播放器 Close video player
     closeVideoPlayer() {
-      // 暂停视频播放
-      if (this.$refs.videoPlayer) {
-        this.$refs.videoPlayer.pause();
-      }
-
       this.showVideoPlayer = false;
       this.currentVideo = null;
-      // 恢复背景滚动
-      document.body.style.overflow = "";
     },
 
     // 处理视频缩略图加载错误 Handle thumbnail load error
     handleThumbnailError(e) {
       console.error("视频缩略图加载失败 Thumbnail load failed:", e.target.src);
       e.target.src = "/assets/placeholder.svg";
-    },
-
-    // 处理视频加载错误 Handle video load error
-    handleVideoError(e) {
-      console.error("视频加载失败 Video load failed:", e.target);
-      alert("很抱歉，视频加载失败。可能是视频格式不兼容或文件损坏。");
     },
   },
 };

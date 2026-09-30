@@ -35,64 +35,18 @@
       </div>
     </div>
 
-    <!-- 视频播放弹窗 Video player modal -->
-    <Transition name="video-modal">
-      <div
-        v-if="showPlayer"
-        class="video-overlay"
-        role="dialog"
-        aria-modal="true"
-        aria-label="视频播放"
-        @click.self="closePlayer"
-      >
-        <!-- 视频容器 Video container -->
-        <div class="video-container" @click.stop>
-          <!-- 顶部信息栏:文件名 + 关闭按钮(不遮挡控制条)Header: filename + close -->
-          <div class="video-header">
-            <span class="video-title" :title="selectedVideo?.filename">
-              {{ selectedVideo?.filename }}
-            </span>
-            <button
-              type="button"
-              class="video-close"
-              aria-label="关闭视频播放"
-              @click="closePlayer"
-            >
-              &times;
-            </button>
-          </div>
-
-          <!-- 播放器 stage Player stage -->
-          <div class="video-stage">
-            <!-- 视频播放器 Video player -->
-            <video
-              ref="videoPlayer"
-              controls
-              autoplay
-              class="video-player"
-              @error="handleVideoError"
-            >
-              <source :src="selectedVideo?.videoPath" type="video/mp4" />
-              您的浏览器不支持 HTML5 视频播放 Your browser does not support HTML5
-              video
-            </video>
-          </div>
-
-          <!-- 底部快捷键提示 Keyboard hint -->
-          <div class="video-footer">
-            <span class="video-hint"
-              >空格 播放/暂停 · ← → 快退/快进 5 秒 · Esc 关闭</span
-            >
-          </div>
-        </div>
-      </div>
-    </Transition>
+    <!-- 视频播放弹窗:使用共享播放器组件(空格/←/→/Esc 快捷键)Shared video player modal -->
+    <VideoPlayerModal
+      v-if="showPlayer"
+      :video="selectedVideo"
+      @close="closePlayer"
+    />
   </div>
 </template>
 
 <script>
-// 导入视频网格组件 Import video grid component
-import VideoGrid from "../components/VideoGrid.vue";
+// 导入共享视频播放器 Import the shared video player
+import VideoPlayerModal from "../components/media/VideoPlayerModal.vue";
 // 导入外部 CSS 样式文件
 import "../styles/views/video-view.css";
 // 导入视频处理状态
@@ -109,7 +63,7 @@ export default {
 
   // 注册子组件 Register child components
   components: {
-    VideoGrid,
+    VideoPlayerModal, // 共享播放器组件 Shared player component
   },
 
   // 使用组合式API Setup function
@@ -127,9 +81,6 @@ export default {
       showPlayer: false, // 显示播放器标志 Show player flag
       selectedVideo: null, // 选中的视频 Selected video
       previousProcessingState: false, // 跟踪之前的处理状态
-      // 打开播放器前 body 的 overflow 原值 Original body overflow before opening
-      previousBodyOverflow: "",
-      bodyOverflowLocked: false,
     };
   },
 
@@ -163,8 +114,8 @@ export default {
 
   // 组件挂载后
   mounted() {
-    // 键盘快捷键:仅弹窗打开时响应 Keyboard shortcuts: only active while playing
-    window.addEventListener("keydown", this.handleKeydown);
+    // 弹窗快捷键(Esc/空格/←/→)由共享播放器组件自行监听
+    // Modal shortcuts (Esc/Space/←/→) are owned by the shared player component
 
     // 添加状态变化检测,当处理状态变化时刷新视频列表
     this.statusCheckInterval = setInterval(() => {
@@ -194,16 +145,6 @@ export default {
     if (this.statusCheckInterval) {
       clearInterval(this.statusCheckInterval);
     }
-
-    // 移除键盘监听,避免内存泄漏 Remove the key listener to avoid leaks
-    window.removeEventListener("keydown", this.handleKeydown);
-
-    // 卸载时停止播放并还原滚动 Stop playback and restore scroll on unmount
-    const player = this.$refs.videoPlayer;
-    if (player) {
-      player.pause();
-    }
-    this.unlockBodyScroll();
   },
 
   // 组件方法 Component methods
@@ -228,123 +169,24 @@ export default {
       }
     },
 
-    // 播放视频 Play video
+    // 播放视频(滚动锁与暂停逻辑由共享播放器负责)
+    // Play video (scroll lock and pause are owned by the shared player)
     playVideo(video) {
       this.selectedVideo = video;
       this.showPlayer = true;
-
-      // 禁用背景滚动并记录原值 Lock background scroll (remember original)
-      this.lockBodyScroll();
     },
 
-    // 关闭播放器:暂停 + 重置进度 Close player: pause and reset progress
+    // 关闭播放器(暂停 + 重置进度由共享播放器负责)
+    // Close player (pause + reset are owned by the shared player)
     closePlayer() {
-      const player = this.$refs.videoPlayer;
-      if (player) {
-        player.pause(); // 暂停视频播放 Pause video playback
-        try {
-          player.currentTime = 0; // 重置进度,避免后台继续播放/声音 Reset progress
-        } catch (error) {
-          // 元数据尚未就绪时忽略重置失败 Ignore failures before metadata is ready
-          console.warn("重置视频进度失败 Reset video progress failed:", error.message);
-        }
-      }
       this.showPlayer = false;
       this.selectedVideo = null;
-
-      // 还原背景滚动 Restore background scroll
-      this.unlockBodyScroll();
-    },
-
-    // 播放 / 暂停 Toggle play / pause
-    togglePlayback() {
-      const player = this.$refs.videoPlayer;
-      if (!player) return;
-
-      if (player.paused) {
-        // play() 返回 Promise,避免自动播放被拒时产生未捕获异常
-        // play() returns a promise: swallow autoplay rejections
-        const playPromise = player.play();
-        if (playPromise && typeof playPromise.catch === "function") {
-          playPromise.catch((error) => {
-            console.warn("播放被阻止 Playback blocked:", error.message);
-          });
-        }
-      } else {
-        player.pause();
-      }
-    },
-
-    // 快退 / 快进指定秒数 Seek backwards / forwards by the given seconds
-    seekBy(seconds) {
-      const player = this.$refs.videoPlayer;
-      if (!player || !Number.isFinite(player.duration)) return;
-
-      const nextTime = Math.min(
-        Math.max(player.currentTime + seconds, 0),
-        player.duration,
-      );
-      player.currentTime = nextTime;
-    },
-
-    // 键盘:Esc 关闭、空格 播放/暂停、←/→ 快退/快进 5 秒
-    // Keyboard: Esc close, Space play/pause, ←/→ seek ±5s
-    handleKeydown(event) {
-      if (!this.showPlayer) return;
-
-      // 焦点在 <video> 上时交给原生控制条,避免与自身处理重复触发
-      // When the video element is focused, let its native controls handle keys
-      const isMediaTarget =
-        event.target instanceof HTMLElement &&
-        event.target.tagName === "VIDEO";
-
-      if (event.key === "Escape") {
-        this.closePlayer();
-        return;
-      }
-      if (event.key === " " || event.key === "Spacebar") {
-        if (isMediaTarget) return;
-        event.preventDefault(); // 阻止页面滚动 Prevent page scrolling
-        this.togglePlayback();
-        return;
-      }
-      if (event.key === "ArrowLeft") {
-        if (isMediaTarget) return;
-        event.preventDefault();
-        this.seekBy(-5);
-        return;
-      }
-      if (event.key === "ArrowRight") {
-        if (isMediaTarget) return;
-        event.preventDefault();
-        this.seekBy(5);
-      }
-    },
-
-    // 锁定 body 滚动并记录原值 Lock body scroll and remember the original value
-    lockBodyScroll() {
-      if (this.bodyOverflowLocked) return;
-      this.previousBodyOverflow = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      this.bodyOverflowLocked = true;
-    },
-
-    // 还原 body 滚动为打开前的值 Restore the original body overflow value
-    unlockBodyScroll() {
-      if (!this.bodyOverflowLocked) return;
-      document.body.style.overflow = this.previousBodyOverflow;
-      this.bodyOverflowLocked = false;
     },
 
     // 处理缩略图加载错误 Handle thumbnail loading error
     handleThumbnailError(event, video) {
       // 设置为默认缩略图 Set default thumbnail
       event.target.src = "/assets/placeholder.svg";
-    },
-
-    // 处理视频加载错误 Handle video loading error
-    handleVideoError(event) {
-      alert("很抱歉，视频加载失败。可能是视频格式不兼容或文件损坏。");
     },
 
     // 格式化视频文件名 Format video filename

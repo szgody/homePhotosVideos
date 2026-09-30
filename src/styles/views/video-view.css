@@ -1,6 +1,8 @@
 /* 视频视图样式 Video view styles
    说明:全部规则限定在 .video-view 作用域内,避免与 VideoGrid / HomeView 的同名类互相污染
-   Note: every rule is scoped under .video-view so shared class names never leak into other views */
+   播放弹窗已抽取为共享组件 src/components/media/VideoPlayerModal.vue
+   Note: every rule is scoped under .video-view; the player modal now lives in the
+   shared VideoPlayerModal component (src/components/media/VideoPlayerModal.vue) */
 
 /* 视频视图容器样式 Video view container styles */
 .video-view {
@@ -116,164 +118,6 @@
   color: var(--muted, #6b7280); /* 文字颜色 Text color */
 }
 
-/* ===== 视频播放弹窗 Video player modal ===== */
-
-/* 入场/退场动画:淡入 + 轻微缩放 Enter/leave animation: fade + slight scale */
-.video-modal-enter-active {
-  transition: opacity 0.24s ease;
-}
-
-.video-modal-leave-active {
-  transition: opacity 0.18s ease;
-}
-
-.video-modal-enter-from,
-.video-modal-leave-to {
-  opacity: 0;
-}
-
-.video-modal-enter-active .video-container {
-  animation: video-modal-pop 0.26s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-@keyframes video-modal-pop {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* 视频遮罩层:深色半透明 + 毛玻璃 Overlay: dark translucent + backdrop blur */
-.video-view .video-overlay {
-  position: fixed; /* 固定定位 Fixed positioning */
-  inset: 0;
-  display: flex; /* 弹性布局 Flex layout */
-  justify-content: center; /* 水平居中 Horizontal center */
-  align-items: center; /* 垂直居中 Vertical center */
-  z-index: 1000; /* 与页头/确认弹窗同级,依靠后置 DOM 顺序覆盖页头 Same level as header */
-  /* 降级底色:不支持 backdrop-filter 时仍保证足够对比度 Fallback without blur support */
-  background: rgba(10, 14, 18, 0.9);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: max(16px, env(safe-area-inset-top))
-    max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom))
-    max(16px, env(safe-area-inset-left));
-  overflow: auto; /* 极小视口下可滚动 Scrollable on tiny viewports */
-}
-
-/* 支持毛玻璃时降低底色不透明度 Less opaque when the blur is supported */
-@supports ((backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px))) {
-  .video-view .video-overlay {
-    background: rgba(10, 14, 18, 0.78);
-  }
-}
-
-/* 视频容器样式 Video container styles */
-.video-view .video-container {
-  position: relative; /* 相对定位 Relative positioning */
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box; /* 内边距计入宽度,避免超出视口 Include padding in width */
-  width: min(1100px, 92vw); /* 视口宽度上限 Max width of the viewport */
-  max-height: 100%; /* 不超出遮罩区域 Never exceed the overlay */
-  margin: 0 auto; /* 居中显示 Center alignment */
-  background: #0b0e11; /* 深色背景 Dark background */
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px; /* 圆角边框 Rounded corners */
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6); /* 阴影效果 Shadow effect */
-  overflow: hidden; /* 溢出隐藏 Hide overflow */
-}
-
-/* 顶部信息栏:文件名 + 关闭按钮(不遮挡控制条)Header: filename + close button */
-.video-view .video-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 10px 10px 16px;
-  background: rgba(255, 255, 255, 0.04);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-/* 视频标题样式 Video title styles */
-.video-view .video-title {
-  flex: 1 1 auto;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis; /* 文件名过长省略 Ellipsis for long names */
-  white-space: nowrap;
-  font-size: 14px;
-  color: #e5e7eb;
-}
-
-/* 关闭按钮样式 Close button styles */
-.video-view .video-close {
-  flex: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  width: 40px;
-  height: 40px;
-  /* 重置全局 button 规则(处理页 min-width:180px / margin)Reset the global button rule */
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: none;
-  border-radius: 50%; /* 圆形按钮 Circular button */
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-  font-size: 22px;
-  line-height: 1;
-  cursor: pointer;
-  transition:
-    background-color 0.18s ease,
-    transform 0.18s ease;
-}
-
-.video-view .video-close:hover {
-  background: rgba(239, 68, 68, 0.85); /* 悬停反馈 Hover feedback */
-  transform: scale(1.06);
-}
-
-.video-view .video-close:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-}
-
-/* 播放器舞台:保持 16:9 且不超出视口高度 Stage: 16:9 without exceeding viewport height */
-.video-view .video-stage {
-  width: min(100%, calc(76vh * 16 / 9));
-  width: min(100%, calc(76dvh * 16 / 9));
-  margin: 0 auto; /* 被高度限制时仍居中 Centered when capped by the height */
-  aspect-ratio: 16 / 9;
-  background: #000; /* 视频背景色 Video background */
-}
-
-/* 视频播放器样式 Video player styles */
-.video-view .video-player {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* 保持比例不拉伸 Keep ratio, no stretching */
-  background: #000;
-}
-
-/* 底部提示样式 Footer hint styles */
-.video-view .video-footer {
-  padding: 8px 16px;
-  text-align: center;
-}
-
-.video-view .video-hint {
-  font-size: 12px;
-  color: #9ca3af;
-}
-
 /* 响应式设计 Responsive design */
 @media (max-width: 768px) {
   .video-view .video-grid {
@@ -286,49 +130,16 @@
     width: 44px;
     height: 44px;
   }
-
-  .video-view .video-overlay {
-    /* 结合安全区域,避免被刘海/手势条遮挡 Respect safe areas */
-    padding: max(10px, env(safe-area-inset-top))
-      max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom))
-      max(10px, env(safe-area-inset-left));
-  }
-
-  .video-view .video-container {
-    width: 95vw; /* 移动端更宽 Wider on mobile */
-    border-radius: 12px;
-  }
-
-  .video-view .video-stage {
-    width: min(100%, calc(68dvh * 16 / 9)); /* 使用 dvh 避开系统 UI 遮挡 Use dvh units */
-  }
-
-  .video-view .video-close {
-    width: 44px; /* 触控目标 ≥ 44px Tap target ≥ 44px */
-    height: 44px;
-    font-size: 24px;
-  }
-
-  .video-view .video-hint {
-    display: none; /* 移动端无键盘,隐藏快捷键提示 No keyboard on mobile */
-  }
 }
 
 /* 尊重系统的“减少动态效果”偏好 Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  .video-modal-enter-active,
-  .video-modal-leave-active {
-    transition-duration: 0.01ms;
-  }
-
-  .video-modal-enter-active .video-container,
   .video-view .processing-icon {
     animation: none;
   }
 
   .video-view .video-item,
-  .video-view .play-icon,
-  .video-view .video-close {
+  .video-view .play-icon {
     transition: none;
   }
 }

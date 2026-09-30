@@ -5,10 +5,10 @@
     <div class="photo-grid">
       <!-- 遍历照片列表 Iterate through photos -->
       <div
-        v-for="photo in displayPhotos"
+        v-for="(photo, index) in displayPhotos"
         :key="photo.filename"
         class="photo-item"
-        @click="showLargePhoto(photo)"
+        @click="showLargePhoto(index)"
       >
         <!-- 照片缩略图 Photo thumbnail - 使用API返回的thumbnail路径 -->
         <img
@@ -20,32 +20,31 @@
       </div>
     </div>
 
-    <!-- 大图预览弹窗 Large photo preview modal -->
-    <div v-if="showPreview" class="preview-overlay" @click="closePreview">
-      <!-- 预览容器 Preview container -->
-      <div class="preview-container" @click.stop>
-        <!-- 大图 Large photo - 使用API返回的photo路径 -->
-        <img
-          :src="currentPhoto?.photo"
-          :alt="currentPhoto?.filename"
-          class="featured-image"
-          @error="handleImageError"
-        />
-        <!-- 关闭按钮 Close button -->
-        <button class="close-button" @click="closePreview">&times;</button>
-      </div>
-    </div>
+    <!-- 大图预览弹窗:使用共享灯箱组件(支持 ←/→ 切换)Large photo preview: shared lightbox -->
+    <PhotoLightbox
+      v-if="showPreview"
+      :photos="displayPhotos"
+      :start-index="previewIndex"
+      @close="closePreview"
+    />
   </div>
 </template>
 
 <script>
 // 导入外部 CSS 样式
 import "../styles/components/photo-grid.css";
+// 导入共享照片灯箱 Import the shared photo lightbox
+import PhotoLightbox from "./media/PhotoLightbox.vue";
 // 导入统一 API 客户端 Import unified API client
 import { apiGet } from "../api/client";
 
 export default {
   name: "PhotoGrid", // 组件名称 Component name
+
+  // 注册子组件 Register child components
+  components: {
+    PhotoLightbox, // 共享灯箱组件 Shared lightbox component
+  },
 
   // 组件数据 Component data
   data() {
@@ -54,7 +53,7 @@ export default {
       displayCount: 8, // 显示照片数量 Number of photos to display
       totalPhotos: 0, // 照片总数 Total number of photos
       showPreview: false, // 是否显示预览 Whether to show preview
-      currentPhoto: null, // 当前照片 Current photo
+      previewIndex: 0, // 当前预览下标 Current preview index
     };
   },
 
@@ -94,31 +93,16 @@ export default {
       }
     },
 
-    // 显示大图 Show large photo
-    showLargePhoto(photo) {
-      this.currentPhoto = photo;
+    // 显示大图(用 displayPhotos 的下标,保证灯箱内可左右切换)
+    // Show the large photo at the given displayPhotos index (enables prev/next)
+    showLargePhoto(index) {
+      this.previewIndex = typeof index === "number" ? index : 0;
       this.showPreview = true;
-      // 禁用滚动 Disable scrolling
-      document.body.style.overflow = "hidden";
     },
 
     // 关闭预览 Close preview
     closePreview() {
       this.showPreview = false;
-      this.currentPhoto = null;
-      // 恢复滚动 Restore scrolling
-      document.body.style.overflow = "";
-    },
-
-    // 处理图片错误 Handle image error
-    handleImageError(e) {
-      console.error("图片加载失败 Image load failed:", e.target.src);
-      if (this.currentPhoto && this.currentPhoto.thumbnail) {
-        e.target.src = this.currentPhoto.thumbnail;
-      } else {
-        // 无缩略图时使用默认占位图 Use default placeholder when no thumbnail
-        e.target.src = "/assets/placeholder.svg";
-      }
     },
   },
 };

@@ -1,265 +1,102 @@
-/* 视频网格容器 */
-.video-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px; /* 减少间距 */
-  justify-content: center;
-  padding: 10px; /* 减少内边距 */
-  background-color: #f9f9f9;
-  border-radius: 8px;
+/* 首页最新视频网格样式 Home latest-videos grid styles
+   说明:全部规则限定在 .home-video-grid 作用域内(与 /video 页卡片观感一致),
+   旧版「灰色大盒子 + 小缩略图」的外层包装已移除
+   Note: every rule is scoped under .home-video-grid to match the /video page cards;
+   the legacy grey box wrapper (background + padding + tiny thumbnails) is gone */
+
+.home-video-grid {
+  width: 100%;
 }
 
-/* 视频项目 */
-.video-item {
-  width: 110px; /* 调整宽度 */
-  height: 82px; /* 调整高度 */
-  margin-bottom: 5px; /* 减少底部间距 */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: white;
-  transition:
-    transform 0.3s,
-    box-shadow 0.3s;
+/* 视频网格:自适应列数,移动端不横向溢出 Responsive grid, never overflows on mobile */
+.home-video-grid .video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 4px 0 0;
+}
+
+/* 视频项目:16:9 卡片 Video item: 16:9 card */
+.home-video-grid .video-item {
   position: relative;
-}
-
-.video-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* 视频缩略图容器 */
-.thumbnail-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-}
-
-/* 视频缩略图 */
-.thumbnail-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* 视频信息 */
-.video-info {
-  padding: 10px;
-}
-
-/* 视频标题 */
-.video-title {
-  font-size: 16px;
-  font-weight: 500;
-  margin: 0 0 5px 0;
-  color: #333;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* 视频元信息 */
-.video-meta {
-  font-size: 12px;
-  color: #666;
-}
-
-/* 播放按钮 */
-.play-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 20px; /* 调整图标大小 */
-  color: white;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 50%;
-  width: 30px; /* 调整图标容器大小 */
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.8;
+  border-radius: var(--radius, 8px);
+  background-color: #000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
   transition:
-    opacity 0.3s,
-    background-color 0.3s;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.video-item:hover .play-icon {
-  opacity: 1;
-  background-color: rgba(0, 0, 0, 0.8);
+/* 悬停:轻微上浮放大 Hover: slight lift + scale */
+.home-video-grid .video-item:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: var(--shadow-lg, 0 6px 18px rgba(0, 0, 0, 0.12));
 }
 
-/* 视频容器样式 Video container styles */
-.video-container {
-  margin-bottom: 20px;
-}
-
-/* 视频信息样式 Video information styles */
-.video-info {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 10px;
-  padding-left: 10px;
-}
-
-/* 视频网格样式 Video grid styles */
-.video-grid {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  overflow-x: auto; /* 允许横向滚动 Allow horizontal scrolling */
-  padding: 10px 0;
-  gap: 10px;
-  background-color: white; /* 添加白色背景 Add white background */
-  border-radius: 8px; /* 添加圆角 Add border radius */
-}
-
-/* 视频项目样式 Video item styles */
-.video-item {
-  position: relative; /* 相对定位以便定位播放图标 Relative positioning for play icon */
-  min-width: 80px; /* 最小宽度 Minimum width */
-  width: 80px; /* 宽度 Width */
-  height: 80px; /* 高度 Height */
-  border-radius: 4px; /* 圆角 Rounded corners */
-  overflow: hidden; /* 隐藏溢出内容 Hide overflow content */
-  cursor: pointer; /* 鼠标指针变为手形 Pointer cursor */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 Add shadow */
-  transition: transform 0.2s; /* 添加变换过渡效果 Add transform transition */
-}
-
-/* 鼠标悬停时的视频项目样式 Video item hover styles */
-.video-item:hover {
-  transform: scale(1.05); /* 轻微放大 Slightly enlarge */
-}
-
-/* 缩略图样式 Thumbnail styles */
-.thumbnail-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* 缩略图 Thumbnail */
+.home-video-grid .thumbnail-video {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* 播放图标样式 Play icon styles */
-.play-icon {
+/* 播放图标:居中半透明圆形底,hover 更明显
+   Play icon: centred translucent circle, clearer on hover */
+.home-video-grid .play-icon {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
   font-size: 24px;
-  color: white;
+  line-height: 1;
+  color: #fff;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   opacity: 0.8;
+  pointer-events: none; /* 点击交给卡片本身 Let the card handle the click */
+  transition:
+    opacity 0.2s ease,
+    background-color 0.2s ease;
 }
 
-/* 鼠标悬停时的播放图标样式 Play icon hover styles */
-.video-item:hover .play-icon {
+.home-video-grid .video-item:hover .play-icon {
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* 视频模态框样式 Video modal styles */
-.video-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* 视频播放器容器样式 Video player container styles */
-.video-player-container {
-  position: relative;
-  width: 80%;
-  max-width: 800px;
-  background-color: #fcfafa;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-/* 视频标题样式 Video title styles */
-.video-player-container h3 {
-  color: white;
-  padding: 10px 15px;
-  margin: 0;
-  font-size: 16px;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-/* 视频播放器样式 Video player styles */
-.video-player {
-  width: 100%;
-  max-height: 70vh;
-  display: block;
-}
-
-/* 关闭按钮样式 Close button styles */
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.3);
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1001;
-}
-
-/* 鼠标悬停时的关闭按钮样式 Close button hover styles */
-.close-button:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-/* 响应式设计 Responsive design */
+/* 移动端适配 Mobile adaptation */
 @media (max-width: 768px) {
-  .video-player-container {
-    width: 95%;
+  .home-video-grid .video-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
   }
 
-  .video-grid {
-    gap: 5px; /* 调整间距 */
-  }
-
-  .video-item {
-    width: 96px; /* 调整宽度 */
-    height: 72px; /* 调整高度 */
-  }
-
-  .play-icon {
-    font-size: 18px; /* 调整图标大小 */
-    width: 28px; /* 调整图标容器大小 */
-    height: 28px;
+  .home-video-grid .play-icon {
+    width: 44px; /* 触控/视觉更舒缓 Comfortable tap area */
+    height: 44px;
+    font-size: 20px;
   }
 }
 
-/* 隐藏滚动条（可选） Hide scrollbar (optional) */
-.video-grid::-webkit-scrollbar {
-  display: none;
+/* 尊重系统的“减少动态效果”偏好 Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .home-video-grid .video-item,
+  .home-video-grid .play-icon {
+    transition: none;
+  }
+
+  .home-video-grid .video-item:hover {
+    transform: none;
+  }
 }
 
-.video-grid {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
+

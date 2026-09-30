@@ -31,10 +31,10 @@
       <h2>精选照片 Featured Photos</h2>
       <div class="featured-grid">
         <div
-          v-for="photo in displayPhotos.slice(0, 2)"
+          v-for="(photo, index) in displayPhotos.slice(0, 2)"
           :key="photo.filename"
           class="featured-item"
-          @click="showPreview(photo)"
+          @click="openLightbox(index)"
         >
           <img
             :src="photo.photo || photo.thumbnail"
@@ -47,18 +47,13 @@
       </div>
     </div>
 
-    <!-- 照片预览模态框 Photo preview modal -->
-    <div v-if="previewVisible" class="preview-overlay" @click="closePreview">
-      <div class="preview-container">
-        <img
-          :src="previewPhoto?.photo"
-          :alt="previewPhoto?.filename"
-          class="preview-image"
-          @error="handlePreviewError"
-        />
-        <button class="close-button" @click="closePreview">&times;</button>
-      </div>
-    </div>
+    <!-- 精选照片预览:共享灯箱(支持 ←/→ 切换、Esc 关闭)Featured preview: shared lightbox -->
+    <PhotoLightbox
+      v-if="lightboxVisible"
+      :photos="displayPhotos"
+      :start-index="lightboxIndex"
+      @close="closeLightbox"
+    />
   </div>
 </template>
 
@@ -68,6 +63,8 @@ import { ref, computed, onMounted } from "vue";
 import AppHeader from "../components/AppHeader.vue";
 import PhotoGrid from "../components/PhotoGrid.vue";
 import VideoGrid from "../components/VideoGrid.vue";
+// 导入共享照片灯箱 Import the shared photo lightbox
+import PhotoLightbox from "../components/media/PhotoLightbox.vue";
 // 导入统一 API 客户端 Import unified API client
 import { apiGet } from "../api/client";
 // 导入外部样式文件
@@ -81,6 +78,7 @@ export default {
     AppHeader, // 页头组件 Header component
     PhotoGrid, // 照片网格组件 Photo grid component
     VideoGrid, // 视频网格组件 Video grid component
+    PhotoLightbox, // 共享灯箱组件 Shared lightbox component
   },
 
   // 组件设置 Component setup
@@ -91,9 +89,10 @@ export default {
     const errorImages = ref(0); // 加载失败图片数 Failed images count
     const debug = ref(false); // 调试模式关闭 Debug mode off
     const displayCount = ref(8); // 显示照片数量 Number of photos to display
-    // 添加预览相关状态
-    const previewVisible = ref(false); // 预览是否可见
-    const previewPhoto = ref(null); // 当前预览的照片
+    // 共享灯箱状态(挂载即打开,关闭由子组件通知父组件卸载)
+    // Shared lightbox state (mounting opens it, closing is notified by the child)
+    const lightboxVisible = ref(false); // 灯箱是否可见 Lightbox visibility
+    const lightboxIndex = ref(0); // 被点击照片的下标 Index of the clicked photo
 
     // 计算属性：随机选择照片 Computed property: randomly select photos
     const displayPhotos = computed(() => {
@@ -135,32 +134,16 @@ export default {
       console.error("图片加载失败 Image load failed:", e.target.src);
     };
 
-    // 显示照片预览 Show photo preview
-    const showPreview = (photo) => {
-      previewPhoto.value = photo;
-      previewVisible.value = true;
-      // 禁止背景滚动
-      document.body.style.overflow = "hidden";
+    // 打开灯箱(滚动锁 / 键盘切换 / 图片降级由共享灯箱负责),打开的是被点击的那张
+    // Open the lightbox at the clicked index (scroll lock / keys / degrade are shared)
+    const openLightbox = (index) => {
+      lightboxIndex.value = typeof index === "number" ? index : 0;
+      lightboxVisible.value = true;
     };
 
-    // 关闭照片预览 Close photo preview
-    const closePreview = () => {
-      previewVisible.value = false;
-      previewPhoto.value = null;
-      // 恢复背景滚动
-      document.body.style.overflow = "";
-    };
-
-    // 处理预览图片加载错误 Handle preview image load error
-    const handlePreviewError = (e) => {
-      console.error(
-        "预览图片加载失败 Preview image load failed:",
-        e.target.src,
-      );
-      // 尝试使用缩略图
-      if (previewPhoto.value && previewPhoto.value.thumbnail) {
-        e.target.src = previewPhoto.value.thumbnail;
-      }
+    // 关闭灯箱 Close the lightbox
+    const closeLightbox = () => {
+      lightboxVisible.value = false;
     };
 
     // 返回组件数据和方法 Return component data and methods
@@ -172,12 +155,11 @@ export default {
       debug,
       handleImageLoad,
       handleImageError,
-      // 添加预览相关状态和方法
-      previewVisible,
-      previewPhoto,
-      showPreview,
-      closePreview,
-      handlePreviewError,
+      // 灯箱相关状态和方法 Lightbox state and methods
+      lightboxVisible,
+      lightboxIndex,
+      openLightbox,
+      closeLightbox,
     };
   },
 };

@@ -1,4 +1,9 @@
-/* 首页样式 Home styles */
+/* 首页样式 Home styles
+   说明:卡片网格样式由 photo-grid.css(.photo-container)与 video-grid.css(.home-video-grid)负责,
+   本文件只保留布局、区块标题、查看更多按钮与精选照片区域
+   Note: the card grids live in photo-grid.css / video-grid.css; this file keeps the
+   layout, section titles, view-more buttons and the featured-photos area */
+
 .home {
   padding: 16px; /* 内边距 Padding */
 }
@@ -10,60 +15,40 @@
   padding: 12px; /* 内边距 Padding */
 }
 
-/* 查看更多区域样式 View more area styles */
+/* 查看更多区域:与卡片一致的间距与层级 View-more area: consistent spacing */
 .view-more {
-  margin-top: 20px; /* 顶部外边距 Top margin */
-  text-align: center; /* 文本居中 Text center */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px; /* 顶部外边距 Top margin */
 }
 
-/* 按钮样式 Button styles */
+/* 按钮样式(router-link 渲染为 <a>,不受全局 button 规则影响)
+   Button styles (a router-link renders as <a>, so the global button rule does not apply) */
 .button {
-  margin-right: 10px; /* 右侧外边距 Right margin */
-  display: inline-block; /* 内联块级显示 Inline block display */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0; /* 间距交给 .view-more 的 gap Spacing is owned by .view-more's gap */
   padding: 10px 18px; /* 内边距 Padding */
-  background-color: #42b983; /* 背景色 Background color */
-  color: white; /* 文字颜色 Text color */
-  text-decoration: none; /* 无下划线 No underline */
   border-radius: 6px; /* 圆角 Border radius */
-  transition: background-color 0.2s, transform 0.15s; /* 过渡 Transition */
+  background-color: var(--primary, #42b983); /* 背景色 Background color */
+  color: #fff; /* 文字颜色 Text color */
+  text-decoration: none; /* 无下划线 No underline */
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease; /* 过渡 Transition */
 }
 
 /* 按钮悬停效果 Button hover effect */
 .button:hover {
-  background-color: #3aa876; /* 悬停背景色 Hover background color */
+  background-color: var(--primary-dark, #3aa876); /* 悬停背景色 Hover background color */
+  text-decoration: none;
 }
 
 .button:active {
   transform: translateY(1px); /* 按压反馈 Press feedback */
-}
-
-/* 照片网格样式 Photo grid styles */
-.photo-grid {
-  display: flex; /* 弹性布局 Flex layout */
-  flex-direction: row; /* 水平方向 Horizontal direction */
-  gap: 10px; /* 间距 Gap */
-  padding: 20px; /* 内边距 Padding */
-  justify-content: center; /* 居中对齐 Center alignment */
-  flex-wrap: nowrap; /* 不换行 No wrap */
-  overflow-x: auto; /* 水平滚动 Horizontal scroll */
-}
-
-/* 照片项目样式 Photo item styles */
-.photo-item {
-  flex: 0 0 60px; /* 固定宽度 Fixed width */
-  width: 60px; /* 宽度 Width */
-  height: 60px; /* 高度 Height */
-  overflow: hidden; /* 溢出隐藏 Hide overflow */
-  border-radius: 4px; /* 圆角 Border radius */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 Shadow effect */
-}
-
-/* 照片样式 Photo styles */
-.photo-item img {
-  width: 100%; /* 宽度 Width */
-  height: 100%; /* 高度 Height */
-  object-fit: cover; /* 填充方式 Object fit */
-  display: block; /* 块级显示 Block display */
 }
 
 /* 调试信息样式 Debug info styles */
@@ -74,18 +59,71 @@
   border-radius: 4px; /* 圆角 Border radius */
 }
 
-/* 网格部分样式 Grid section styles */
+/* 网格部分:标题 + 网格共用同一下方间距 Grid section: one shared bottom gap */
 .grid-section {
-  margin-bottom: 20px; /* 底部外边距 Bottom margin */
+  margin-bottom: 28px; /* 底部外边距 Bottom margin */
 }
 
-/* 部分标题样式 Section title styles */
+/* 部分标题:与 /photo、/video 页标题层级统一 Section title, aligned with the other pages */
 .section-title {
-  font-size: 18px; /* 字体大小 Font size */
-  color: #333; /* 文字颜色 Text color */
-  margin: 10px 0; /* 外边距 Margin */
+  margin: 0 0 12px; /* 外边距 Margin */
   padding-left: 10px; /* 左侧内边距 Left padding */
-  border-left: 3px solid #42b983; /* 左边框 Left border */
+  font-size: 18px; /* 字体大小 Font size */
+  font-weight: 600; /* 字重 Font weight */
+  line-height: 1.4;
+  color: #333; /* 文字颜色 Text color */
+  border-left: 3px solid var(--primary, #42b983); /* 左边框 Left border */
+}
+
+/* 精选照片区域:与 .content 对齐 Featured photos area: aligned with the content block */
+.featured-photos {
+  max-width: 1200px; /* 最大宽度 Maximum width */
+  margin: 28px auto 0; /* 外边距 Margin */
+  padding: 0 12px; /* 内边距 Padding */
+}
+
+/* 精选区域标题 Featured area title */
+.featured-photos h2 {
+  margin: 0 0 12px;
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #333;
+  border-left: 3px solid var(--primary, #42b983);
+}
+
+/* 精选网格:与卡片一致的自适应列数 Featured grid: adaptive columns like the cards */
+.featured-grid {
+  display: grid; /* 网格布局 Grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px; /* 间距 Gap */
+}
+
+/* 精选项目样式 Featured item styles */
+.featured-item {
+  aspect-ratio: 4 / 3; /* 宽高比 Aspect ratio */
+  overflow: hidden; /* 溢出隐藏 Hide overflow */
+  border-radius: 12px; /* 圆角 Border radius */
+  box-shadow: var(--shadow, 0 2px 8px rgba(0, 0, 0, 0.08)); /* 阴影效果 Shadow effect */
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* 精选项目悬停提升 Featured item hover uplift */
+.featured-item:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: var(--shadow-lg, 0 6px 18px rgba(0, 0, 0, 0.12));
+}
+
+/* 精选图片样式 Featured image styles */
+.featured-item .featured-image {
+  display: block;
+  width: 100%; /* 宽度 Width */
+  height: 100%; /* 高度 Height */
+  object-fit: cover; /* 填充方式 Object fit */
 }
 
 /* 移动端适配 Mobile adaptation */
@@ -99,15 +137,16 @@
   }
 
   .view-more {
-    display: flex;
-    flex-wrap: wrap;
     gap: 10px;
-    justify-content: center;
   }
 
+  /* 触控目标 ≥ 44px Tap target ≥ 44px */
   .button {
-    margin-right: 0;
     min-height: 44px;
+  }
+
+  .featured-photos {
+    padding: 0 8px;
   }
 
   .featured-grid {
@@ -115,32 +154,14 @@
   }
 }
 
-/* 精选照片区域样式 Featured photos area styles */
-.featured-photos {
-  margin: 20px; /* 外边距 Margin */
-}
+/* 尊重系统的“减少动态效果”偏好 Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .featured-item,
+  .button {
+    transition: none;
+  }
 
-/* 精选网格样式 Featured grid styles */
-.featured-grid {
-  display: flex; /* 弹性布局 Flex layout */
-  justify-content: center; /* 居中对齐 Center alignment */
-  flex-wrap: wrap; /* 允许换行 Allow wrapping */
-  gap: 20px; /* 间距 Gap */
-  margin-top: 20px; /* 顶部外边距 Top margin */
-}
-
-/* 精选项目样式 Featured item styles */
-.featured-item {
-  width: min(640px, 100%); /* 宽度(移动端不溢出) Width (no overflow on mobile) */
-  aspect-ratio: 4 / 3; /* 宽高比 Aspect ratio */
-  overflow: hidden; /* 溢出隐藏 Hide overflow */
-  border-radius: 12px; /* 圆角 Border radius */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 Shadow effect */
-}
-
-/* 精选图片样式 Featured image styles */
-.featured-image {
-  width: 100%; /* 宽度 Width */
-  height: 100%; /* 高度 Height */
-  object-fit: cover; /* 填充方式 Object fit */
+  .featured-item:hover {
+    transform: none;
+  }
 }

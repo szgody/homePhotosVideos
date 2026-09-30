@@ -1,0 +1,353 @@
+/* 共享照片灯箱样式 Shared photo lightbox styles
+   说明:所有规则都以 .media-lightbox / .media-lightbox__* 前缀命名,
+   避免与旧的 .preview-* 类名冲突(其它视图的样式表里仍有同名裸类)
+   Note: every rule is namespaced with a .media-lightbox prefix so the legacy
+   .preview-* class names used by other stylesheets can never leak in here */
+
+/* 入场/退场动画:淡入 + 轻微缩放 Enter/leave animation: fade + slight scale */
+.media-lightbox-enter-active {
+  transition: opacity 0.24s ease;
+}
+
+.media-lightbox-leave-active {
+  transition: opacity 0.18s ease;
+}
+
+.media-lightbox-enter-from,
+.media-lightbox-leave-to {
+  opacity: 0;
+}
+
+.media-lightbox-enter-active .media-lightbox__panel {
+  animation: media-lightbox-pop 0.26s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@keyframes media-lightbox-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 遮罩层:深色半透明 + 毛玻璃 Overlay: dark translucent + backdrop blur */
+.media-lightbox {
+  position: fixed; /* 固定定位 Fixed positioning */
+  inset: 0; /* 等价 top/left/right/bottom: 0 Same as top/left/right/bottom: 0 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 与页头/确认弹窗同级,依靠后置 DOM 顺序覆盖页头 Same level as header */
+  /* 降级底色:不支持 backdrop-filter 时仍保证足够对比度 Fallback without blur support */
+  background: rgba(10, 14, 18, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: max(16px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+  overflow: auto; /* 极小视口下可滚动 Scrollable on tiny viewports */
+}
+
+/* 支持毛玻璃时降低底色不透明度 Less opaque when the blur is supported */
+@supports ((backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px))) {
+  .media-lightbox {
+    background: rgba(10, 14, 18, 0.72);
+  }
+}
+
+/* 灯箱面板 Lightbox panel */
+.media-lightbox__panel {
+  position: relative; /* 相对定位 Relative positioning */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* 内边距计入宽度,避免超出视口 Include padding in width */
+  max-width: 92vw; /* 视口宽度上限 Max width of the viewport */
+  max-height: 100%; /* 不超出遮罩区域 Never exceed the overlay */
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(20, 24, 28, 0.9);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  color: #f3f4f6;
+  overflow: hidden;
+}
+
+/* 图片舞台 Image stage:居中展示 Center the image */
+.media-lightbox__stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 200px; /* 加载中占位高度 Placeholder height while loading */
+}
+
+/* 大图样式 Large photo styles */
+.media-lightbox__image {
+  display: block;
+  width: auto;
+  height: auto;
+  /* 同时限制视口宽度与容器宽度,避免拉伸或溢出 Keeps ratio, never overflows */
+  max-width: min(92vw, 100%);
+  max-height: 85vh; /* 旧浏览器回退 Legacy fallback */
+  max-height: min(85dvh, calc(100dvh - 160px)); /* 动态视口 + 预留信息栏 dvh with bars */
+  object-fit: contain; /* 保持比例 Keep aspect ratio */
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 加载中骨架 Loading skeleton */
+.media-lightbox__skeleton {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 14px;
+  color: rgba(243, 244, 246, 0.75);
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0.06) 30%,
+    rgba(255, 255, 255, 0.16) 50%,
+    rgba(255, 255, 255, 0.06) 70%
+  );
+  background-size: 220% 100%;
+  animation: media-lightbox-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes media-lightbox-shimmer {
+  from {
+    background-position: 180% 0;
+  }
+
+  to {
+    background-position: -20% 0;
+  }
+}
+
+/* 加载失败提示 Load error hint */
+.media-lightbox__error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 16px;
+  max-width: 320px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #fca5a5;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(252, 165, 165, 0.35);
+  border-radius: 10px;
+}
+
+/* 关闭按钮:固定面板右上角,始终可见 Always visible at the panel's top-right */
+.media-lightbox__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  /* 重置全局 button 规则(处理页 min-width:180px / 绿色背景 / margin)Reset the global button rule */
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(17, 20, 24, 0.62);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition:
+    background-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.media-lightbox__close:hover {
+  background: rgba(239, 68, 68, 0.85); /* 悬停反馈 Hover feedback */
+  transform: scale(1.06);
+}
+
+.media-lightbox__close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* 上一张 / 下一张:图片两侧垂直居中 Prev / next buttons at the image sides */
+.media-lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  /* 重置全局 button 规则(处理页 min-width:180px / 绿色背景 / margin)Reset the global button rule */
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(17, 20, 24, 0.55);
+  color: #fff;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.media-lightbox__nav:hover {
+  background: rgba(66, 185, 131, 0.85); /* 主题绿反馈 Theme green feedback */
+}
+
+.media-lightbox__nav:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.media-lightbox__nav--prev {
+  left: 4px;
+}
+
+.media-lightbox__nav--next {
+  right: 4px;
+}
+
+/* 底部信息栏:文件名 + 序号 Bottom info bar: filename + counter */
+.media-lightbox__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px 4px;
+  font-size: 13px;
+}
+
+.media-lightbox__filename {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #e5e7eb;
+}
+
+.media-lightbox__counter {
+  flex: none;
+  color: #9ca3af;
+  font-variant-numeric: tabular-nums; /* 序号不跳动 Stable counter width */
+}
+
+/* 移动端切换按钮默认隐藏,由媒体查询在移动端启用 Hidden by default, enabled on mobile */
+.media-lightbox__nav-inline {
+  display: none;
+  gap: 8px;
+}
+
+.media-lightbox__nav-inline button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  /* 重置全局 button 规则(处理页 min-width:180px / 绿色背景 / margin)Reset the global button rule */
+  min-width: 44px; /* 触控目标 ≥ 44px Tap target ≥ 44px */
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  background: rgba(17, 20, 24, 0.6);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.media-lightbox__nav-inline button:hover {
+  background: rgba(66, 185, 131, 0.85);
+  border-color: rgba(66, 185, 131, 0.9);
+}
+
+.media-lightbox__nav-inline button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* 响应式设计 Responsive design */
+@media (max-width: 768px) {
+  .media-lightbox {
+    /* 结合安全区域,避免被刘海/手势条遮挡 Respect safe areas */
+    padding: max(10px, env(safe-area-inset-top))
+      max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom))
+      max(10px, env(safe-area-inset-left));
+  }
+
+  .media-lightbox__panel {
+    max-width: 95vw; /* 移动端更宽 Wider on mobile */
+    border-radius: 12px;
+    padding: 8px;
+  }
+
+  .media-lightbox__stage {
+    min-height: 200px; /* 加载中占位高度(避免图片加载后出现大片留白)Placeholder height */
+  }
+
+  .media-lightbox__image {
+    max-height: min(72dvh, calc(100dvh - 210px));
+  }
+
+  /* 图片两侧按钮改为底部按钮,避免小屏遮挡 Move side buttons to the bottom bar */
+  .media-lightbox__nav {
+    display: none;
+  }
+
+  .media-lightbox__nav-inline {
+    display: flex;
+  }
+
+  .media-lightbox__close {
+    width: 44px; /* 触控目标 ≥ 44px Tap target ≥ 44px */
+    height: 44px;
+    font-size: 26px;
+  }
+}
+
+/* 尊重系统的“减少动态效果”偏好 Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .media-lightbox-enter-active,
+  .media-lightbox-leave-active {
+    transition-duration: 0.01ms;
+  }
+
+  .media-lightbox-enter-active .media-lightbox__panel,
+  .media-lightbox__skeleton {
+    animation: none;
+  }
+
+  .media-lightbox__close,
+  .media-lightbox__nav,
+  .media-lightbox__nav-inline button {
+    transition: none;
+  }
+}

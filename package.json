@@ -9,7 +9,7 @@
     "check": "node scripts/check-structure.js && node scripts/check-ffmpeg.js"
   },
   "dependencies": {
-    "vue": "^3.5.43",
+    "vue": "^3.5.44",
     "vue-router": "^5.4.0"
   },
   "devDependencies": {
